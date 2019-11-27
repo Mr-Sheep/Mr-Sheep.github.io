@@ -23,10 +23,298 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 27 Nov 2019 13:32:45 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 14:05:22 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>Powered By HUGO</title>
+                <link>https://blog.mrsheep.xyz/posts/hugo/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/hugo/</guid>
+                <pubDate>Wed, 27 Nov 2019 12:58:53 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description><![CDATA[
+
+<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
+
+<p>“Let&rsquo;s Encrypt”， “1Password Support”，“CloudFlare Developer”等均是用Hugo開放</p>
+
+<p>更多的實例可以參考<a href="https://gohugo.io/showcase/" target="_blank">官方Showcase</a></p>
+
+<!-- more -->
+
+<h1 id="文件結構">文件結構</h1>
+
+<p>文件結構相比較於Hexo簡潔了不少，主題採用submodule的方式安裝即可，免去了之前Hexo下主題.git文件夾需要刪除的問題。以我用的MemE主題爲例，樹狀圖如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-basic" data-lang="basic"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-basic" data-lang="basic"><span class="vg">tree</span>
+<span class="vg">Folder</span><span class="w"> </span><span class="vg">PATH</span><span class="w"> </span><span class="vg">listing</span>
+<span class="vg">Volume</span><span class="w"> </span><span class="vg">serial</span><span class="w"> </span><span class="vg">number</span><span class="w"> </span><span class="vg">is</span><span class="w"> 
+</span><span class="w"></span><span class="nl">C:</span><span class="o">.</span>
+<span class="err">├───</span><span class="vg">archetypes</span>
+<span class="err">├───</span><span class="vg">content</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">about</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">posts</span>
+<span class="err">├───</span><span class="vg">data</span>
+<span class="err">├───</span><span class="vg">layouts</span>
+<span class="err">├───</span><span class="vg">public</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">about</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">categories</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">css</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">fonts</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">icons</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">js</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">page</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="il">1</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="il">2</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">posts</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">tags</span>
+<span class="err">├───</span><span class="vg">resources</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">_gen</span>
+<span class="err">│</span><span class="w">       </span><span class="err">├───</span><span class="vg">assets</span>
+<span class="err">│</span><span class="w">       </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">scss</span>
+<span class="err">│</span><span class="w">       </span><span class="err">│</span><span class="w">       </span><span class="err">└───</span><span class="vg">scss</span>
+<span class="err">│</span><span class="w">       </span><span class="err">└───</span><span class="vg">images</span>
+<span class="err">├───</span><span class="vg">static</span>
+<span class="err">└───</span><span class="vg">themes</span>
+<span class="w">    </span><span class="err">├───</span><span class="vg">hugo</span><span class="o">-</span><span class="vg">notice</span>
+<span class="w">    </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">i18n</span>
+<span class="w">    </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">layouts</span>
+<span class="w">    </span><span class="err">│</span><span class="w">       </span><span class="err">└───</span><span class="vg">shortcodes</span>
+<span class="w">    </span><span class="err">└───</span><span class="vg">meme</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">assets</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">js</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">scss</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">├───</span><span class="vg">_common</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">_highlight</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">_page</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">├───</span><span class="vg">_custom</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">└───</span><span class="vg">_variables</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">config</span><span class="o">-</span><span class="vg">examples</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">en</span><span class="o">-</span><span class="vg">us</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">zh</span><span class="o">-</span><span class="vg">cn</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">data</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">exampleSite</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">resources</span>
+<span class="w">        </span><span class="err">│</span><span class="w">       </span><span class="err">└───</span><span class="vg">_gen</span>
+<span class="w">        </span><span class="err">│</span><span class="w">           </span><span class="err">└───</span><span class="vg">assets</span>
+<span class="w">        </span><span class="err">│</span><span class="w">               </span><span class="err">└───</span><span class="vg">scss</span>
+<span class="w">        </span><span class="err">│</span><span class="w">                   </span><span class="err">└───</span><span class="vg">scss</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">i18n</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">images</span>
+<span class="w">        </span><span class="err">├───</span><span class="vg">layouts</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">partials</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">components</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">third</span><span class="o">-</span><span class="vg">party</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">tree</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">section</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">├───</span><span class="vg">taxonomy</span>
+<span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">_default</span>
+<span class="w">        </span><span class="err">└───</span><span class="vg">static</span>
+<span class="w">            </span><span class="err">├───</span><span class="vg">fonts</span>
+<span class="w">            </span><span class="err">└───</span><span class="vg">icons</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果精簡一下的話就是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-visual basic" data-lang="visual basic"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-visual basic" data-lang="visual basic">├───archetypes                                                                     ├───content                                                                       
+├───data                                                                           ├───layouts                                                                       
+├───public
+├───resources
+├───static
+└───themes</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="遷移">遷移</h2>
+
+<p>其實，因爲遷移的時候我的筆電正在維修，所以我是複製粘貼的。。。</p>
+
+<h2 id="meme">MemE</h2>
+
+<p><strong>MemE</strong>是一個十分簡潔但是十分強大的Hugo主題，由<a href="https://io-oi.me/tech/documentation-of-hugo-theme-meme/" title="Hugo 主题 MemE 文档" target="_blank">reuixiy | 一休爾</a>開發，爲個人博客設計.</p>
+
+<p>正如作者寫到“MemE主題對於習慣了Hexo的用戶非常友好，是從Hexo錢一道Hugo的不錯選擇”，MemE的配置十分的方便</p>
+
+<h3 id="一些修改">一些修改</h3>
+
+<h4 id="字體">字體</h4>
+
+<p>支持調用Google Font這類的字體，只需要更改主題文件中的<code>Font Family</code>部分即可。如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c">## Font Family</span>
+
+    <span class="c"># Note: any option is empty(&#34;&#34;),</span>
+    <span class="c">#       fallback to `fontFamilyBody`</span>
+    <span class="c">#       it will. Therefore, it is not</span>
+    <span class="c">#       necessary to set all.</span>
+    <span class="c">#       Additionally, you can leave</span>
+    <span class="c">#       `fontFamilySiteBrand` empty(&#34;&#34;)</span>
+    <span class="c">#       if you use SVG as your site</span>
+    <span class="c">#       brand.</span>
+
+    <span class="c"># Site brand</span>
+    <span class="nx">fontFamilySiteBrand</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Menu bar</span>
+    <span class="nx">fontFamilyMenu</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Post title, post subtitle, list title, year and month title of the list, related posts title, previous/next post title</span>
+    <span class="nx">fontFamilyTitle</span> <span class="p">=</span> <span class="s2">&#34;Kalam, sans-serif&#34;</span>
+    <span class="c"># Headings, toc title</span>
+    <span class="nx">fontFamilyHeadings</span> <span class="p">=</span> <span class="s2">&#34;Noto Serif TC, serif&#34;</span>
+    <span class="c"># Code, superscript, post meta info, post updated badge, post gitinfo, minimal footer</span>
+    <span class="nx">fontFamilyCode</span> <span class="p">=</span> <span class="s2">&#34;&#39;Source Code Pro&#39;, monospace&#34;</span>
+    <span class="c"># Blockquotes</span>
+    <span class="nx">fontFamilyQuote</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Table of contents</span>
+    <span class="nx">fontFamilyTOC</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Caption</span>
+    <span class="nx">fontFamilyCaption</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Footer</span>
+    <span class="nx">fontFamilyFooter</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># Body</span>
+    <span class="c"># Text font</span>
+    <span class="nx">fontFamilyBody</span> <span class="p">=</span> <span class="s2">&#34;&#39;Noto Serif TC&#39;, serif&#34;</span>
+
+    <span class="c"># Embed fonts link</span>
+
+    <span class="nx">fontsLink</span> <span class="p">=</span> <span class="s2">&#34;https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Kalam:700&amp;display=swap&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>待更</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Surge 3 CFG</title>
