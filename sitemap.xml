@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2019-11-16T17:35:29+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/overture-cfg/</loc>
-    <lastmod>2019-11-16T17:35:29+08:00</lastmod>
+    <lastmod>2019-11-27T09:37:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/</loc>
+    <lastmod>2019-11-27T09:37:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/surge-3-cfg/</loc>
+    <lastmod>2019-11-27T09:37:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/overture-cfg/</loc>
     <lastmod>2019-11-16T17:35:29+08:00</lastmod>
   </url>
   
