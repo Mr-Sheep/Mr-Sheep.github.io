@@ -3,66 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://blog.mrsheep.xyz/</loc>
     <lastmod>2019-11-27T09:37:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/</loc>
     <lastmod>2019-11-27T09:37:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/surge-3-cfg/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/surge-3-cfg/</loc>
     <lastmod>2019-11-27T09:37:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/overture-cfg/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/overture-cfg/</loc>
     <lastmod>2019-11-16T17:35:29+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://blog.mrsheep.xyz/about/</loc>
     <lastmod>2019-11-16T17:25:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/coredns-cfg/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/coredns-cfg/</loc>
     <lastmod>2019-11-16T17:35:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/clash-gateway/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/clash-gateway/</loc>
     <lastmod>2019-11-16T17:35:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/v2ray-ws/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/v2ray-ws/</loc>
     <lastmod>2019-11-16T17:35:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/v2ray-force-ipv4/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/v2ray-force-ipv4/</loc>
     <lastmod>2019-11-16T17:35:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/broadcast-ip/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/broadcast-ip/</loc>
     <lastmod>2019-11-16T17:35:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/v2ray-fw/</loc>
+    <loc>https://blog.mrsheep.xyz/posts/v2ray-fw/</loc>
     <lastmod>2019-11-16T17:35:15+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://blog.mrsheep.xyz/categories/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://blog.mrsheep.xyz/tags/</loc>
   </url>
   
 </urlset>

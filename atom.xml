@@ -4,28 +4,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2019-11-27T09:40:36+08:00</updated>
-    <id>https://example.com/</id>
-    <link rel="alternate" type="text/html" href="https://example.com/" />
-    <link rel="self" type="application/atom+xml" href="https://example.com/atom.xml" />
+    <updated>2019-11-27T11:26:39+08:00</updated>
+    <id>https://blog.mrsheep.xyz/</id>
+    <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
+    <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
     <author>
-            <name>reuixiy</name>
-            <uri>https://example.com/</uri>
+            <name>MrSheep</name>
+            <uri>https://blog.mrsheep.xyz/</uri>
             
-                <email>reuixiy@gmail.com</email>
+                <email>admin@mrsheep.xyz</email>
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
     <generator uri="https://gohugo.io/" version="0.59.1">Hugo</generator>
         <entry>
             <title type="text">Surge 3 CFG</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/surge-3-cfg/" />
-            <id>https://example.com/posts/surge-3-cfg/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/surge-3-cfg/" />
+            <id>https://blog.mrsheep.xyz/posts/surge-3-cfg/</id>
             <updated>2019-11-27T09:37:50+08:00</updated>
             <published>2019-11-27T09:35:37+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[Surge是一个功能十分强大的网络工具箱，可以作为高性能的HTTP和SOCKS代理服务器。可以完成抓包，分析等工作， 支持规则代理，支持多种代理（支持V2Ray）。并包括基于TLS的HTTP(s), Socks5等]]></summary>
             
@@ -106,14 +106,14 @@ dns-server = 你指定的dns服务器
     
         <entry>
             <title type="text">Overture 配置</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/overture-cfg/" />
-            <id>https://example.com/posts/overture-cfg/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/overture-cfg/" />
+            <id>https://blog.mrsheep.xyz/posts/overture-cfg/</id>
             <updated>2019-11-16T17:35:29+08:00</updated>
             <published>2019-11-16T17:04:11+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[Overture是一個由GO編寫的DNS，跨平台兼容，能夠很好的實現我分流的需求，相比与CoreDNS无论如何我都編譯不成功的proxy插件，實在是便捷了很多]]></summary>
             
@@ -465,14 +465,14 @@ blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span cla
     
         <entry>
             <title type="text">CoreDNS配置</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/coredns-cfg/" />
-            <id>https://example.com/posts/coredns-cfg/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/coredns-cfg/" />
+            <id>https://blog.mrsheep.xyz/posts/coredns-cfg/</id>
             <updated>2019-11-16T17:35:07+08:00</updated>
             <published>2019-09-19T19:27:40+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[CoreDNS是一個由GO語言編寫的輕量級開源DNS服務，跨平臺支持，並有一下幾個特性：
  插件 配置簡單 跨平臺 通用 DNS 方案  官網： [CoreDNS][<a href="https://coredns.io" target="_blank">https://coredns.io</a>]]]></summary>
@@ -538,14 +538,14 @@ make</code></pre></td></tr></table>
     
         <entry>
             <title type="text">Clash 透明代理</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/clash-gateway/" />
-            <id>https://example.com/posts/clash-gateway/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/clash-gateway/" />
+            <id>https://blog.mrsheep.xyz/posts/clash-gateway/</id>
             <updated>2019-11-16T17:35:04+08:00</updated>
             <published>2019-09-19T19:11:26+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[水文一篇，因爲家裏的網絡中有類似小米盒子，Apple TV這樣的設備，自身配置不是很好，鏈接效率會被降低，還不如在RPi 3B配置一個透明代理 我本來的設想是v2ray + iptables + dnsmasq，然後突然想到Clash自帶了一個簡單的DNS以及透明代理功能，再加上CoreDNS岂不是美滋滋？最后配合ROS指定的ip走透明代理，還要什麼自行車？]]></summary>
             
@@ -845,14 +845,14 @@ Action 选项卡，在 Action 下拉菜单中选择 mark routing ，New Routing 
     
         <entry>
             <title type="text">Caddy/Nginx &#43; V2Ray</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/v2ray-ws/" />
-            <id>https://example.com/posts/v2ray-ws/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/v2ray-ws/" />
+            <id>https://blog.mrsheep.xyz/posts/v2ray-ws/</id>
             <updated>2019-11-16T17:35:20+08:00</updated>
             <published>2019-09-15T13:37:25+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[相比較於之前的Nginx，Caddy是一個更加輕量級，安裝更加方便，配置超級簡單的web server，並且支持自動申請lets encrypt證書（雖然我用不到） Caddy配置十分的簡單，幾分鐘即可以完成配置]]></summary>
             
@@ -1798,14 +1798,14 @@ tcp_bbr                20480  41 </pre></td></tr></table>
     
         <entry>
             <title type="text">V2Ray Force Ipv4</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/v2ray-force-ipv4/" />
-            <id>https://example.com/posts/v2ray-force-ipv4/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/v2ray-force-ipv4/" />
+            <id>https://blog.mrsheep.xyz/posts/v2ray-force-ipv4/</id>
             <updated>2019-11-16T17:35:13+08:00</updated>
             <published>2019-09-15T02:11:05+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[我在机器上开了6to4的隧道，本來是準備用來廣播我自己的ipv6，但是這樣子导致V2Ray流量会被转发到HE的隧道ip，最后NF会直接ban掉HE的ip 所以我不废话了…]]></summary>
             
@@ -1923,14 +1923,14 @@ tcp_bbr                20480  41 </pre></td></tr></table>
     
         <entry>
             <title type="text">廣播你的ip</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/broadcast-ip/" />
-            <id>https://example.com/posts/broadcast-ip/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/broadcast-ip/" />
+            <id>https://blog.mrsheep.xyz/posts/broadcast-ip/</id>
             <updated>2019-11-16T17:35:00+08:00</updated>
             <published>2019-09-13T17:47:00+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[我的AS號和IP都已經沾灰了，再不用就要徹底忘了。
 在你開始之前，請確定你的ISP 为你分配了一个公网 IPv4, 並且你拥有 ASN 和一个至少为 / 48 的 ipv6 block]]></summary>
@@ -2183,14 +2183,14 @@ device1  Device   master   up     17:40:42
     
         <entry>
             <title type="text">V2Ray中轉</title>
-            <link rel="alternate" type="text/html" href="https://example.com/posts/v2ray-fw/" />
-            <id>https://example.com/posts/v2ray-fw/</id>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/v2ray-fw/" />
+            <id>https://blog.mrsheep.xyz/posts/v2ray-fw/</id>
             <updated>2019-11-16T17:35:15+08:00</updated>
             <published>2019-05-10T16:51:13+08:00</published>
             <author>
-                    <name>reuixiy</name>
-                    <uri>https://io-oi.me/</uri>
-                    <email>reuixiy@gmail.com</email>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[國內到我HE的小機線路峰值ping偏高，但是ip很清真，剛好我的HK小機的ISP和HE有transit 方案如下
  使用UUID1鏈接中轉服務器，將流量路由到#1服務器 使用UUID2鏈接中轉服務器，將流量路由到#2服務器 使用UUID3鏈接中轉服務器，直接使用當前服務器訪問]]></summary>

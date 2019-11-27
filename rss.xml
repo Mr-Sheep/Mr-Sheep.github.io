@@ -8,33 +8,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>MrSheep&#39;s Blog</title>
-        <link>https://example.com/</link>
+        <link>https://blog.mrsheep.xyz/</link>
         <description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description>
         <generator>Hugo 0.59.1 https://gohugo.io/</generator>
         
             <language>en-US</language>
         
         
-            <managingEditor>reuixiy@gmail.com (reuixiy)</managingEditor>
+            <managingEditor>admin@mrsheep.xyz (MrSheep)</managingEditor>
         
         
-            <webMaster>reuixiy@gmail.com (reuixiy)</webMaster>
+            <webMaster>admin@mrsheep.xyz (MrSheep)</webMaster>
         
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 27 Nov 2019 09:40:36 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 11:26:39 +0800</lastBuildDate>
         
-            <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
+            <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
         
             <item>
                 <title>Surge 3 CFG</title>
-                <link>https://example.com/posts/surge-3-cfg/</link>
-                <guid isPermaLink="true">https://example.com/posts/surge-3-cfg/</guid>
+                <link>https://blog.mrsheep.xyz/posts/surge-3-cfg/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/surge-3-cfg/</guid>
                 <pubDate>Wed, 27 Nov 2019 09:35:37 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -115,11 +115,11 @@ dns-server = 你指定的dns服务器
         
             <item>
                 <title>Overture 配置</title>
-                <link>https://example.com/posts/overture-cfg/</link>
-                <guid isPermaLink="true">https://example.com/posts/overture-cfg/</guid>
+                <link>https://blog.mrsheep.xyz/posts/overture-cfg/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/overture-cfg/</guid>
                 <pubDate>Sat, 16 Nov 2019 17:04:11 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -471,11 +471,11 @@ blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span cla
         
             <item>
                 <title>CoreDNS配置</title>
-                <link>https://example.com/posts/coredns-cfg/</link>
-                <guid isPermaLink="true">https://example.com/posts/coredns-cfg/</guid>
+                <link>https://blog.mrsheep.xyz/posts/coredns-cfg/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/coredns-cfg/</guid>
                 <pubDate>Thu, 19 Sep 2019 19:27:40 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -540,11 +540,11 @@ make</code></pre></td></tr></table>
         
             <item>
                 <title>Clash 透明代理</title>
-                <link>https://example.com/posts/clash-gateway/</link>
-                <guid isPermaLink="true">https://example.com/posts/clash-gateway/</guid>
+                <link>https://blog.mrsheep.xyz/posts/clash-gateway/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/clash-gateway/</guid>
                 <pubDate>Thu, 19 Sep 2019 19:11:26 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -844,11 +844,11 @@ Action 选项卡，在 Action 下拉菜单中选择 mark routing ，New Routing 
         
             <item>
                 <title>Caddy/Nginx &#43; V2Ray</title>
-                <link>https://example.com/posts/v2ray-ws/</link>
-                <guid isPermaLink="true">https://example.com/posts/v2ray-ws/</guid>
+                <link>https://blog.mrsheep.xyz/posts/v2ray-ws/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/v2ray-ws/</guid>
                 <pubDate>Sun, 15 Sep 2019 13:37:25 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -1794,11 +1794,11 @@ tcp_bbr                20480  41 </pre></td></tr></table>
         
             <item>
                 <title>V2Ray Force Ipv4</title>
-                <link>https://example.com/posts/v2ray-force-ipv4/</link>
-                <guid isPermaLink="true">https://example.com/posts/v2ray-force-ipv4/</guid>
+                <link>https://blog.mrsheep.xyz/posts/v2ray-force-ipv4/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/v2ray-force-ipv4/</guid>
                 <pubDate>Sun, 15 Sep 2019 02:11:05 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -1916,11 +1916,11 @@ tcp_bbr                20480  41 </pre></td></tr></table>
         
             <item>
                 <title>廣播你的ip</title>
-                <link>https://example.com/posts/broadcast-ip/</link>
-                <guid isPermaLink="true">https://example.com/posts/broadcast-ip/</guid>
+                <link>https://blog.mrsheep.xyz/posts/broadcast-ip/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/broadcast-ip/</guid>
                 <pubDate>Fri, 13 Sep 2019 17:47:00 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
@@ -2172,11 +2172,11 @@ device1  Device   master   up     17:40:42
         
             <item>
                 <title>V2Ray中轉</title>
-                <link>https://example.com/posts/v2ray-fw/</link>
-                <guid isPermaLink="true">https://example.com/posts/v2ray-fw/</guid>
+                <link>https://blog.mrsheep.xyz/posts/v2ray-fw/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/v2ray-fw/</guid>
                 <pubDate>Fri, 10 May 2019 16:51:13 +0800</pubDate>
                 
-                    <author>reuixiy@gmail.com (reuixiy)</author>
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
