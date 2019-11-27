@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 27 Nov 2019 11:26:39 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 12:08:25 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -38,37 +38,36 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
-                    <description><![CDATA[<p>Surge是一个功能十分强大的网络工具箱，可以作为高性能的HTTP和SOCKS代理服务器。可以完成抓包，分析等工作，
-支持规则代理，支持多种代理（支持V2Ray）。并包括基于TLS的HTTP(s), Socks5等</p>
+                    <description><![CDATA[<p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
+支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等</p>
 
-<h1 id="什么使用surge">什么使用Surge</h1>
+<h1 id="爲甚麼使用surge">爲甚麼使用Surge</h1>
 
-<p>我知道有一大把开源项目，比如做的非常好的Clash，并且有MacOS的Dashboard，但是由于目前仍出于Pre-Release阶段，部分功能并不完善和稳定
-相比较下，Surge作为一个付费软件，客服支持做的更好（交了钱当然好）
-但是更重要的，是Surge作为网关使用会比Clash更加的强大，用户界面看着更加的完善，有完整的User Manual,支持MitM和抓包等
-算了我编不下去了，反正好用就行了
-关于购买这一块儿，别去找盗版了，找不到的</p>
+<p>我知道有一大把開源項目，比如做的非常好的Clash，並且有MacOS的Dashboard，但是由於目前仍出於Pre-Release階段，部分功能並不完善和穩定
+相比較下，Surge作為一個付費軟件，客服支持做的更好（交了錢當然好）
+但是更重要的，是Surge作為網關使用會比Clash更加的強大，用戶界面看著更加的完善，有完整的User Manual,支持MitM和抓包等
+算了我編不下去了，反正好用就行了
+關於購買這一塊兒，別去找盜版了，找不到的</p>
 
-<h2 id="无限试用">无限试用</h2>
+<h2 id="無限試用">無限試用</h2>
 
-<p>通过更改系统时间的方法可以获得无限的使用，但是这样做会无法启动Dashboard,不清楚是不是因为试用版的原因</p>
+<p>通過更改系統時間的方法可以獲得無限的使用，但是這樣做會無法啟動Dashboard,不清楚是不是因為試用版的原因</p>
 
 <h1 id="配置">配置</h1>
 
-<p>基本的配置教程官方写的十分的详细，可以直接参考<a href="https://manual.nssurge.com/" target="_blank">nssurge manual</a>
-我只写一些，毕竟人家大佬写了那么多</p>
+<p>基本的配置教程官方寫的十分的詳細，可以直接參考<a href="https://manual.nssurge.com/" target="_blank">nssurge manual</a>
+我只寫一些，畢竟人家大佬寫了那麼多</p>
 
 <h2 id="dns">DNS</h2>
 
-<p>Surge支持DoH，使用方法为直接在<code>DNS</code>配置中添加，或者是直接修改配置文件
-在头部 <code>[General]</code> 部分添加
-dns-server = 你指定的dns服务器
-但是支持DoH的大多在CN没有服务器，延迟比较高，但是解决了DNS投毒的问题
-一下列部分支持DoH的服务商</p>
+<p>Surge支持DoH，使用方法為直接在<code>DNS</code>配置中添加，或者是直接修改配置文件
+在頭部 <code>[General]</code> 部分添加:
+<code>dns-server = 你指定的dns服務器</code>,
+但是支持DoH的大多在CN沒有服務器，延遲比較高，但是解決了DNS投毒的問題,一下列部分支持DoH的服務商</p>
 
 <ol>
 <li><a href="https://cloudflare-dns.com/dns-query" target="_blank">https://cloudflare-dns.com/dns-query</a></li>
-<li><a href="https://1.1.1.1/dns-query" target="_blank">https://1.1.1.1/dns-query</a> //1.1.1.1这个地址很可能会被作为保留地址，比如说某为</li>
+<li><a href="https://1.1.1.1/dns-query" target="_blank">https://1.1.1.1/dns-query</a> //1.1.1.1這個地址很可能會被作為保留地址，比如說某為</li>
 <li><a href="https://dns.google.com/resolve" target="_blank">https://dns.google.com/resolve</a></li>
 <li><a href="https://8.8.8.8/dns-query" target="_blank">https://8.8.8.8/dns-query</a></li>
 <li><a href="https://dns.quad9.net/dns-query" target="_blank">https://dns.quad9.net/dns-query</a></li>
@@ -76,28 +75,28 @@ dns-server = 你指定的dns服务器
 <li><a href="https://dns.rubyfish.cn/dns-query" target="_blank">https://dns.rubyfish.cn/dns-query</a></li>
 </ol>
 
-<p>Surge Enhanced mode采用Fakeip模式，虽然算是解决了污染的问题，但是如果Surge目前并没有实现DNS“分流”这项功能，个人觉得可以配合外置DNS来解决问题
-<strong>Overture</strong> 可以很好的解决这个问题，Overture仅支持DoT（DNS over TLS）,关于DoH和DoT，可以参考<a href="https://www.reddit.com/r/privacy/comments/89pr15/dnsoverhttps_vs_dns_overtls_vs_dnscrypt/" target="_blank">Reddit上的帖子</a>
-关于DoT和DoH谁更好已经争论了很久了
-关于Overture如何配置，请参见另一篇文章</p>
+<p>Surge Enhanced mode採用Fakeip模式，雖然算是解決了污染的問題，但是如果Surge目前並沒有實現DNS“分流”這項功能，個人覺得可以配合外置DNS來解決問題
+<strong>Overture</strong> 可以很好的解決這個問題，Overture僅支持DoT（DNS over TLS）,關於DoH和DoT，可以參考<a href="https://www.reddit.com/r/privacy/comments/89pr15/dnsoverhttps_vs_dns_overtls_vs_dnscrypt/" target="_blank">Reddit上的帖子</a>
+關於DoT和DoH誰更好已經爭論了很久了
+關於Overture如何配置，請參見另一篇文章</p>
 
 <h2 id="v2ray">V2Ray</h2>
 
-<p>Surge从3.3.1版本（应该是）开始支持原生V2Ray，不再需要External-Proxy或者是前置代理实现
+<p>Surge從3.3.1版本（應該是）開始支持原生V2Ray，不再需要External-Proxy或者是前置代理實現
 格式如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">你的代理名字 = vmess, 服务器地址, 端口, username=uuid, tls13=true, ws=true, ws-path=路径</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">你的代理名字</span> <span class="o">=</span> vmess, 服務器地址, 端口, <span class="nv">username</span><span class="o">=</span>uuid, <span class="nv">tls13</span><span class="o">=</span>true, <span class="nv">ws</span><span class="o">=</span>true, ws-path<span class="o">=</span>路徑</code></pre></td></tr></table>
 </div>
 </div>
 <p>注：</p>
 
 <ol>
-<li><code>tls13 = true</code> 即强制使用tls1.3，使用前请<strong>确认支持</strong>，如果<strong>不支持</strong>,请将该命令改成<code>tls = true</code>来启动tls</li>
-<li>如果你不需要验证证书，可以把证书添加进入mac的<strong>钥匙串</strong>,或者你自己研究怎么跳过验证</li>
+<li><code>tls13 = true</code> 即強制使用tls1.3，使用前請<strong>確認支持</strong>，如果<strong>不支持</strong>,請將該命令改成<code>tls = true</code>來啟動tls</li>
+<li>如果你不需要驗證證書，可以把證書添加進入mac的<strong>鑰匙串</strong>,或者你自己研究怎麼跳過驗證</li>
 <li><code>ws-header</code>如果有需要，可以單獨設置，具體請參見官方<a href="https://community.nssurge.com/" target="_blank">Community</a></li>
 </ol>]]></description>
                 
