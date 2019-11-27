@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 27 Nov 2019 14:05:22 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 27 Nov 2019 14:57:16 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -38,15 +38,11 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
-                    <description><![CDATA[
-
-<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
+                    <description><![CDATA[<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
 
 <p>“Let&rsquo;s Encrypt”， “1Password Support”，“CloudFlare Developer”等均是用Hugo開放</p>
 
 <p>更多的實例可以參考<a href="https://gohugo.io/showcase/" target="_blank">官方Showcase</a></p>
-
-<!-- more -->
 
 <h1 id="文件結構">文件結構</h1>
 
@@ -301,8 +297,7 @@
     <span class="nx">fontsLink</span> <span class="p">=</span> <span class="s2">&#34;https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Kalam:700&amp;display=swap&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>待更</p>
-]]></description>
+<p>待更</p>]]></description>
                 
                 
                 

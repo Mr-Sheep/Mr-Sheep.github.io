@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-11-27T14:05:22+08:00</updated>
+    <updated>2019-11-27T14:57:16+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Powered By HUGO</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/hugo/" />
             <id>https://blog.mrsheep.xyz/posts/hugo/</id>
-            <updated>2019-11-27T14:05:09+08:00</updated>
+            <updated>2019-11-27T14:56:48+08:00</updated>
             <published>2019-11-27T12:58:53+08:00</published>
             <author>
                     <name>MrSheep</name>
@@ -29,19 +29,13 @@
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[博客正式遷移到了Hugo上，Hugo是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。
 “Let’s Encrypt”， “1Password Support”，“CloudFlare Developer”等均是用Hugo開放
-更多的實例可以參考官方Showcase
-文件結構 文件結構相比較於Hexo簡潔了不少，主題採用submodule的方式安裝即可，免去了之前Hexo下主題.git文件夾需要刪除的問題。以我用的MemE主題爲例，樹狀圖如下
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66  tree FolderPATHlisting VolumeserialnumberisC:.]]></summary>
+更多的實例可以參考官方Showcase]]></summary>
             
-                <content type="html"><![CDATA[
-
-<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
+                <content type="html"><![CDATA[<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
 
 <p>“Let&rsquo;s Encrypt”， “1Password Support”，“CloudFlare Developer”等均是用Hugo開放</p>
 
 <p>更多的實例可以參考<a href="https://gohugo.io/showcase/" target="_blank">官方Showcase</a></p>
-
-<!-- more -->
 
 <h1 id="文件結構">文件結構</h1>
 
@@ -296,8 +290,7 @@
     <span class="nx">fontsLink</span> <span class="p">=</span> <span class="s2">&#34;https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Kalam:700&amp;display=swap&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>待更</p>
-]]></content>
+<p>待更</p>]]></content>
             
             
             
