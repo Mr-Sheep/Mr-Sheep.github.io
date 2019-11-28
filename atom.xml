@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-11-28T09:34:10+08:00</updated>
+    <updated>2019-11-28T09:38:39+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -16,6 +16,89 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
     <generator uri="https://gohugo.io/" version="0.59.1">Hugo</generator>
+        <entry>
+            <title type="text">Java Split Digit</title>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/java-split-digit/" />
+            <id>https://blog.mrsheep.xyz/posts/java-split-digit/</id>
+            <updated>2019-11-28T09:38:19+08:00</updated>
+            <published>2019-11-28T09:22:17+08:00</published>
+            <author>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html"><![CDATA[首先，這是水文
+真的是一篇水文
+主要是我想不到要寫甚麼了]]></summary>
+            
+                <content type="html"><![CDATA[<p>首先，這是水文</p>
+
+<p>真的是一篇水文</p>
+
+<p>主要是我想不到要寫甚麼了</p>
+
+<p>主要是AMC10有一道題，1000到2013中，多少數字前三位（千，百，十）相加之和爲個位數</p>
+
+<p>然後。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="err">import java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+<span class="err">public class </span><span class="n">Tester</span> <span class="p">{</span>
+
+	<span class="err">public static void main</span><span class="p">(</span><span class="err">String[] args</span><span class="p">)</span> <span class="p">{</span>
+		<span class="err">int count </span><span class="o">=</span> <span class="n">0</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="err">int i</span><span class="o">=</span><span class="n">1000</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">2014</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="err">ArrayList&lt;Integer&gt; num  </span><span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+			<span class="err">int number </span><span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+			<span class="k">while</span> <span class="p">(</span><span class="n">number</span> <span class="o">!=</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">num</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="n">10</span><span class="p">);</span>
+				<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">/</span> <span class="n">10</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="p">((</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">3</span><span class="p">)</span><span class="o">+</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">2</span><span class="p">)</span><span class="o">+</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">1</span><span class="p">))</span><span class="o">==</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">))</span> <span class="p">{</span>
+					<span class="n">count</span> <span class="o">++</span><span class="p">;</span>
+					<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Powered By HUGO</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/hugo/" />
