@@ -21,9 +21,9 @@
             <webMaster>admin@mrsheep.xyz (MrSheep)</webMaster>
         
         
-            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+            <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Thu, 28 Nov 2019 09:38:39 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 28 Nov 2019 11:05:51 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -36,13 +36,15 @@
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p>首先，這是水文</p>
+                    <description><![CDATA[<p>這是水文😂</p>
 
 <p>真的是一篇水文</p>
 
 <p>主要是我想不到要寫甚麼了</p>
+
+<h1 id="toc_0">😀</h1>
 
 <p>主要是AMC10有一道題，1000到2013中，多少數字前三位（千，百，十）相加之和爲個位數</p>
 
@@ -114,7 +116,7 @@
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
 
@@ -397,7 +399,7 @@
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等</p>
@@ -481,7 +483,7 @@
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Overture是一個由GO編寫的DNS，跨平台兼容，能夠很好的實現我分流的需求，相比与CoreDNS无论如何我都編譯不成功的proxy插件，實在是便捷了很多</p>
 
@@ -837,7 +839,7 @@ blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span cla
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>CoreDNS是一個由GO語言編寫的輕量級開源DNS服務，跨平臺支持，並有一下幾個特性：</p>
 
@@ -848,15 +850,15 @@ blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span cla
 <li>通用 DNS 方案</li>
 </ul>
 
-<p>官網： [CoreDNS][<a href="https://coredns.io" target="_blank">https://coredns.io</a>]</p>
+<p>官網： <a href="https://coredns.io" target="_blank">CoreDNS</a></p>
 
 <h1 id="配置">配置</h1>
 
-<p>在[<a href="https://github.com/coredns/coredns/releases][https://github.com/coredns/coredns/releases]下載最新的pre-built版本" target="_blank">https://github.com/coredns/coredns/releases][https://github.com/coredns/coredns/releases]下載最新的pre-built版本</a></p>
+<p>在<a href="https://github.com/coredns/coredns/releases" target="_blank">https://github.com/coredns/coredns/releases</a>下載最新的pre-built版本</p>
 
 <h3 id="自行編譯">自行編譯</h3>
 
-<p>如果你需要用到<code>Proxy</code>這個plugin的話，你需要自行編譯一份CoreDNS，具體原因參見[ISSUE #3234][<a href="https://github.com/coredns/coredns/issues/3234],編譯十分的簡單，但是網路環境的原因，推薦使用境外服務器編譯,但是當然，你要是相信國內的鏡像，我也不會攔着你" target="_blank">https://github.com/coredns/coredns/issues/3234],編譯十分的簡單，但是網路環境的原因，推薦使用境外服務器編譯,但是當然，你要是相信國內的鏡像，我也不會攔着你</a></p>
+<p>如果你需要用到<code>Proxy</code>這個plugin的話，你需要自行編譯一份CoreDNS，具體原因參見<a href="https://github.com/coredns/coredns/issues/3234" target="_blank">ISSUE #3234</a>,編譯十分的簡單，但是網路環境的原因，推薦使用境外服務器編譯,但是當然，你要是相信國內的鏡像，我也不會攔着你</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -880,7 +882,7 @@ make</code></pre></td></tr></table>
 </div>
 <h1 id="corefile">Corefile</h1>
 
-<p>CoreDNS使用Corefile作爲配置文件（和Caddyfile類似），[官方的Manual][<a href="https://coredns.io/manual/toc/#configuration]是這麼說的" target="_blank">https://coredns.io/manual/toc/#configuration]是這麼說的</a></p>
+<p>CoreDNS使用Corefile作爲配置文件（和Caddyfile類似），<a href="https://coredns.io/manual/toc/#configuration" target="_blank">官方的Manual</a>是這麼說的</p>
 
 <p><strong>That file consists of one or more Server Blocks. Each Server Block lists one or more Plugins. Those Plugins may be further configured with Directives.</strong></p>
 
@@ -906,7 +908,7 @@ make</code></pre></td></tr></table>
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>水文一篇，因爲家裏的網絡中有類似小米盒子，Apple TV這樣的設備，自身配置不是很好，鏈接效率會被降低，還不如在RPi 3B配置一個透明代理
 我本來的設想是v2ray + iptables + dnsmasq，然後突然想到Clash自帶了一個簡單的DNS以及透明代理功能，再加上CoreDNS岂不是美滋滋？最后配合ROS指定的ip走透明代理，還要什麼自行車？</p>
@@ -1210,7 +1212,7 @@ Action 选项卡，在 Action 下拉菜单中选择 mark routing ，New Routing 
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>相比較於之前的Nginx，Caddy是一個更加輕量級，安裝更加方便，配置超級簡單的web server，並且支持自動申請lets encrypt證書（雖然我用不到）
 Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
@@ -2160,7 +2162,7 @@ tcp_bbr                20480  41 </pre></td></tr></table>
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>我在机器上开了6to4的隧道，本來是準備用來廣播我自己的ipv6，但是這樣子导致V2Ray流量会被转发到HE的隧道ip，最后NF会直接ban掉HE的ip
 所以我不废话了&hellip;</p>
@@ -2282,7 +2284,7 @@ tcp_bbr                20480  41 </pre></td></tr></table>
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>我的AS號和IP都已經沾灰了，再不用就要徹底忘了。</p>
 
@@ -2538,7 +2540,7 @@ device1  Device   master   up     17:40:42
                 
                     <author>admin@mrsheep.xyz (MrSheep)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>國內到我HE的小機線路峰值ping偏高，但是ip很清真，剛好我的HK小機的ISP和HE有transit
 方案如下</p>
