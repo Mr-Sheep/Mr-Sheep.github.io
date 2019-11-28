@@ -23,10 +23,82 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Thu, 28 Nov 2019 14:30:17 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 28 Nov 2019 15:48:36 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>DoT vs DoH</title>
+                <link>https://blog.mrsheep.xyz/posts/dot-vs-doh/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/dot-vs-doh/</guid>
+                <pubDate>Thu, 28 Nov 2019 14:54:10 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>DoH （<a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">RFC 8484</a>）和 DoT（<a href="https://tools.ietf.org/html/rfc7858" target="_blank">RFC 7858</a>）以及先前的DNSCrypt和DNSSEC都是進行安全化的域名解析的方案，Mozilla從Firefox 62開始支持DoH（<a href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/" target="_blank">官方博文</a>）</p>
+
+<p><a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">DoH</a>是最新的方案，衆多大佬都開始支持了，<del>就假裝不是草案了唄，其實人家只是Proposed Standard</del></p>
+
+<p>這篇文章是想廢話一下這些方案的區別</p>
+
+<h1 id="普通的dns">普通的DNS</h1>
+
+<p>最初的DNS (Domain Name System)協議於1987年定稿，但是那個時候的Internet基本不需要考慮安全問題（<del>能不能夠跑起來都是問題</del>）所以最初的DNS協議是直接明文的。按照<a href="https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/" target="_blank">CloudFlare</a>的話來說，DNS可以被理解爲“互聯網的電話黃頁（phonebook of the internet）”,下圖來自CloudFlare</p>
+
+<p><img src="resource/img/ddos-dns-request.webp" alt="ddos-dns-request" /></p>
+
+<p>但是明文傳輸的設計在現在看來有很多的不足，這也就是爲什麼GFW可以清楚的知道你訪問了甚麼網站，因爲你查詢的域名是明文傳輸的，同時還可以對你的DNS查詢進行投毒，篡改結果。以GFW爲例，會將黑名單內的網址解析到Facebook等公司的ip上去。比如說我的域名 mrsheep.xyz。</p>
+
+<p>鑑於以上這些情況，更加安全的DNS查詢與傳輸顯得非常重要，於是在2011年的時候，全球的根服務器以及大多數的頂級域名都部署了<a href="https://tools.ietf.org/html/rfc4035" target="_blank">DNSSEC</a></p>
+
+<h2 id="dnssec">DNSSEC</h2>
+
+<p>上面說道的<a href="https://tools.ietf.org/html/rfc4035" target="_blank">DNSSEC</a>僅僅在最初的DNS協議上加入了數字簽名，以此校驗查詢結果的合法性（不是正確性），也就是說，GFW還是可以達到DNS污染的目的</p>
+
+<h2 id="dnscrypt">DNSCrypt</h2>
+
+<p>官網在這裏:<a href="https://dnscrypt.info" target="_blank">DNSCrypt</a></p>
+
+<p>原理：<a href="https://dnscrypt.info/protocol/" target="_blank">DNSCrypt/Protocol</a></p>
+
+<p>維基詞條：<a href="https://zh.wikipedia.org/wiki/DNSCrypt" target="_blank">DNSCrypt</a></p>
+
+<p>簡單來說DNSCrypt會對你的DNS查詢進行加密以及數字簽名驗證，但是DNS的到達時間可以被識別</p>
+
+<p>openDNS和Quad 9均有部署該協議</p>
+
+<h1 id="dns-over-tls">DNS over TLS</h1>
+
+<p>建立於TLS之上的DNS查詢，使用端口<code>853</code>，因爲使用TLS的原因，TLS採用CA認證，所以DoT同時具備“合法性”和”真實性“。</p>
+
+<p>由於DNS是建立於TLS之上的，這代表着DoT會混在一堆tls連接中，無法被提出來特別針對</p>
+
+<p>同時，大多數的瀏覽器並不支持DoT，可以使用Overture等軟件實現。</p>
+
+<h1 id="dns-over-https">DNS over HTTPS</h1>
+
+<p>最新的協議，<a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">RFC 8484</a>，簡單的來說就是在DoT上套了一層http協議，可以理解爲DNS-over-HTTP-over-TLS，以此達到僞裝的效果，從而繞過運營商的重定向代理，實現方式其實蠻丑的。。。</p>
+
+<p>由於中華人民共和國網絡出口常年故障，導致使用境外的DoH服務商會大幅增加解析時間</p>
+
+<p>從本質上來講和DoT沒什麼區別，但是相對於DoT來說有更多的大佬支持，比如Mozilla，下圖基本說明了DoH的作用，圖自Mozilla</p>
+
+<p><img src="resource/img/DoH.png" alt="DoH" /></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Java Split Digit</title>
