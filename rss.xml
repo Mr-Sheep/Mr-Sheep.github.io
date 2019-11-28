@@ -23,7 +23,7 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Thu, 28 Nov 2019 15:50:31 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 28 Nov 2019 15:54:11 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -86,7 +86,11 @@
 
 <p>從本質上來講和DoT沒什麼區別，但是相對於DoT來說有更多的大佬支持，比如Mozilla，下圖基本說明了DoH的作用，圖自Mozilla</p>
 
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/DoH.png" alt="DoH" /></p>]]></description>
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/DoH.png" alt="DoH" /></p>
+
+<h1 id="參考文章">參考文章</h1>
+
+<p>[<a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank">对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS</a>]</p>]]></description>
                 
                 
                 

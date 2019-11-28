@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-11-28T15:50:31+08:00</updated>
+    <updated>2019-11-28T15:54:10+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">DoT vs DoH</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/dot-vs-doh/" />
             <id>https://blog.mrsheep.xyz/posts/dot-vs-doh/</id>
-            <updated>2019-11-28T15:50:22+08:00</updated>
+            <updated>2019-11-28T15:54:03+08:00</updated>
             <published>2019-11-28T14:54:10+08:00</published>
             <author>
                     <name>MrSheep</name>
@@ -79,7 +79,11 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
 
 <p>從本質上來講和DoT沒什麼區別，但是相對於DoT來說有更多的大佬支持，比如Mozilla，下圖基本說明了DoH的作用，圖自Mozilla</p>
 
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/DoH.png" alt="DoH" /></p>]]></content>
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/DoH.png" alt="DoH" /></p>
+
+<h1 id="參考文章">參考文章</h1>
+
+<p>[<a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank">对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS</a>]</p>]]></content>
             
             
             
