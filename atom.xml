@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-11-28T15:54:10+08:00</updated>
+    <updated>2019-11-28T16:02:49+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">DoT vs DoH</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/dot-vs-doh/" />
             <id>https://blog.mrsheep.xyz/posts/dot-vs-doh/</id>
-            <updated>2019-11-28T15:54:03+08:00</updated>
+            <updated>2019-11-28T16:02:38+08:00</updated>
             <published>2019-11-28T14:54:10+08:00</published>
             <author>
                     <name>MrSheep</name>
@@ -41,7 +41,7 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
 
 <p>最初的DNS (Domain Name System)協議於1987年定稿，但是那個時候的Internet基本不需要考慮安全問題（<del>能不能夠跑起來都是問題</del>）所以最初的DNS協議是直接明文的。按照<a href="https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/" target="_blank">CloudFlare</a>的話來說，DNS可以被理解爲“互聯網的電話黃頁（phonebook of the internet）”,下圖來自CloudFlare</p>
 
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/ddos-dns-request.webp" alt="ddos-dns-request" /></p>
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/ddos-dns-request.webp" alt="ddos-dns-request" /></p>
 
 <p>但是明文傳輸的設計在現在看來有很多的不足，這也就是爲什麼GFW可以清楚的知道你訪問了甚麼網站，因爲你查詢的域名是明文傳輸的，同時還可以對你的DNS查詢進行投毒，篡改結果。以GFW爲例，會將黑名單內的網址解析到Facebook等公司的ip上去。比如說我的域名 mrsheep.xyz。</p>
 
@@ -79,7 +79,7 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
 
 <p>從本質上來講和DoT沒什麼區別，但是相對於DoT來說有更多的大佬支持，比如Mozilla，下圖基本說明了DoH的作用，圖自Mozilla</p>
 
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/blob/master/resource/img/DoH.png" alt="DoH" /></p>
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/DoH.png" alt="DoH" /></p>
 
 <h1 id="參考文章">參考文章</h1>
 
