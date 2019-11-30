@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-11-28T16:02:49+08:00</updated>
+    <updated>2019-11-30T11:22:20+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -474,19 +474,22 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
             <title type="text">Surge 3 CFG</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/surge-3-cfg/" />
             <id>https://blog.mrsheep.xyz/posts/surge-3-cfg/</id>
-            <updated>2019-11-27T11:34:08+08:00</updated>
+            <updated>2019-11-30T11:22:08+08:00</updated>
             <published>2019-11-27T09:35:37+08:00</published>
             <author>
                     <name>MrSheep</name>
                     <uri>https://blog.mrsheep.xyz</uri>
                     <email>admin@mrsheep.xyz</email>
                     </author>
-            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作， 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等]]></summary>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[11-30-2019 更新：Surge as Gateway
+Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作， 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等]]></summary>
             
-                <content type="html"><![CDATA[<p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
+                <content type="html"><![CDATA[<p>11-30-2019 更新：Surge as Gateway</p>
+
+<p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等</p>
 
-<h1 id="爲甚麼使用surge">爲甚麼使用Surge</h1>
+<h1 id="為甚麼使用surge">為甚麼使用Surge</h1>
 
 <p>我知道有一大把開源項目，比如做的非常好的Clash，並且有MacOS的Dashboard，但是由於目前仍出於Pre-Release階段，部分功能並不完善和穩定
 相比較下，Surge作為一個付費軟件，客服支持做的更好（交了錢當然好）
@@ -497,6 +500,8 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
 <h2 id="無限試用">無限試用</h2>
 
 <p>通過更改系統時間的方法可以獲得無限的使用，但是這樣做會無法啟動Dashboard,不清楚是不是因為試用版的原因</p>
+
+<p>另，別想着去找盜版了<del>（別問我怎麼知道的）</del></p>
 
 <h1 id="配置">配置</h1>
 
@@ -543,7 +548,44 @@ DoH是最新的方案，衆多大佬都開始支持了，就假裝不是草案�
 <li><code>tls13 = true</code> 即強制使用tls1.3，使用前請<strong>確認支持</strong>，如果<strong>不支持</strong>,請將該命令改成<code>tls = true</code>來啟動tls</li>
 <li>如果你不需要驗證證書，可以把證書添加進入mac的<strong>鑰匙串</strong>,或者你自己研究怎麼跳過驗證</li>
 <li><code>ws-header</code>如果有需要，可以單獨設置，具體請參見官方<a href="https://community.nssurge.com/" target="_blank">Community</a></li>
-</ol>]]></content>
+</ol>
+
+<h1 id="gateway">Gateway</h1>
+
+<p>將Surge作爲本地網關對於我個人來說比使用<a href="https://blog.mrsheep.xyz/posts/clash-gateway/" target="_blank">Clash作爲網關</a>好用的多，Clash封裝的軟件總是有神神奇奇的問題。Surge採用 Fake-ip 方案，即對於所有dns查詢都返回198.18.x.x的ip。</p>
+
+<h3 id="甚麼是網關">甚麼是網關</h3>
+
+<p>可以參考<a href="https://zh.wikipedia.org/zh-hant/%E7%BD%91%E5%85%B3" target="_blank">維基百科</a>的詞條</p>
+
+<p>簡單的來說需要實現網絡之間的通信，就必須要通過網關。</p>
+
+<h3 id="配置-1">配置</h3>
+
+<h4 id="surge">Surge</h4>
+
+<p>Surge的配置十分的簡單，只需要打開<code>Enhanced mode</code>即可，同時請注意，你的mac的網關地址需要手動設定爲上級路由地址。</p>
+
+<p>並且需要在surge中指定dns地址</p>
+
+<p>根據<a href="https://medium.com/@Blankwonder/surge-mac-as-gateway-b0bd68464a4b" target="_blank">Surge作者的說法</a>，“macOS 10.13 后完善了 Kernel 的转发机制”</p>
+
+<p>使用Surge作爲網關的優勢由很多，比如</p>
+
+<ol>
+<li>支持tcp和udp代理</li>
+<li>搞定類似於Google Home這樣不支持手動配置代理的設備</li>
+<li>Hands-Freed的全局代理</li>
+<li>Apple TV使用代理會有莫名其妙的Bug</li>
+</ol>
+
+<h4 id="客戶端">客戶端</h4>
+
+<p>在網絡設置中將網關地址改成<code>mac ip</code>，dns改成<code>198.18.0.2</code>或者其他</p>
+
+<h4 id="路由器">路由器</h4>
+
+<p>同上，僅需要在配置中將網關地址和dns更改即可。</p>]]></content>
             
             
             
