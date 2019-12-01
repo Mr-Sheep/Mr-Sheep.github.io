@@ -23,10 +23,58 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Sat, 30 Nov 2019 11:22:20 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 01 Dec 2019 19:36:11 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>Vmware Credential Guards Fix</title>
+                <link>https://blog.mrsheep.xyz/posts/vmware-credential-guards-fix/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/vmware-credential-guards-fix/</guid>
+                <pubDate>Sun, 01 Dec 2019 19:31:35 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>Just can&rsquo;t open my vm</p>
+
+<h1 id="disable-hyper-v">Disable Hyper-V</h1>
+
+<p>Fireup a powershell as administrator, type in following commands</p>
+
+<p><code>bcdedit /set hypervisorlaunchtype off</code></p>
+
+<p>Then reboot</p>
+
+<h1 id="device-guard">Device guard</h1>
+
+<h3 id="disable-device-guard"><strong>Disable Device Guard</strong></h3>
+
+<p>Editing the Registry with following key:  <strong>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity</strong></p>
+
+<p>Set:  Name = “<strong>Enabled”</strong>  Type =dword  Data = <strong>0</strong></p>
+
+<p>Then reboot</p>
+
+<p>Also, you can start <strong>gpedit.msc</strong></p>
+
+<p>Under <strong>Computer Configuration\Administrative Templates\System\Device Guard</strong>, change it to  <strong>disabled</strong>.</p>
+
+<p><strong>If you see the same settings as below, you might not have Device Guard enabled.</strong></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>DoT vs DoH</title>
@@ -1271,18 +1319,22 @@ autorestart=true</pre></td></tr></table>
 <p>項目地址：  [github.com/Unitech/pm2][<a href="https://github.com/Unitech/pm2" target="_blank">https://github.com/Unitech/pm2</a>]</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">//安裝pm2
 npm install pm2 -g
+如果沒有nodejs
+wget -qO- https://getpm2.com/install.sh <span class="p">|</span> bash
 //啓動程序
 pm2 start app.js
 //查看正在運行的程序
