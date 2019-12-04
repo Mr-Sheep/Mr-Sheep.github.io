@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-12-01T19:36:11+08:00</updated>
+    <updated>2019-12-04T14:46:06+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -16,6 +16,43 @@
             </author>
     <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights>
     <generator uri="https://gohugo.io/" version="0.59.1">Hugo</generator>
+        <entry>
+            <title type="text">CF iPv6</title>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/cf-ipv6/" />
+            <id>https://blog.mrsheep.xyz/posts/cf-ipv6/</id>
+            <updated>2019-12-04T14:45:38+08:00</updated>
+            <published>2019-12-04T14:38:39+08:00</published>
+            <author>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
+                    </author>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[Cloudflare早在2011年就啓動了Automatic IPv6 Gateway這個項目，解決v4和v6不兼容的問題。
+Cloudflare可以自動化的完成v4和v6的tunnel
+開啓方法也十分的簡單，在Cloudflare管理頁面找到Network下的ipv6，enable即可]]></summary>
+            
+                <content type="html"><![CDATA[<p>Cloudflare早在2011年就啓動了<strong><a href="https://blog.cloudflare.com/introducing-cloudflares-automatic-ipv6-gatewa/" target="_blank">Automatic IPv6 Gateway</a></strong>這個項目，解決v4和v6不兼容的問題。</p>
+
+<p>Cloudflare可以自動化的完成v4和v6的tunnel</p>
+
+<p>開啓方法也十分的簡單，在Cloudflare管理頁面找到<strong>Network</strong>下的ipv6，<strong>enable</strong>即可</p>
+
+<p><img src="https://blog.cloudflare.com/content/images/cloudflare-ipv6-infographic.png.scaled500.png" alt="CF-auto-ipv6-gw" /></p>
+
+<p>恭喜你點進來了，其實這是水文</p>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Vmware Credential Guards Fix</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/vmware-credential-guards-fix/" />
