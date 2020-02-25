@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2019-12-04T14:46:06+08:00</updated>
+    <updated>2020-02-25T18:13:13+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -16,6 +16,211 @@
             </author>
     <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights>
     <generator uri="https://gohugo.io/" version="0.59.1">Hugo</generator>
+        <entry>
+            <title type="text">Clash/Surge Geoip</title>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/country.mmdb-fix/" />
+            <id>https://blog.mrsheep.xyz/posts/country.mmdb-fix/</id>
+            <updated>2020-02-25T18:13:06+08:00</updated>
+            <published>2020-02-25T17:13:17+08:00</published>
+            <author>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
+                    </author>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[今天更新Country.mmdb文件的時候發現需要License Key，看過了Maxmind官方的一份聲明後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。
+根據MM的說法，由於GDPR和CCPA的實施，限制了他們基於CC4.0的分享，解決方案就是提供資料的企業和用戶都遵循一定的數據隱私規定。有興趣可以查看官方的聲明
+解決方法  註冊Maxmind帳號：<a href="https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定" target="_blank">https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定</a> Service - My License Key - Generate new license key <a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license</a> key`  Surge 1.添加新的rewrite規則
+1  ^https:\/\/geolite.maxmind.com\/download\/geoip\/database\/GeoLite2-Country.tar.gz <a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz</a> 302   將$LICENSEKEY替換爲上一步獲得的license key
+2.MitM添加新的規則
+geolite.maxmind.com或者是*.maxmind.com
+Clash Clash Cli版本推薦直接獲取Country.mmdb文件後替現有文件,CFW可以在面板中直接粘貼License Key或者使用如下URL
+<a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz</a>
+將$LICENSEKEY替換爲上一步獲得的license key]]></summary>
+            
+                <content type="html"><![CDATA[
+
+<p>今天更新Country.mmdb文件的時候發現需要License Key，看過了<a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Maxmind官方的一份聲明</a>後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。</p>
+
+<p>根據MM的說法，由於GDPR和CCPA的實施，限制了他們基於CC4.0的分享，解決方案就是提供資料的企業和用戶都遵循一定的數據隱私規定。有興趣可以查看官方的聲明</p>
+
+<h1 id="解決方法">解決方法</h1>
+
+<ol>
+<li>註冊Maxmind帳號：<a href="https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定" target="_blank">https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定</a></li>
+<li>Service - My License Key - Generate new license key</li>
+<li><a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license</a> key`</li>
+</ol>
+
+<h2 id="surge">Surge</h2>
+
+<p>1.添加新的rewrite規則</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">^https:\/\/geolite\.maxmind\.com\/download\/geoip\/database\/GeoLite2-Country\.tar\.gz https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz 302</pre></td></tr></table>
+</div>
+</div>
+<p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
+
+<p>2.MitM添加新的規則</p>
+
+<p><code>geolite.maxmind.com</code>或者是<code>*.maxmind.com</code></p>
+
+<h2 id="clash">Clash</h2>
+
+<p>Clash Cli版本推薦直接獲取Country.mmdb文件後替現有文件,CFW可以在面板中直接粘貼License Key或者使用如下URL</p>
+
+<p><code>https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz</code></p>
+
+<p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
+]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Simple Torrent</title>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/simple-torrent/" />
+            <id>https://blog.mrsheep.xyz/posts/simple-torrent/</id>
+            <updated>2020-02-22T15:50:38+08:00</updated>
+            <published>2020-02-22T15:25:34+08:00</published>
+            <author>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
+                    </author>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[Simple-Torrent基於Cloud-Torrent修改而來，鑑於Cloud-Torrent作者已经不再维护，同時Simple-Torrent添加了很多必要的新Features。個人感覺相比較之下，Simple torrent會非常的方便]]></summary>
+            
+                <content type="html"><![CDATA[<p><a href="https://github.com/boypt/simple-torrent" target="_blank">Simple-Torrent</a>基於<a href="https://github.com/jpillora/cloud-torrent" target="_blank">Cloud-Torrent</a>修改而來，鑑於Cloud-Torrent作者已经不再维护，同時Simple-Torrent添加了很多必要的新Features。個人感覺相比較之下，Simple torrent會非常的方便</p>
+
+<h1 id="new-features">New-Features</h1>
+
+<p><strong>摘自<a href="https://github.com/boypt/simple-torrent" target="_blank">boypt/simple-torrent</a></strong></p>
+
+<ul>
+<li>Individual file download control (1.1.3+)</li>
+<li>Run extrenal program on tasks completed: <code>DoneCmd</code></li>
+<li>Stops task when seeding ratio reached: <code>SeedRatio</code></li>
+<li>Download/Upload speed limiter: <code>UploadRate</code>/<code>DownloadRate</code></li>
+<li>Detailed transfer stats in web UI.</li>
+<li><a href="https://github.com/boypt/simple-torrent/wiki/Torrent-Watcher" target="_blank">Torrent Watcher</a></li>
+<li>K8s/docker health-check endpoint <code>/healthz</code></li>
+<li>Extra trackers from extrenal source</li>
+<li>Protocol Handler to <code>magnet:</code></li>
+<li>Magnet RSS subscribing supported</li>
+<li>Flexible config file accepts multiple formats (.json/.yaml/.toml) (<a href="https://github.com/spf13/viper/" target="_blank">by spf13/Viper</a>) (1.2.0+)</li>
+</ul>
+
+<p>Also:</p>
+
+<ul>
+<li>Single binary</li>
+<li>Cross platform</li>
+<li>Embedded torrent search</li>
+<li>Real-time updates</li>
+<li>Mobile-friendly</li>
+<li>Fast <a href="http://golang.org/pkg/net/http/#ServeContent" target="_blank">content server</a></li>
+<li>IPv6 out of the box</li>
+<li>Updated torrnet engine from <a href="https://github.com/anacrolix/torrent" target="_blank">anacrolix/torrent</a></li>
+</ul>
+
+<h1 id="安装">安装</h1>
+
+<h3 id="一鍵安裝指令">一鍵安裝指令：</h3>
+
+<p><code>bash &lt;(wget -qO- https://raw.githubusercontent.com/boypt/simple-torrent/master/scripts/quickinstall.sh)</code></p>
+
+<p>这个命令会完成如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">1. 下载Simple-torrent bin
+2. 创建自动启动文件/etc/systemd/system/cloud-torrent.service
+3. 创建配置文件cloud-torrent.json</pre></td></tr></table>
+</div>
+</div>
+<p>完成之后默认端口为<code>3000</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">systemctl start cloud-torrent
+systemctl restart cloud-torrent
+systemctl stop cloud-torrent
+systemctl status cloud-torrent</pre></td></tr></table>
+</div>
+</div>
+<h3 id="一些建議配置">一些建議配置：</h3>
+
+<h4 id="tls">TLS</h4>
+
+<p>個人會建議開啓https支持，畢竟你不希望下載部分資源的時候使用明文傳輸</p>
+
+<p>可以自簽一張憑證，如下命令一鍵生成即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-visual basic" data-lang="visual basic"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-visual basic" data-lang="visual basic">openssl req -x509 -nodes -sha256 -newkey \ rsa:2048 -keyout server.key -out server.crt \ -config openssl.cnf -extensions v3_req</code></pre></td></tr></table>
+</div>
+</div>
+<p>之後請編輯<code>/etc/systemd/system/cloud-torrent.service</code></p>
+
+<p>在啓動參數<code>ExecStart</code>中加上   &ndash;key-path /金鑰位置 &ndash;cert-path /證書位置,並更改端口爲443</p>
+
+<h4 id="tracker">Tracker</h4>
+
+<p>推薦<a href="https://github.com/ngosang/trackerslist" target="_blank">ngosang/trackerslist</a>,所有的Tracker均爲每日更新</p>
+
+<ul>
+<li>trackers_best (20 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_best.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt" target="_blank">mirror</a></li>
+<li>trackers_all (82 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt" target="_blank">mirror</a></li>
+<li>trackers_all_udp (48 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_udp.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_udp.txt" target="_blank">mirror</a></li>
+<li>trackers_all_http (30 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_http.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_http.txt" target="_blank">mirror</a></li>
+<li>trackers_all_https (4 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_https.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_https.txt" target="_blank">mirror</a></li>
+<li>trackers_all_ws (3 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_ws.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_ws.txt" target="_blank">mirror</a></li>
+</ul>
+
+<h1 id="最後">最後</h1>
+
+<p>API 、遠程調用的我就不去嘗試了，由於涉及DCMA，伺服器位置偏僻，線路質量堪憂</p>
+
+<p>Simple Torrent對於我來說最主要的就是下載4k電影之後回傳到本地</p>
+
+<p>好啦，其實這個也是一篇水文，最近沒有什麼可以更新的內容</p>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">CF iPv6</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/cf-ipv6/" />

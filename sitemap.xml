@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.mrsheep.xyz/posts/cf-ipv6/</loc>
-    <lastmod>2019-12-04T14:45:38+08:00</lastmod>
+    <loc>https://blog.mrsheep.xyz/posts/country.mmdb-fix/</loc>
+    <lastmod>2020-02-25T18:13:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.mrsheep.xyz/</loc>
-    <lastmod>2019-12-04T14:45:38+08:00</lastmod>
+    <lastmod>2020-02-25T18:13:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.mrsheep.xyz/posts/</loc>
+    <lastmod>2020-02-25T18:13:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.mrsheep.xyz/posts/simple-torrent/</loc>
+    <lastmod>2020-02-22T15:50:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.mrsheep.xyz/posts/cf-ipv6/</loc>
     <lastmod>2019-12-04T14:45:38+08:00</lastmod>
   </url>
   
