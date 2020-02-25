@@ -23,7 +23,7 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Tue, 25 Feb 2020 18:13:13 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 25 Feb 2020 18:15:32 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -76,6 +76,12 @@
 <p><code>https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz</code></p>
 
 <p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
+
+<h1 id="參考">參考</h1>
+
+<p><a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Significant Changes to Accessing and Using GeoLite2 Databases</a></p>
+
+<p><a href="https://merlinblog.xyz/wiki/geoip.html" target="_blank">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>
 ]]></description>
                 
                 

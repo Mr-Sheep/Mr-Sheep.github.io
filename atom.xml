@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2020-02-25T18:13:13+08:00</updated>
+    <updated>2020-02-25T18:15:32+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Clash/Surge Geoip</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/country.mmdb-fix/" />
             <id>https://blog.mrsheep.xyz/posts/country.mmdb-fix/</id>
-            <updated>2020-02-25T18:13:06+08:00</updated>
+            <updated>2020-02-25T18:14:39+08:00</updated>
             <published>2020-02-25T17:13:17+08:00</published>
             <author>
                     <name>MrSheep</name>
@@ -35,7 +35,8 @@
 geolite.maxmind.com或者是*.maxmind.com
 Clash Clash Cli版本推薦直接獲取Country.mmdb文件後替現有文件,CFW可以在面板中直接粘貼License Key或者使用如下URL
 <a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$LICENSEKEY&suffix=tar.gz</a>
-將$LICENSEKEY替換爲上一步獲得的license key]]></summary>
+將$LICENSEKEY替換爲上一步獲得的license key
+參考 Significant Changes to Accessing and Using GeoLite2 Databases]]></summary>
             
                 <content type="html"><![CDATA[
 
@@ -75,6 +76,12 @@ Clash Clash Cli版本推薦直接獲取Country.mmdb文件後替現有文件,CFW�
 <p><code>https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz</code></p>
 
 <p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
+
+<h1 id="參考">參考</h1>
+
+<p><a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Significant Changes to Accessing and Using GeoLite2 Databases</a></p>
+
+<p><a href="https://merlinblog.xyz/wiki/geoip.html" target="_blank">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>
 ]]></content>
             
             
