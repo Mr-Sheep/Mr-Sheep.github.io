@@ -23,10 +23,207 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Tue, 25 Feb 2020 18:15:32 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 14 Mar 2020 21:35:32 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>Firewalld</title>
+                <link>https://blog.mrsheep.xyz/posts/firewalld/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/firewalld/</guid>
+                <pubDate>Sat, 14 Mar 2020 18:42:37 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>為了省事，可以直接上Firewalld，而且服務器就只需要開放個端口，firewalld完全夠用（其實就是太懶不想去配置iptables）
+這篇文章僅紀錄一下</p>
+
+<h3 id="安裝">安裝</h3>
+
+<p>CentOS默認即為Firewalld，debian需要額外安裝。
+CentOS：
+<code>yum install firewalld -y</code>
+Debian:
+<code>apt -y install firewalld</code></p>
+
+<h3 id="命令">命令</h3>
+
+<ol>
+<li>查看開放的端口
+<code>firewall-cmd —list-ports</code></li>
+<li>開放端口
+<code>firewall-cmd —zone=public —add-port=$port/$protocol —permanent</code>
+其中：
+
+<ul>
+<li><code>—zone</code>：作用域</li>
+<li><code>$port</code>：需要開放的端口</li>
+<li><code>$protocol</code>：協議</li>
+<li><code>—permanent</code>：永久生效</li>
+</ul></li>
+<li>🈲️端口
+<code>firewall-cmd —zone=public —remove-port=$port/$protocol —permanent</code>
+其中：
+
+<ul>
+<li><code>—zone</code>：作用域</li>
+<li><code>$port</code>：需要開放的端口</li>
+<li><code>$protocol</code>：協議</li>
+<li><code>—permanent</code>：永久生效</li>
+</ul></li>
+<li>重載配置
+<code>firewall-cmd —reload</code></li>
+<li>停止
+<code>systemctl stop firewalld</code></li>
+<li>開機啟動
+<code>systemctl enable firewalld</code></li>
+</ol>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>SSH Using PUBKEY</title>
+                <link>https://blog.mrsheep.xyz/posts/ssh-using-pubkey/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/ssh-using-pubkey/</guid>
+                <pubDate>Thu, 12 Mar 2020 15:37:46 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>Secure Shell (SSH) 是一種加密的網絡傳輸協議，可在不安全的網絡中為網絡服務提供安全的傳輸環境</p>
+
+<p>廢話不多，直接開始</p>
+
+<h1 id="金鑰生成">金鑰生成</h1>
+
+<h2 id="算法選擇">算法選擇</h2>
+
+<p>建議Switch到<a href="https://ed25519.cr.yp.to/" target="_blank">Ed25519</a></p>
+
+<ul>
+<li><strong>🚨 DSA:</strong> 不安全，OpenSSH version 7開始不再支持</li>
+<li><strong>⚠️ RSA:</strong> 根據金鑰key size決定，3072和4096 😀. 其他的都需要升級，1024bit的會被認爲是unsafe的</li>
+<li><strong>👀 ECDSA:</strong> ECDSA使用的NIST曲線上有一個<a href="https://www.hyperelliptic.org/tanja/vortraege/20130531.pdf" target="_blank">值得關注的問題</a></li>
+<li><strong>✅ Ed25519:</strong> 最推薦的生成算法</li>
+</ul>
+
+<h2 id="金鑰生成-1">金鑰生成</h2>
+
+<p><code>ssh-keygen -o  -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C &quot;一些comment&quot;</code></p>
+
+<p>其中:</p>
+
+<ul>
+<li>-o: 儲存爲OpenSSH格式（在傳入了-t 參數後可以省略）</li>
+<li>-a: KDF（金鑰派生函數）重複的次數，理論上數值越大，暴力破解難度增加，但是會導致驗證速度變慢</li>
+<li>-t: 指定金鑰類型，如ed25519</li>
+<li>-f: 輸出文件以及位置</li>
+<li>-C: 註釋，隨便寫</li>
+</ul>
+
+<h2 id="安装公钥">安装公钥</h2>
+
+<p>键入以下命令，在服务器上安装公钥：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd .ssh
+cat id_rsa.pub &gt;&gt; authorized_keys</pre></td></tr></table>
+</div>
+</div>
+<p>請修改權限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">chmod 600 authorized_keys
+chmod 700 ~/.ssh</pre></td></tr></table>
+</div>
+</div>
+<p>编辑<code>/etc/ssh/sshd_config</code> 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">RSAAuthentication yes
+PubkeyAuthentication yes</pre></td></tr></table>
+</div>
+</div>
+<p>給予root用戶登錄權限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">PermitRootLogin yes</pre></td></tr></table>
+</div>
+</div>
+<p>測試完成之後使用
+<code>PasswordAuthentication no</code>
+完成之後重啓ssh服務
+<code>service sshd restart</code></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>MacGateKepper</title>
+                <link>https://blog.mrsheep.xyz/posts/macgatekepper/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/macgatekepper/</guid>
+                <pubDate>Thu, 27 Feb 2020 12:10:31 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>記錄一下mac提示安裝包損壞或來自未知開發者的解決方法</p>
+
+<p>其實MacOS 從很早之前就引入了一種安全機制：<a href="https://en.wikipedia.org/wiki/Gatekeeper_(macOS)" target="_blank">維基百科：Gatekeeper</a>， <a href="https://support.apple.com/en-us/HT202491" target="_blank">Apple：About Gatekeeper</a></p>
+
+<p>解決方法也很簡單：<code>sudo spctl --master-disable</code></p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Clash/Surge Geoip</title>
@@ -38,9 +235,7 @@
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[
-
-<p>今天更新Country.mmdb文件的時候發現需要License Key，看過了<a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Maxmind官方的一份聲明</a>後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。</p>
+                    <description><![CDATA[<p>今天更新Country.mmdb文件的時候發現需要License Key，看過了<a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Maxmind官方的一份聲明</a>後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。</p>
 
 <p>根據MM的說法，由於GDPR和CCPA的實施，限制了他們基於CC4.0的分享，解決方案就是提供資料的企業和用戶都遵循一定的數據隱私規定。有興趣可以查看官方的聲明</p>
 
@@ -81,8 +276,7 @@
 
 <p><a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Significant Changes to Accessing and Using GeoLite2 Databases</a></p>
 
-<p><a href="https://merlinblog.xyz/wiki/geoip.html" target="_blank">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>
-]]></description>
+<p><a href="https://merlinblog.xyz/wiki/geoip.html" target="_blank">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>]]></description>
                 
                 
                 
