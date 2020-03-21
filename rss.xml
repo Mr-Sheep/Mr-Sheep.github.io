@@ -10,7 +10,7 @@
         <title>MrSheep&#39;s Blog</title>
         <link>https://blog.mrsheep.xyz/</link>
         <description>Personal Blog from MrSheep.</description>
-        <generator>Hugo 0.59.1 https://gohugo.io/</generator>
+        <generator>Hugo 0.67.1 https://gohugo.io/</generator>
         
             <language>en-US</language>
         
@@ -23,10 +23,147 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Sat, 14 Mar 2020 21:35:32 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 22 Mar 2020 03:06:43 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>Huawei Modern Crack</title>
+                <link>https://blog.mrsheep.xyz/posts/huawei-modern-crack/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/huawei-modern-crack/</guid>
+                <pubDate>Sun, 22 Mar 2020 02:33:16 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>今天朋友升級了中國電信的1000兆帶寬，讓我幫他破解一下。這麼有意思的事情，爲什麼不呢，幹！</p>
+<p>1前幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！</p>
+<p>首先，他的光貓還沒有插過光纖，電信也冇上門調試。所以超管的密碼還沒有變，如果已經配置過了的話，建議復位Modern在插光纖前繼續閱讀本文（請記得LOID）</p>
+<p>魔改有風險，重灌也有風險，請自己考慮</p>
+<h1 id="折騰">折騰</h1>
+<h2 id="上門之前">上門之前</h2>
+<ol>
+<li>
+<p>首先下載解密工具<a href="https://raw.githubusercontent.com/Mr-Sheep/Mr-Sheep.github.io/master/resource/ctce_cfg.exe">ctce_cfg.exe</a></p>
+</li>
+<li>
+<p>登入光貓的後臺<code>192.168.1.1</code>，使用超管賬戶名以及密碼登入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">telecomadmin
+nE7jA%5m
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>插入U盤</p>
+</li>
+<li>
+<p>管理&ndash;&gt; 設備管理 &ndash;&gt; 備份配置</p>
+</li>
+<li>
+<p>將U盤目錄下<code>e8_Config_Backup</code>資料夾內的<code>ctce8_HN8145V.cfg</code>拷貝到ctce_cfg.exe目錄下</p>
+</li>
+<li>
+<p>執行<code>./ctce_cfg.exe 1 ctce8_HN8145V.cfg ctce8_HN8145V.xml.gz</code></p>
+<p>(我的bash用的wsl，如果是cmd請自行去掉前面<code>./</code>)</p>
+</li>
+<li>
+<p>將上一步得到的<code>ctce8_HN8145V.xml.gz</code>解壓得到<code>ctce8_HN8145V.xml</code></p>
+</li>
+<li>
+<p>編輯該文件，查找關鍵詞<code>telecomadmin</code>，找到一下區塊</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;2&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2E%rF#coD*R&amp;gt;PK=NI_&amp;apos;cDlfgC((a\~C,fHoE}j8DO$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>複製粘貼超級管理員的配置到新的一行，爲避免電信小哥起疑心重置光貓，這裏僅僅添加一個登錄帳號。</p>
+<p>我在查閱資料的時候大佬們的xml文件中密碼都是明文，可能是因爲華爲系統要開源了，2019版的8145V的密碼不是明文，在我不知道其算法的情況下，直接複製粘貼了telecomadmin的密文，即<code>nE7jA%5m</code>的密文</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2E%rF#coD*R&amp;gt;PK=NI_&amp;apos;cDlfgC((a\~C,fHoE}j8DO$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;3&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;mrsheep&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：</p>
+<ul>
+<li><code>NumberOfInstances</code>請修改爲實際變更後的用戶數量</li>
+<li>新增用戶請變更<code>InstanceID</code></li>
+<li><code>Alias</code>不想寫可以去掉</li>
+</ul>
+</li>
+<li>
+<p>將修改後的文件gzip壓縮，這裏建議刪除解密時創建的gzip文件和原cfg文件</p>
+</li>
+<li>
+<p><code>ctce_cfg.exe 0 ctce8_HS8145V.xml.gz ctce8_HS8145V.cfg</code>重新加密生成cfg文件</p>
+</li>
+<li>
+<p>將重新生成的文件替換到U盤<code>e8_Config_Backup</code>資料夾內</p>
+</li>
+<li>
+<p>管理&ndash;&gt; 設備管理 &ndash;&gt; ✅快速恢復&ndash;&gt;重啓</p>
+</li>
+<li>
+<p>嘗試登錄</p>
+</li>
+</ol>
+<h2 id="上門之後">上門之後</h2>
+<p>這個時候就可以爲所欲爲了，方法同上</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox">破除連接限制</p>
+<p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">開啓無線基地臺功能</p>
+<p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">禁用自動遠程管理</p>
+<p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p>
+</li>
+</ul>
+<h1 id="參考連結">參考連結</h1>
+<p><a href="http://www.chinadsl.net/thread-125291-1-1.html">华为光猫新版配置文件加解密工具(适用V3R016C/V2R006C等配置内容头4字节为gfcq的版本)</a></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Firewalld</title>
@@ -40,40 +177,36 @@
                 
                     <description><![CDATA[<p>為了省事，可以直接上Firewalld，而且服務器就只需要開放個端口，firewalld完全夠用（其實就是太懶不想去配置iptables）
 這篇文章僅紀錄一下</p>
-
 <h3 id="安裝">安裝</h3>
-
 <p>CentOS默認即為Firewalld，debian需要額外安裝。
 CentOS：
 <code>yum install firewalld -y</code>
 Debian:
-<code>apt -y install firewalld</code></p>
-
+<code> apt -y install firewalld</code></p>
 <h3 id="命令">命令</h3>
-
 <ol>
 <li>查看開放的端口
 <code>firewall-cmd —list-ports</code></li>
 <li>開放端口
 <code>firewall-cmd —zone=public —add-port=$port/$protocol —permanent</code>
 其中：
-
 <ul>
 <li><code>—zone</code>：作用域</li>
 <li><code>$port</code>：需要開放的端口</li>
 <li><code>$protocol</code>：協議</li>
 <li><code>—permanent</code>：永久生效</li>
-</ul></li>
+</ul>
+</li>
 <li>🈲️端口
 <code>firewall-cmd —zone=public —remove-port=$port/$protocol —permanent</code>
 其中：
-
 <ul>
 <li><code>—zone</code>：作用域</li>
 <li><code>$port</code>：需要開放的端口</li>
 <li><code>$protocol</code>：協議</li>
 <li><code>—permanent</code>：永久生效</li>
-</ul></li>
+</ul>
+</li>
 <li>重載配置
 <code>firewall-cmd —reload</code></li>
 <li>停止
@@ -105,28 +238,19 @@ Debian:
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Secure Shell (SSH) 是一種加密的網絡傳輸協議，可在不安全的網絡中為網絡服務提供安全的傳輸環境</p>
-
 <p>廢話不多，直接開始</p>
-
 <h1 id="金鑰生成">金鑰生成</h1>
-
 <h2 id="算法選擇">算法選擇</h2>
-
-<p>建議Switch到<a href="https://ed25519.cr.yp.to/" target="_blank">Ed25519</a></p>
-
+<p>建議Switch到<a href="https://ed25519.cr.yp.to/">Ed25519</a></p>
 <ul>
 <li><strong>🚨 DSA:</strong> 不安全，OpenSSH version 7開始不再支持</li>
 <li><strong>⚠️ RSA:</strong> 根據金鑰key size決定，3072和4096 😀. 其他的都需要升級，1024bit的會被認爲是unsafe的</li>
-<li><strong>👀 ECDSA:</strong> ECDSA使用的NIST曲線上有一個<a href="https://www.hyperelliptic.org/tanja/vortraege/20130531.pdf" target="_blank">值得關注的問題</a></li>
+<li><strong>👀 ECDSA:</strong> ECDSA使用的NIST曲線上有一個<a href="https://www.hyperelliptic.org/tanja/vortraege/20130531.pdf">值得關注的問題</a></li>
 <li><strong>✅ Ed25519:</strong> 最推薦的生成算法</li>
 </ul>
-
 <h2 id="金鑰生成-1">金鑰生成</h2>
-
 <p><code>ssh-keygen -o  -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C &quot;一些comment&quot;</code></p>
-
 <p>其中:</p>
-
 <ul>
 <li>-o: 儲存爲OpenSSH格式（在傳入了-t 參數後可以省略）</li>
 <li>-a: KDF（金鑰派生函數）重複的次數，理論上數值越大，暴力破解難度增加，但是會導致驗證速度變慢</li>
@@ -134,52 +258,50 @@ Debian:
 <li>-f: 輸出文件以及位置</li>
 <li>-C: 註釋，隨便寫</li>
 </ul>
-
 <h2 id="安装公钥">安装公钥</h2>
-
 <p>键入以下命令，在服务器上安装公钥：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd .ssh
-cat id_rsa.pub &gt;&gt; authorized_keys</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd .ssh
+cat id_rsa.pub &gt;&gt; authorized_keys
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>請修改權限</p>
+</div><p>請修改權限</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">chmod 600 authorized_keys
-chmod 700 ~/.ssh</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">chmod 600 authorized_keys
+chmod 700 ~/.ssh
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑<code>/etc/ssh/sshd_config</code> 文件</p>
+</div><p>编辑<code>/etc/ssh/sshd_config</code> 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">RSAAuthentication yes
-PubkeyAuthentication yes</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">RSAAuthentication yes
+PubkeyAuthentication yes
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>給予root用戶登錄權限</p>
+</div><p>給予root用戶登錄權限</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">PermitRootLogin yes</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">PermitRootLogin yes
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>測試完成之後使用
+</div><p>測試完成之後使用
 <code>PasswordAuthentication no</code>
 完成之後重啓ssh服務
 <code>service sshd restart</code></p>]]></description>
@@ -207,9 +329,7 @@ PubkeyAuthentication yes</pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>記錄一下mac提示安裝包損壞或來自未知開發者的解決方法</p>
-
-<p>其實MacOS 從很早之前就引入了一種安全機制：<a href="https://en.wikipedia.org/wiki/Gatekeeper_(macOS)" target="_blank">維基百科：Gatekeeper</a>， <a href="https://support.apple.com/en-us/HT202491" target="_blank">Apple：About Gatekeeper</a></p>
-
+<p>其實MacOS 從很早之前就引入了一種安全機制：<a href="https://en.wikipedia.org/wiki/Gatekeeper_(macOS)">維基百科：Gatekeeper</a>， <a href="https://support.apple.com/en-us/HT202491">Apple：About Gatekeeper</a></p>
 <p>解決方法也很簡單：<code>sudo spctl --master-disable</code></p>
 ]]></description>
                 
@@ -235,48 +355,35 @@ PubkeyAuthentication yes</pre></td></tr></table>
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p>今天更新Country.mmdb文件的時候發現需要License Key，看過了<a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Maxmind官方的一份聲明</a>後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。</p>
-
+                    <description><![CDATA[<p>今天更新Country.mmdb文件的時候發現需要License Key，看過了<a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/">Maxmind官方的一份聲明</a>後發現,從2019年12月30日開始，要求用戶註冊Maxmind賬戶獲取免費的金鑰，來下載Geolite 2數據庫。</p>
 <p>根據MM的說法，由於GDPR和CCPA的實施，限制了他們基於CC4.0的分享，解決方案就是提供資料的企業和用戶都遵循一定的數據隱私規定。有興趣可以查看官方的聲明</p>
-
 <h1 id="解決方法">解決方法</h1>
-
 <ol>
-<li>註冊Maxmind帳號：<a href="https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定" target="_blank">https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定</a></li>
+<li>註冊Maxmind帳號：https://www.maxmind.com/en/geolite2/signup，註冊完成之後會發送郵件到郵箱完成初始化設定</li>
 <li>Service - My License Key - Generate new license key</li>
-<li><a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license" target="_blank">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,將`$LICENSEKEY`替換爲上一步獲得的`license</a> key`</li>
+<li><a href="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,">https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz,</a>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></li>
 </ol>
-
 <h2 id="surge">Surge</h2>
-
 <p>1.添加新的rewrite規則</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">^https:\/\/geolite\.maxmind\.com\/download\/geoip\/database\/GeoLite2-Country\.tar\.gz https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz 302</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">^https:\/\/geolite\.maxmind\.com\/download\/geoip\/database\/GeoLite2-Country\.tar\.gz https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz 302
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
-
+</div><p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
 <p>2.MitM添加新的規則</p>
-
-<p><code>geolite.maxmind.com</code>或者是<code>*.maxmind.com</code></p>
-
+<p><code>geolite.maxmind.com</code>或者是<code> *.maxmind.com</code></p>
 <h2 id="clash">Clash</h2>
-
 <p>Clash Cli版本推薦直接獲取Country.mmdb文件後替現有文件,CFW可以在面板中直接粘貼License Key或者使用如下URL</p>
-
 <p><code>https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&amp;license_key=$LICENSEKEY&amp;suffix=tar.gz</code></p>
-
 <p>將<code>$LICENSEKEY</code>替換爲上一步獲得的<code>license key</code></p>
-
+<h2 id="heading"></h2>
 <h1 id="參考">參考</h1>
-
-<p><a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/" target="_blank">Significant Changes to Accessing and Using GeoLite2 Databases</a></p>
-
-<p><a href="https://merlinblog.xyz/wiki/geoip.html" target="_blank">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>]]></description>
+<p><a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/">Significant Changes to Accessing and Using GeoLite2 Databases</a></p>
+<p><a href="https://merlinblog.xyz/wiki/geoip.html">关于GeoIP的二三事|Clash/Surge如何更新GeoIP库</a></p>]]></description>
                 
                 
                 
@@ -300,111 +407,83 @@ PubkeyAuthentication yes</pre></td></tr></table>
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p><a href="https://github.com/boypt/simple-torrent" target="_blank">Simple-Torrent</a>基於<a href="https://github.com/jpillora/cloud-torrent" target="_blank">Cloud-Torrent</a>修改而來，鑑於Cloud-Torrent作者已经不再维护，同時Simple-Torrent添加了很多必要的新Features。個人感覺相比較之下，Simple torrent會非常的方便</p>
-
+                    <description><![CDATA[<p><a href="https://github.com/boypt/simple-torrent">Simple-Torrent</a>基於<a href="https://github.com/jpillora/cloud-torrent">Cloud-Torrent</a>修改而來，鑑於Cloud-Torrent作者已经不再维护，同時Simple-Torrent添加了很多必要的新Features。個人感覺相比較之下，Simple torrent會非常的方便</p>
 <h1 id="new-features">New-Features</h1>
-
-<p><strong>摘自<a href="https://github.com/boypt/simple-torrent" target="_blank">boypt/simple-torrent</a></strong></p>
-
+<p><strong>摘自<a href="https://github.com/boypt/simple-torrent">boypt/simple-torrent</a></strong></p>
 <ul>
 <li>Individual file download control (1.1.3+)</li>
 <li>Run extrenal program on tasks completed: <code>DoneCmd</code></li>
 <li>Stops task when seeding ratio reached: <code>SeedRatio</code></li>
 <li>Download/Upload speed limiter: <code>UploadRate</code>/<code>DownloadRate</code></li>
 <li>Detailed transfer stats in web UI.</li>
-<li><a href="https://github.com/boypt/simple-torrent/wiki/Torrent-Watcher" target="_blank">Torrent Watcher</a></li>
+<li><a href="https://github.com/boypt/simple-torrent/wiki/Torrent-Watcher">Torrent Watcher</a></li>
 <li>K8s/docker health-check endpoint <code>/healthz</code></li>
 <li>Extra trackers from extrenal source</li>
 <li>Protocol Handler to <code>magnet:</code></li>
 <li>Magnet RSS subscribing supported</li>
-<li>Flexible config file accepts multiple formats (.json/.yaml/.toml) (<a href="https://github.com/spf13/viper/" target="_blank">by spf13/Viper</a>) (1.2.0+)</li>
+<li>Flexible config file accepts multiple formats (.json/.yaml/.toml) (<a href="https://github.com/spf13/viper/">by spf13/Viper</a>) (1.2.0+)</li>
 </ul>
-
 <p>Also:</p>
-
 <ul>
 <li>Single binary</li>
 <li>Cross platform</li>
 <li>Embedded torrent search</li>
 <li>Real-time updates</li>
 <li>Mobile-friendly</li>
-<li>Fast <a href="http://golang.org/pkg/net/http/#ServeContent" target="_blank">content server</a></li>
+<li>Fast <a href="http://golang.org/pkg/net/http/#ServeContent">content server</a></li>
 <li>IPv6 out of the box</li>
-<li>Updated torrnet engine from <a href="https://github.com/anacrolix/torrent" target="_blank">anacrolix/torrent</a></li>
+<li>Updated torrnet engine from <a href="https://github.com/anacrolix/torrent">anacrolix/torrent</a></li>
 </ul>
-
 <h1 id="安装">安装</h1>
-
 <h3 id="一鍵安裝指令">一鍵安裝指令：</h3>
-
-<p><code>bash &lt;(wget -qO- https://raw.githubusercontent.com/boypt/simple-torrent/master/scripts/quickinstall.sh)</code></p>
-
+<p><code> bash &lt;(wget -qO- https://raw.githubusercontent.com/boypt/simple-torrent/master/scripts/quickinstall.sh)</code></p>
 <p>这个命令会完成如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">1. 下载Simple-torrent bin
+<pre><code>1. 下载Simple-torrent bin
 2. 创建自动启动文件/etc/systemd/system/cloud-torrent.service
-3. 创建配置文件cloud-torrent.json</pre></td></tr></table>
-</div>
-</div>
+3. 创建配置文件cloud-torrent.json
+</code></pre>
 <p>完成之后默认端口为<code>3000</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">systemctl start cloud-torrent
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">systemctl start cloud-torrent
 systemctl restart cloud-torrent
 systemctl stop cloud-torrent
-systemctl status cloud-torrent</pre></td></tr></table>
+systemctl status cloud-torrent
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="一些建議配置">一些建議配置：</h3>
-
+</div><h3 id="一些建議配置">一些建議配置：</h3>
 <h4 id="tls">TLS</h4>
-
 <p>個人會建議開啓https支持，畢竟你不希望下載部分資源的時候使用明文傳輸</p>
-
 <p>可以自簽一張憑證，如下命令一鍵生成即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic">openssl req -x509 -nodes -sha256 -newkey \ rsa:2048 -keyout server.key -out server.crt \ -config openssl.cnf -extensions v3_req</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openssl req -x509 -nodes -sha256 -newkey \ rsa:2048 -keyout server.key -out server.crt \ -config openssl.cnf -extensions v3_req
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>之後請編輯<code>/etc/systemd/system/cloud-torrent.service</code></p>
-
+</div><p>之後請編輯<code>/etc/systemd/system/cloud-torrent.service</code></p>
 <p>在啓動參數<code>ExecStart</code>中加上   &ndash;key-path /金鑰位置 &ndash;cert-path /證書位置,並更改端口爲443</p>
-
 <h4 id="tracker">Tracker</h4>
-
-<p>推薦<a href="https://github.com/ngosang/trackerslist" target="_blank">ngosang/trackerslist</a>,所有的Tracker均爲每日更新</p>
-
+<p>推薦<a href="https://github.com/ngosang/trackerslist">ngosang/trackerslist</a>,所有的Tracker均爲每日更新</p>
 <ul>
-<li>trackers_best (20 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_best.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt" target="_blank">mirror</a></li>
-<li>trackers_all (82 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt" target="_blank">mirror</a></li>
-<li>trackers_all_udp (48 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_udp.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_udp.txt" target="_blank">mirror</a></li>
-<li>trackers_all_http (30 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_http.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_http.txt" target="_blank">mirror</a></li>
-<li>trackers_all_https (4 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_https.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_https.txt" target="_blank">mirror</a></li>
-<li>trackers_all_ws (3 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_ws.txt" target="_blank">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_ws.txt" target="_blank">mirror</a></li>
+<li>trackers_best (20 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_best.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt">mirror</a></li>
+<li>trackers_all (82 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt">mirror</a></li>
+<li>trackers_all_udp (48 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_udp.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_udp.txt">mirror</a></li>
+<li>trackers_all_http (30 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_http.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_http.txt">mirror</a></li>
+<li>trackers_all_https (4 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_https.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_https.txt">mirror</a></li>
+<li>trackers_all_ws (3 trackers) =&gt; <a href="https://ngosang.github.io/trackerslist/trackers_all_ws.txt">link</a> / <a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all_ws.txt">mirror</a></li>
 </ul>
-
 <h1 id="最後">最後</h1>
-
 <p>API 、遠程調用的我就不去嘗試了，由於涉及DCMA，伺服器位置偏僻，線路質量堪憂</p>
-
 <p>Simple Torrent對於我來說最主要的就是下載4k電影之後回傳到本地</p>
-
 <p>好啦，其實這個也是一篇水文，最近沒有什麼可以更新的內容</p>]]></description>
                 
                 
@@ -429,14 +508,10 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p>Cloudflare早在2011年就啓動了<strong><a href="https://blog.cloudflare.com/introducing-cloudflares-automatic-ipv6-gatewa/" target="_blank">Automatic IPv6 Gateway</a></strong>這個項目，解決v4和v6不兼容的問題。</p>
-
+                    <description><![CDATA[<p>Cloudflare早在2011年就啓動了**<a href="https://blog.cloudflare.com/introducing-cloudflares-automatic-ipv6-gatewa/">Automatic IPv6 Gateway</a>**這個項目，解決v4和v6不兼容的問題。</p>
 <p>Cloudflare可以自動化的完成v4和v6的tunnel</p>
-
 <p>開啓方法也十分的簡單，在Cloudflare管理頁面找到<strong>Network</strong>下的ipv6，<strong>enable</strong>即可</p>
-
-<p><img src="https://blog.cloudflare.com/content/images/cloudflare-ipv6-infographic.png.scaled500.png" alt="CF-auto-ipv6-gw" /></p>
-
+<p><img src="https://blog.cloudflare.com/content/images/cloudflare-ipv6-infographic.png.scaled500.png" alt="CF-auto-ipv6-gw"></p>
 <p>恭喜你點進來了，其實這是水文</p>]]></description>
                 
                 
@@ -462,29 +537,17 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Just can&rsquo;t open my vm</p>
-
 <h1 id="disable-hyper-v">Disable Hyper-V</h1>
-
 <p>Fireup a powershell as administrator, type in following commands</p>
-
 <p><code>bcdedit /set hypervisorlaunchtype off</code></p>
-
 <p>Then reboot</p>
-
 <h1 id="device-guard">Device guard</h1>
-
 <h3 id="disable-device-guard"><strong>Disable Device Guard</strong></h3>
-
 <p>Editing the Registry with following key:  <strong>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity</strong></p>
-
 <p>Set:  Name = “<strong>Enabled”</strong>  Type =dword  Data = <strong>0</strong></p>
-
 <p>Then reboot</p>
-
 <p>Also, you can start <strong>gpedit.msc</strong></p>
-
 <p>Under <strong>Computer Configuration\Administrative Templates\System\Device Guard</strong>, change it to  <strong>disabled</strong>.</p>
-
 <p><strong>If you see the same settings as below, you might not have Device Guard enabled.</strong></p>]]></description>
                 
                 
@@ -509,59 +572,33 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p>DoH （<a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">RFC 8484</a>）和 DoT（<a href="https://tools.ietf.org/html/rfc7858" target="_blank">RFC 7858</a>）以及先前的DNSCrypt和DNSSEC都是進行安全化的域名解析的方案，Mozilla從Firefox 62開始支持DoH（<a href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/" target="_blank">官方博文</a>）</p>
-
-<p><a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">DoH</a>是最新的方案，衆多大佬都開始支持了，<del>就假裝不是草案了唄，其實人家只是Proposed Standard</del></p>
-
+                    <description><![CDATA[<p>DoH （<a href="https://datatracker.ietf.org/doc/rfc8484/">RFC 8484</a>）和 DoT（<a href="https://tools.ietf.org/html/rfc7858">RFC 7858</a>）以及先前的DNSCrypt和DNSSEC都是進行安全化的域名解析的方案，Mozilla從Firefox 62開始支持DoH（<a href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/">官方博文</a>）</p>
+<p><a href="https://datatracker.ietf.org/doc/rfc8484/">DoH</a>是最新的方案，衆多大佬都開始支持了，<del>就假裝不是草案了唄，其實人家只是Proposed Standard</del></p>
 <p>這篇文章是想廢話一下這些方案的區別</p>
-
 <h1 id="普通的dns">普通的DNS</h1>
-
-<p>最初的DNS (Domain Name System)協議於1987年定稿，但是那個時候的Internet基本不需要考慮安全問題（<del>能不能夠跑起來都是問題</del>）所以最初的DNS協議是直接明文的。按照<a href="https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/" target="_blank">CloudFlare</a>的話來說，DNS可以被理解爲“互聯網的電話黃頁（phonebook of the internet）”,下圖來自CloudFlare</p>
-
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/ddos-dns-request.webp" alt="ddos-dns-request" /></p>
-
+<p>最初的DNS (Domain Name System)協議於1987年定稿，但是那個時候的Internet基本不需要考慮安全問題（<del>能不能夠跑起來都是問題</del>）所以最初的DNS協議是直接明文的。按照<a href="https://www.cloudflare.com/learning/ddos/glossary/domain-name-system-dns/">CloudFlare</a>的話來說，DNS可以被理解爲“互聯網的電話黃頁（phonebook of the internet）”,下圖來自CloudFlare</p>
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/ddos-dns-request.webp" alt="ddos-dns-request"></p>
 <p>但是明文傳輸的設計在現在看來有很多的不足，這也就是爲什麼GFW可以清楚的知道你訪問了甚麼網站，因爲你查詢的域名是明文傳輸的，同時還可以對你的DNS查詢進行投毒，篡改結果。以GFW爲例，會將黑名單內的網址解析到Facebook等公司的ip上去。比如說我的域名 mrsheep.xyz。</p>
-
-<p>鑑於以上這些情況，更加安全的DNS查詢與傳輸顯得非常重要，於是在2011年的時候，全球的根服務器以及大多數的頂級域名都部署了<a href="https://tools.ietf.org/html/rfc4035" target="_blank">DNSSEC</a></p>
-
+<p>鑑於以上這些情況，更加安全的DNS查詢與傳輸顯得非常重要，於是在2011年的時候，全球的根服務器以及大多數的頂級域名都部署了<a href="https://tools.ietf.org/html/rfc4035">DNSSEC</a></p>
 <h2 id="dnssec">DNSSEC</h2>
-
-<p>上面說道的<a href="https://tools.ietf.org/html/rfc4035" target="_blank">DNSSEC</a>僅僅在最初的DNS協議上加入了數字簽名，以此校驗查詢結果的合法性（不是正確性），也就是說，GFW還是可以達到DNS污染的目的</p>
-
+<p>上面說道的<a href="https://tools.ietf.org/html/rfc4035">DNSSEC</a>僅僅在最初的DNS協議上加入了數字簽名，以此校驗查詢結果的合法性（不是正確性），也就是說，GFW還是可以達到DNS污染的目的</p>
 <h2 id="dnscrypt">DNSCrypt</h2>
-
-<p>官網在這裏:<a href="https://dnscrypt.info" target="_blank">DNSCrypt</a></p>
-
-<p>原理：<a href="https://dnscrypt.info/protocol/" target="_blank">DNSCrypt/Protocol</a></p>
-
-<p>維基詞條：<a href="https://zh.wikipedia.org/wiki/DNSCrypt" target="_blank">DNSCrypt</a></p>
-
+<p>官網在這裏:<a href="https://dnscrypt.info">DNSCrypt</a></p>
+<p>原理：<a href="https://dnscrypt.info/protocol/">DNSCrypt/Protocol</a></p>
+<p>維基詞條：<a href="https://zh.wikipedia.org/wiki/DNSCrypt">DNSCrypt</a></p>
 <p>簡單來說DNSCrypt會對你的DNS查詢進行加密以及數字簽名驗證，但是DNS的到達時間可以被識別</p>
-
 <p>openDNS和Quad 9均有部署該協議</p>
-
 <h1 id="dns-over-tls">DNS over TLS</h1>
-
 <p>建立於TLS之上的DNS查詢，使用端口<code>853</code>，因爲使用TLS的原因，TLS採用CA認證，所以DoT同時具備“合法性”和”真實性“。</p>
-
 <p>由於DNS是建立於TLS之上的，這代表着DoT會混在一堆tls連接中，無法被提出來特別針對</p>
-
 <p>同時，大多數的瀏覽器並不支持DoT，可以使用Overture等軟件實現。</p>
-
 <h1 id="dns-over-https">DNS over HTTPS</h1>
-
-<p>最新的協議，<a href="https://datatracker.ietf.org/doc/rfc8484/" target="_blank">RFC 8484</a>，簡單的來說就是在DoT上套了一層http協議，可以理解爲DNS-over-HTTP-over-TLS，以此達到僞裝的效果，從而繞過運營商的重定向代理，實現方式其實蠻丑的。。。</p>
-
+<p>最新的協議，<a href="https://datatracker.ietf.org/doc/rfc8484/">RFC 8484</a>，簡單的來說就是在DoT上套了一層http協議，可以理解爲DNS-over-HTTP-over-TLS，以此達到僞裝的效果，從而繞過運營商的重定向代理，實現方式其實蠻丑的。。。</p>
 <p>由於中華人民共和國網絡出口常年故障，導致使用境外的DoH服務商會大幅增加解析時間</p>
-
 <p>從本質上來講和DoT沒什麼區別，但是相對於DoT來說有更多的大佬支持，比如Mozilla，下圖基本說明了DoH的作用，圖自Mozilla</p>
-
-<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/DoH.png" alt="DoH" /></p>
-
+<p><img src="https://github.com/Mr-Sheep/Mr-Sheep.github.io/raw/master/resource/img/DoH.png" alt="DoH"></p>
 <h1 id="參考文章">參考文章</h1>
-
-<p>[<a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank">对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS</a>]</p>]]></description>
+<p>[<a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS</a>]</p>]]></description>
                 
                 
                 
@@ -586,19 +623,14 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>這是水文😂</p>
-
 <p>真的是一篇水文</p>
-
 <p>主要是我想不到要寫甚麼了</p>
-
-<h1 id="toc_0">😀</h1>
-
+<h1 id="heading">😀</h1>
 <p>主要是AMC10有一道題，1000到2013中，多少數字前三位（千，百，十）相加之和爲個位數</p>
-
 <p>然後。。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -618,28 +650,31 @@ systemctl status cloud-torrent</pre></td></tr></table>
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="err">import java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
-<span class="err">public class </span><span class="n">Tester</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tester</span> <span class="o">{</span>
 
-	<span class="err">public static void main</span><span class="p">(</span><span class="err">String[] args</span><span class="p">)</span> <span class="p">{</span>
-		<span class="err">int count </span><span class="o">=</span> <span class="n">0</span><span class="p">;</span>
-		<span class="k">for</span> <span class="p">(</span><span class="err">int i</span><span class="o">=</span><span class="n">1000</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">2014</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="err">ArrayList&lt;Integer&gt; num  </span><span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-			<span class="err">int number </span><span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-			<span class="k">while</span> <span class="p">(</span><span class="n">number</span> <span class="o">!=</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">num</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="n">10</span><span class="p">);</span>
-				<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">/</span> <span class="n">10</span><span class="p">;</span>
-			<span class="p">}</span>
-			<span class="k">if</span> <span class="p">((</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">3</span><span class="p">)</span><span class="o">+</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">2</span><span class="p">)</span><span class="o">+</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">1</span><span class="p">))</span><span class="o">==</span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">))</span> <span class="p">{</span>
-					<span class="n">count</span> <span class="o">++</span><span class="p">;</span>
-					<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">1000</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">2014</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">num</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+			<span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+			<span class="k">while</span> <span class="o">(</span><span class="n">number</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">num</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">number</span> <span class="o">%</span> <span class="n">10</span><span class="o">);</span>
+				<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">/</span> <span class="n">10</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">if</span> <span class="o">((</span><span class="n">num</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">3</span><span class="o">)+</span><span class="n">num</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">2</span><span class="o">)+</span><span class="n">num</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">1</span><span class="o">))==</span><span class="n">num</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">))</span> <span class="o">{</span>
+					<span class="n">count</span> <span class="o">++;</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div>]]></description>
                 
@@ -665,18 +700,14 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/" target="_blank">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
-
+                    <description><![CDATA[<p>博客正式遷移到了Hugo上，<a href="https://gohugo.io/">Hugo</a>是使用GO語言開發的SSG（靜態網站生成器），官方稱“The world’s fastest framework for building websites”. 不同於Hexo的是，Hugo是一個網站的框架，爾Hexo僅僅是博客的框架。</p>
 <p>“Let&rsquo;s Encrypt”， “1Password Support”，“CloudFlare Developer”等均是用Hugo開放</p>
-
-<p>更多的實例可以參考<a href="https://gohugo.io/showcase/" target="_blank">官方Showcase</a></p>
-
+<p>更多的實例可以參考<a href="https://gohugo.io/showcase/">官方Showcase</a></p>
 <h1 id="文件結構">文件結構</h1>
-
 <p>文件結構相比較於Hexo簡潔了不少，主題採用submodule的方式安裝即可，免去了之前Hexo下主題.git文件夾需要刪除的問題。以我用的MemE主題爲例，樹狀圖如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-basic" data-lang="basic"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -809,13 +840,13 @@ systemctl status cloud-torrent</pre></td></tr></table>
 <span class="w">        </span><span class="err">│</span><span class="w">   </span><span class="err">└───</span><span class="vg">_default</span>
 <span class="w">        </span><span class="err">└───</span><span class="vg">static</span>
 <span class="w">            </span><span class="err">├───</span><span class="vg">fonts</span>
-<span class="w">            </span><span class="err">└───</span><span class="vg">icons</span></code></pre></td></tr></table>
+<span class="w">            </span><span class="err">└───</span><span class="vg">icons</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果精簡一下的話就是</p>
+</div><p>如果精簡一下的話就是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -823,32 +854,25 @@ systemctl status cloud-torrent</pre></td></tr></table>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic">├───archetypes                                                                     ├───content                                                                       
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">├───archetypes                                                                     ├───content                                                                       
 ├───data                                                                           ├───layouts                                                                       
 ├───public
 ├───resources
 ├───static
-└───themes</code></pre></td></tr></table>
+└───themes
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="遷移">遷移</h2>
-
+</div><h2 id="遷移">遷移</h2>
 <p>其實，因爲遷移的時候我的筆電正在維修，所以我是複製粘貼的。。。</p>
-
 <h2 id="meme">MemE</h2>
-
-<p><strong>MemE</strong>是一個十分簡潔但是十分強大的Hugo主題，由<a href="https://io-oi.me/tech/documentation-of-hugo-theme-meme/" title="Hugo 主题 MemE 文档" target="_blank">reuixiy | 一休爾</a>開發，爲個人博客設計.</p>
-
+<p><strong>MemE</strong>是一個十分簡潔但是十分強大的Hugo主題，由<a href="https://io-oi.me/tech/documentation-of-hugo-theme-meme/" title="Hugo 主题 MemE 文档">reuixiy | 一休爾</a>開發，爲個人博客設計.</p>
 <p>正如作者寫到“MemE主題對於習慣了Hexo的用戶非常友好，是從Hexo錢一道Hugo的不錯選擇”，MemE的配置十分的方便</p>
-
 <h3 id="一些修改">一些修改</h3>
-
 <h4 id="字體">字體</h4>
-
 <p>支持調用Google Font這類的字體，只需要更改主題文件中的<code>Font Family</code>部分即可。如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -884,6 +908,7 @@ systemctl status cloud-torrent</pre></td></tr></table>
 </span><span class="lnt">34
 </span><span class="lnt">35
 </span><span class="lnt">36
+</span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c">## Font Family</span>
@@ -921,10 +946,11 @@ systemctl status cloud-torrent</pre></td></tr></table>
 
     <span class="c"># Embed fonts link</span>
 
-    <span class="nx">fontsLink</span> <span class="p">=</span> <span class="s2">&#34;https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Kalam:700&amp;display=swap&#34;</span></code></pre></td></tr></table>
+    <span class="nx">fontsLink</span> <span class="p">=</span> <span class="s2">&#34;https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|ZCOOL+XiaoWei|Kalam:700&amp;display=swap&#34;</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>待更</p>]]></description>
+</div><p>待更</p>]]></description>
                 
                 
                 
@@ -949,106 +975,75 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>11-30-2019 更新：Surge as Gateway</p>
-
 <p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等</p>
-
 <h1 id="為甚麼使用surge">為甚麼使用Surge</h1>
-
 <p>我知道有一大把開源項目，比如做的非常好的Clash，並且有MacOS的Dashboard，但是由於目前仍出於Pre-Release階段，部分功能並不完善和穩定
 相比較下，Surge作為一個付費軟件，客服支持做的更好（交了錢當然好）
 但是更重要的，是Surge作為網關使用會比Clash更加的強大，用戶界面看著更加的完善，有完整的User Manual,支持MitM和抓包等
 算了我編不下去了，反正好用就行了
 關於購買這一塊兒，別去找盜版了，找不到的</p>
-
 <h2 id="無限試用">無限試用</h2>
-
 <p>通過更改系統時間的方法可以獲得無限的使用，但是這樣做會無法啟動Dashboard,不清楚是不是因為試用版的原因</p>
-
-<p>另，別想着去找盜版了<del>（別問我怎麼知道的）</del></p>
-
+<p>另，別想着去找盜版了~~（別問我怎麼知道的）~~</p>
 <h1 id="配置">配置</h1>
-
-<p>基本的配置教程官方寫的十分的詳細，可以直接參考<a href="https://manual.nssurge.com/" target="_blank">nssurge manual</a>
+<p>基本的配置教程官方寫的十分的詳細，可以直接參考<a href="https://manual.nssurge.com/">nssurge manual</a>
 我只寫一些，畢竟人家大佬寫了那麼多</p>
-
 <h2 id="dns">DNS</h2>
-
 <p>Surge支持DoH，使用方法為直接在<code>DNS</code>配置中添加，或者是直接修改配置文件
 在頭部 <code>[General]</code> 部分添加:
 <code>dns-server = 你指定的dns服務器</code>,
 但是支持DoH的大多在CN沒有服務器，延遲比較高，但是解決了DNS投毒的問題,一下列部分支持DoH的服務商</p>
-
 <ol>
-<li><a href="https://cloudflare-dns.com/dns-query" target="_blank">https://cloudflare-dns.com/dns-query</a></li>
-<li><a href="https://1.1.1.1/dns-query" target="_blank">https://1.1.1.1/dns-query</a> //1.1.1.1這個地址很可能會被作為保留地址，比如說某為</li>
-<li><a href="https://dns.google.com/resolve" target="_blank">https://dns.google.com/resolve</a></li>
-<li><a href="https://8.8.8.8/dns-query" target="_blank">https://8.8.8.8/dns-query</a></li>
-<li><a href="https://dns.quad9.net/dns-query" target="_blank">https://dns.quad9.net/dns-query</a></li>
-<li><a href="https://9.9.9.9/dns-query" target="_blank">https://9.9.9.9/dns-query</a></li>
-<li><a href="https://dns.rubyfish.cn/dns-query" target="_blank">https://dns.rubyfish.cn/dns-query</a></li>
+<li><a href="https://cloudflare-dns.com/dns-query">https://cloudflare-dns.com/dns-query</a></li>
+<li>https://1.1.1.1/dns-query //1.1.1.1這個地址很可能會被作為保留地址，比如說某為</li>
+<li><a href="https://dns.google.com/resolve">https://dns.google.com/resolve</a></li>
+<li>https://8.8.8.8/dns-query</li>
+<li><a href="https://dns.quad9.net/dns-query">https://dns.quad9.net/dns-query</a></li>
+<li>https://9.9.9.9/dns-query</li>
+<li><a href="https://dns.rubyfish.cn/dns-query">https://dns.rubyfish.cn/dns-query</a></li>
 </ol>
-
 <p>Surge Enhanced mode採用Fakeip模式，雖然算是解決了污染的問題，但是如果Surge目前並沒有實現DNS“分流”這項功能，個人覺得可以配合外置DNS來解決問題
-<strong>Overture</strong> 可以很好的解決這個問題，Overture僅支持DoT（DNS over TLS）,關於DoH和DoT，可以參考<a href="https://www.reddit.com/r/privacy/comments/89pr15/dnsoverhttps_vs_dns_overtls_vs_dnscrypt/" target="_blank">Reddit上的帖子</a>
+<strong>Overture</strong> 可以很好的解決這個問題，Overture僅支持DoT（DNS over TLS）,關於DoH和DoT，可以參考<a href="https://www.reddit.com/r/privacy/comments/89pr15/dnsoverhttps_vs_dns_overtls_vs_dnscrypt/">Reddit上的帖子</a>
 關於DoT和DoH誰更好已經爭論了很久了
 關於Overture如何配置，請參見另一篇文章</p>
-
 <h2 id="v2ray">V2Ray</h2>
-
 <p>Surge從3.3.1版本（應該是）開始支持原生V2Ray，不再需要External-Proxy或者是前置代理實現
 格式如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">你的代理名字</span> <span class="o">=</span> vmess, 服務器地址, 端口, <span class="nv">username</span><span class="o">=</span>uuid, <span class="nv">tls13</span><span class="o">=</span>true, <span class="nv">ws</span><span class="o">=</span>true, ws-path<span class="o">=</span>路徑</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">你的代理名字</span> <span class="o">=</span> vmess, 服務器地址, 端口, <span class="nv">username</span><span class="o">=</span>uuid, <span class="nv">tls13</span><span class="o">=</span>true, <span class="nv">ws</span><span class="o">=</span>true, ws-path<span class="o">=</span>路徑
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>注：</p>
-
+</div><p>注：</p>
 <ol>
 <li><code>tls13 = true</code> 即強制使用tls1.3，使用前請<strong>確認支持</strong>，如果<strong>不支持</strong>,請將該命令改成<code>tls = true</code>來啟動tls</li>
 <li>如果你不需要驗證證書，可以把證書添加進入mac的<strong>鑰匙串</strong>,或者你自己研究怎麼跳過驗證</li>
-<li><code>ws-header</code>如果有需要，可以單獨設置，具體請參見官方<a href="https://community.nssurge.com/" target="_blank">Community</a></li>
+<li><code>ws-header</code>如果有需要，可以單獨設置，具體請參見官方<a href="https://community.nssurge.com/">Community</a></li>
 </ol>
-
 <h1 id="gateway">Gateway</h1>
-
-<p>將Surge作爲本地網關對於我個人來說比使用<a href="https://blog.mrsheep.xyz/posts/clash-gateway/" target="_blank">Clash作爲網關</a>好用的多，Clash封裝的軟件總是有神神奇奇的問題。Surge採用 Fake-ip 方案，即對於所有dns查詢都返回198.18.x.x的ip。</p>
-
+<p>將Surge作爲本地網關對於我個人來說比使用<a href="https://blog.mrsheep.xyz/posts/clash-gateway/">Clash作爲網關</a>好用的多，Clash封裝的軟件總是有神神奇奇的問題。Surge採用 Fake-ip 方案，即對於所有dns查詢都返回198.18.x.x的ip。</p>
 <h3 id="甚麼是網關">甚麼是網關</h3>
-
-<p>可以參考<a href="https://zh.wikipedia.org/zh-hant/%E7%BD%91%E5%85%B3" target="_blank">維基百科</a>的詞條</p>
-
+<p>可以參考<a href="https://zh.wikipedia.org/zh-hant/%E7%BD%91%E5%85%B3">維基百科</a>的詞條</p>
 <p>簡單的來說需要實現網絡之間的通信，就必須要通過網關。</p>
-
 <h3 id="配置-1">配置</h3>
-
 <h4 id="surge">Surge</h4>
-
 <p>Surge的配置十分的簡單，只需要打開<code>Enhanced mode</code>即可，同時請注意，你的mac的網關地址需要手動設定爲上級路由地址。</p>
-
 <p>並且需要在surge中指定dns地址</p>
-
-<p>根據<a href="https://medium.com/@Blankwonder/surge-mac-as-gateway-b0bd68464a4b" target="_blank">Surge作者的說法</a>，“macOS 10.13 后完善了 Kernel 的转发机制”</p>
-
+<p>根據<a href="https://medium.com/@Blankwonder/surge-mac-as-gateway-b0bd68464a4b">Surge作者的說法</a>，“macOS 10.13 后完善了 Kernel 的转发机制”</p>
 <p>使用Surge作爲網關的優勢由很多，比如</p>
-
 <ol>
 <li>支持tcp和udp代理</li>
 <li>搞定類似於Google Home這樣不支持手動配置代理的設備</li>
 <li>Hands-Freed的全局代理</li>
 <li>Apple TV使用代理會有莫名其妙的Bug</li>
 </ol>
-
 <h4 id="客戶端">客戶端</h4>
-
 <p>在網絡設置中將網關地址改成<code>mac ip</code>，dns改成<code>198.18.0.2</code>或者其他</p>
-
 <h4 id="路由器">路由器</h4>
-
 <p>同上，僅需要在配置中將網關地址和dns更改即可。</p>]]></description>
                 
                 
@@ -1074,55 +1069,46 @@ systemctl status cloud-torrent</pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Overture是一個由GO編寫的DNS，跨平台兼容，能夠很好的實現我分流的需求，相比与CoreDNS无论如何我都編譯不成功的proxy插件，實在是便捷了很多</p>
-
 <h2 id="features">Features</h2>
-
-<p>摘自<a href="https://github.com/shawn1m/overture" target="_blank">github.com/shawn1m/overture</a></p>
-
+<p>摘自<a href="https://github.com/shawn1m/overture">github.com/shawn1m/overture</a></p>
 <ul>
 <li>Full IPv6 support</li>
 <li>Multiple DNS upstream
-
 <ul>
 <li>Via UDP/TCP with custom port</li>
 <li>Via SOCKS5 proxy (TCP only)</li>
-<li>With EDNS Client Subnet (ECS) <a href="https://tools.ietf.org/html/rfc7871" target="_blank">RFC7871</a></li>
-</ul></li>
+<li>With EDNS Client Subnet (ECS) <a href="https://tools.ietf.org/html/rfc7871">RFC7871</a></li>
+</ul>
+</li>
 <li>Dispatcher
-
 <ul>
 <li>IPv6 record (AAAA) redirection</li>
 <li>Custom domain</li>
 <li>Custom IP network</li>
-</ul></li>
+</ul>
+</li>
 <li>Minimum TTL modification</li>
 <li>Hosts (Random order if there are multiple answers)</li>
 <li>Cache with ECS</li>
 </ul>
-
 <h2 id="配置">配置</h2>
-
-<p>從<a href="https://github.com/shawn1m/overture/releases" target="_blank">Release</a>裡下載prebuilt版，並解壓</p>
-
+<p>從<a href="https://github.com/shawn1m/overture/releases">Release</a>裡下載prebuilt版，並解壓</p>
 <p>下載GFW和CN_ip列表,放置於同一目錄</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://cokebar.github.io/gfwlist2dnsmasq/gfwlist_domain.txt <span class="o">&amp;&amp;</span> wget https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://cokebar.github.io/gfwlist2dnsmasq/gfwlist_domain.txt <span class="o">&amp;&amp;</span> wget https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>之後就可以魔改配置文件了</p>
-
-<p><code>vim config.json</code></p>
-
+</div><p>之後就可以魔改配置文件了</p>
+<p><code> vim config.json</code></p>
 <p>我的配置文件如下,國內走DNSPod，114，AliDNS；國外走CF，Google，OpenDNS</p>
-
 <p>支持EDNS的我開了auto，國外的走DoT</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1339,32 +1325,30 @@ systemctl status cloud-torrent</pre></td></tr></table>
   <span class="s2">&#34;DomainTTLFile&#34;</span> <span class="err">:</span> <span class="s2">&#34;./domain_ttl_sample&#34;</span><span class="err">,</span>
   <span class="s2">&#34;CacheSize&#34;</span> <span class="err">:</span> <span class="mi">99</span><span class="err">,</span> <span class="err">//緩存條數</span>
   <span class="s2">&#34;RejectQType&#34;</span><span class="err">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">]</span>
-<span class="err">}</span></code></pre></td></tr></table>
+<span class="err">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>個人比較推薦<a href="https://github.com/Unitech/pm2" target="_blank">PM2</a>作爲進程管理</p>
+</div><p>個人比較推薦<a href="https://github.com/Unitech/pm2">PM2</a>作爲進程管理</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">npm install pm2 -g
 <span class="c1">#如果你沒nodejs可以使用 wget -qO- https://getpm2.com/install.sh | bash</span>
-pm2 start overture-linux -- -c ./config.json</code></pre></td></tr></table>
+pm2 start overture-linux -- -c ./config.json
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="測試">測試</h2>
-
+</div><h2 id="測試">測試</h2>
 <p>最後的話就dig測試一下就好了拉，</p>
-
-<div class="notice tip" >
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice-title:before{margin-right:8px;font-family:"Font Awesome 5 Free",FontAwesome;font-weight:400}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning .notice-title:before{content:'\f071'}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info .notice-title:before{content:'\f05a'}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note .notice-title:before{content:'\f06a'}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip .notice-title:before{content:'\f058'}.notice.tip{background:#e6f9e6}</style><div class="notice tip" >
 <p class="first notice-title"></p><p>用我的域名測試的話，我的域名是被污染了的</p></div>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1385,25 +1369,26 @@ pm2 start overture-linux -- -c ./config.json</code></pre></td></tr></table>
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span> &lt;&lt;&gt;&gt; DiG <span class="m">9</span>.11.5-P4-5.1-Debian &lt;&lt;&gt;&gt; blog.mrsheep.xyz @127.0.0.1 -p <span class="m">15353</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span> &lt;&lt;&gt;&gt; DiG 9.11.5-P4-5.1-Debian &lt;&lt;&gt;&gt; blog.mrsheep.xyz @127.0.0.1 -p <span class="m">15353</span>
 <span class="p">;;</span> global options: +cmd
 <span class="p">;;</span> Got answer:
 <span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span class="m">18416</span>
-<span class="p">;;</span> flags: qr rd ra ad<span class="p">;</span> QUERY: <span class="m">1</span>, ANSWER: <span class="m">2</span>, AUTHORITY: <span class="m">0</span>, ADDITIONAL: <span class="m">1</span>
+<span class="p">;;</span> flags: qr rd ra ad<span class="p">;</span> QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: <span class="m">1</span>
 
 <span class="p">;;</span> OPT PSEUDOSECTION:
-<span class="p">;</span> EDNS: version: <span class="m">0</span>, flags:<span class="p">;</span> udp: <span class="m">512</span>
+<span class="p">;</span> EDNS: version: 0, flags:<span class="p">;</span> udp: <span class="m">512</span>
 <span class="p">;;</span> QUESTION SECTION:
 <span class="p">;</span>blog.mrsheep.xyz.              IN      A
 
 <span class="p">;;</span> ANSWER SECTION:
-blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span class="m">104</span>.27.165.30
-blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span class="m">104</span>.27.164.30
+blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       104.27.165.30
+blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       104.27.164.30
 
 <span class="p">;;</span> Query time: <span class="m">535</span> msec
-<span class="p">;;</span> SERVER: <span class="m">127</span>.0.0.1#15353<span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>
-<span class="p">;;</span> WHEN: Fri Nov <span class="m">15</span> <span class="m">19</span>:16:43 PST <span class="m">2019</span>
-<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">109</span></code></pre></td></tr></table>
+<span class="p">;;</span> SERVER: 127.0.0.1#15353<span class="o">(</span>127.0.0.1<span class="o">)</span>
+<span class="p">;;</span> WHEN: Fri Nov <span class="m">15</span> 19:16:43 PST <span class="m">2019</span>
+<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">109</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description>
                 
@@ -1430,50 +1415,41 @@ blog.mrsheep.xyz.       <span class="m">299</span>     IN      A       <span cla
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>CoreDNS是一個由GO語言編寫的輕量級開源DNS服務，跨平臺支持，並有一下幾個特性：</p>
-
 <ul>
 <li>插件</li>
 <li>配置簡單</li>
 <li>跨平臺</li>
 <li>通用 DNS 方案</li>
 </ul>
-
-<p>官網： <a href="https://coredns.io" target="_blank">CoreDNS</a></p>
-
+<p>官網： <a href="https://coredns.io">CoreDNS</a></p>
 <h1 id="配置">配置</h1>
-
-<p>在<a href="https://github.com/coredns/coredns/releases" target="_blank">https://github.com/coredns/coredns/releases</a>下載最新的pre-built版本</p>
-
+<p>在<a href="https://github.com/coredns/coredns/releases">https://github.com/coredns/coredns/releases</a>下載最新的pre-built版本</p>
 <h3 id="自行編譯">自行編譯</h3>
-
-<p>如果你需要用到<code>Proxy</code>這個plugin的話，你需要自行編譯一份CoreDNS，具體原因參見<a href="https://github.com/coredns/coredns/issues/3234" target="_blank">ISSUE #3234</a>,編譯十分的簡單，但是網路環境的原因，推薦使用境外服務器編譯,但是當然，你要是相信國內的鏡像，我也不會攔着你</p>
+<p>如果你需要用到<code>Proxy</code>這個plugin的話，你需要自行編譯一份CoreDNS，具體原因參見<a href="https://github.com/coredns/coredns/issues/3234">ISSUE #3234</a>,編譯十分的簡單，但是網路環境的原因，推薦使用境外服務器編譯,但是當然，你要是相信國內的鏡像，我也不會攔着你</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/coredns/coredns
 <span class="nb">cd</span> coredns
-make</code></pre></td></tr></table>
+make
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在<code>make</code>之前，請編輯位於文件夾內的<code>plugin.cfg</code>文件，添加</p>
+</div><p>在<code>make</code>之前，請編輯位於文件夾內的<code>plugin.cfg</code>文件，添加</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">proxy:github.com/coredns/proxy</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">proxy:github.com/coredns/proxy
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="corefile">Corefile</h1>
-
-<p>CoreDNS使用Corefile作爲配置文件（和Caddyfile類似），<a href="https://coredns.io/manual/toc/#configuration" target="_blank">官方的Manual</a>是這麼說的</p>
-
+</div><h1 id="corefile">Corefile</h1>
+<p>CoreDNS使用Corefile作爲配置文件（和Caddyfile類似），<a href="https://coredns.io/manual/toc/#configuration">官方的Manual</a>是這麼說的</p>
 <p><strong>That file consists of one or more Server Blocks. Each Server Block lists one or more Plugins. Those Plugins may be further configured with Directives.</strong></p>
-
 <p>在這裏就廢話不多，需要其他的配置請參考Manual</p>]]></description>
                 
                 
@@ -1500,56 +1476,51 @@ make</code></pre></td></tr></table>
                 
                     <description><![CDATA[<p>水文一篇，因爲家裏的網絡中有類似小米盒子，Apple TV這樣的設備，自身配置不是很好，鏈接效率會被降低，還不如在RPi 3B配置一個透明代理
 我本來的設想是v2ray + iptables + dnsmasq，然後突然想到Clash自帶了一個簡單的DNS以及透明代理功能，再加上CoreDNS岂不是美滋滋？最后配合ROS指定的ip走透明代理，還要什麼自行車？</p>
-
 <h1 id="環境">環境</h1>
-
 <p>需要準備的包,以apt为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install supervisor iptables-persistent net-tools curl wget vim  -y</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install supervisor iptables-persistent net-tools curl wget vim  -y
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>開啓轉發</p>
+</div><p>開啓轉發</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.all.forwarding = 1&#34;</span> &gt;&gt; /etc/sysctl.conf <span class="o">&amp;&amp;</span> sysctl -p</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.all.forwarding = 1&#34;</span> &gt;&gt; /etc/sysctl.conf <span class="o">&amp;&amp;</span> sysctl -p
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="clash配置">Clash配置</h1>
-
+</div><h1 id="clash配置">Clash配置</h1>
 <p>隨便找一個目錄，cd進入
-在<a href="https://github.com/Dreamacro/clash/releases/" target="_blank">Clash的Release頁面</a>找到你需要的版本，</p>
-
+在<a href="https://github.com/Dreamacro/clash/releases/">Clash的Release頁面</a>找到你需要的版本，</p>
 <p>樹莓派3B的話是<strong>clash-linux-armv6</strong></p>
-
 <p>笔记本的话是<strong>amd64</strong></p>
-
 <p>我最終還是換成了Thinkpad X201t作爲網關</p>
-
 <p>wget到本地，其實也可以下載到電腦再sftp上來，節約時間（github日常抽風）
 如果電腦上已經有Clash，可以同時將<strong>Country.mmdb</strong>上傳，這樣clash就不需要重新下載了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gzip -d clash-linux-armv6-v0.15.0.gz
 mv clash-linux-armv6-v0.15.0 clash-linux
-chmod +x clash-linux</code></pre></td></tr></table>
+chmod +x clash-linux
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在該目錄下創建一個名爲<strong>config.yaml</strong>的配置文件</p>
+</div><p>在該目錄下創建一個名爲<strong>config.yaml</strong>的配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1636,29 +1607,23 @@ chmod +x clash-linux</code></pre></td></tr></table>
 
 <span class="err">#</span> <span class="err">Final</span>
 <span class="err">-</span> <span class="err">GEOIP,CN,DIRECT</span>
-<span class="err">-</span> <span class="err">MATCH,Proxy</span></code></pre></td></tr></table>
+<span class="err">-</span> <span class="err">MATCH,Proxy</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>注意：</p>
-
+</div><p>注意：</p>
 <ol>
 <li>必須配置<code>redir-port</code>因爲你要做透明代理</li>
 <li>DNS那裏配置<strong>監聽和enhanced-mode</strong></li>
 <li>開啓Allow Lan並開放對應防火牆</li>
 </ol>
-
 <p>我配置的dns都是支持DoT的DNS服務器，國內的選擇紅魚，國外選擇CF，具體Clash請求DNS原理請參考Github頁面</p>
-
 <h1 id="coredns">CoreDNS</h1>
-
-<p>参考文章 <a href="link-to-coredns" target="_blank">CoreDNS配置</a></p>
-
+<p>参考文章 <a href="link-to-coredns">CoreDNS配置</a></p>
 <p>CoreDNS需要开在高端口，或者修改iptables</p>
-
 <p>请将上面的配置文件中的dns部分改为：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1673,49 +1638,14 @@ chmod +x clash-linux</code></pre></td></tr></table>
   <span class="err">listen:</span> <span class="mf">0.0</span><span class="err">.</span><span class="mf">0.0</span><span class="err">:</span><span class="mi">53</span>
   <span class="err">enhanced-mode:</span> <span class="err">redir-host</span>
   <span class="err">nameserver:</span>
-      <span class="err">-</span> <span class="mf">127.0</span><span class="err">.</span><span class="mf">0.1</span><span class="err">:你的Coredns端口</span></code></pre></td></tr></table>
+      <span class="err">-</span> <span class="mf">127.0</span><span class="err">.</span><span class="mf">0.1</span><span class="err">:你的Coredns端口</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="iptables配置">iPtables配置</h1>
-
+</div><h1 id="iptables配置">iPtables配置</h1>
 <p>我的本地網段是192.168.88.0/16</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">iptables -t nat -N Clash
-//創建名爲Clash的規則
-iptables -t nat -A Clash -d 192.168.88.0/16 -j RETURN
-//不對本地進行代理
-iptables -t nat -A Clash -p tcp -j REDIRECT --to-ports 9280
-//這裏是你的redirport
-iptables -t nat -A PREROUTING -p tcp -j Clash</pre></td></tr></table>
-</div>
-</div>
-<p>然後<code>netfilter-persistent save</code>持久化</p>
-
-<p>之後你就可以愉快的開啓Clash了
-<code>./clash-linux -d .</code>
-沒有Country.MMDB會自動下載，沒有報錯的話就說明配置完成了
-可以把設備的DNS和Gateway都改成樹莓派的ip測試一下</p>
-
-<h3 id="守護進程">守護進程</h3>
-
-<h4 id="supervisor">Supervisor</h4>
-
-<p>新建一個supervisor配置
-<code>vim /etc/supervisor/conf.d/clash.conf</code>
-內容如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1723,26 +1653,58 @@ iptables -t nat -A PREROUTING -p tcp -j Clash</pre></td></tr></table>
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[supervisord]
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">iptables -t nat -N Clash
+//創建名爲Clash的規則
+iptables -t nat -A Clash -d 192.168.88.0/16 -j RETURN
+//不對本地進行代理
+iptables -t nat -A Clash -p tcp -j REDIRECT --to-ports 9280
+//這裏是你的redirport
+iptables -t nat -A PREROUTING -p tcp -j Clash
+
+</code></pre></td></tr></table>
+</div>
+</div><p>然後<code>netfilter-persistent save</code>持久化</p>
+<p>之後你就可以愉快的開啓Clash了
+<code>./clash-linux -d .</code>
+沒有Country.MMDB會自動下載，沒有報錯的話就說明配置完成了
+可以把設備的DNS和Gateway都改成樹莓派的ip測試一下</p>
+<h3 id="守護進程">守護進程</h3>
+<h4 id="supervisor">Supervisor</h4>
+<p>新建一個supervisor配置
+<code>vim /etc/supervisor/conf.d/clash.conf</code>
+內容如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[supervisord]
 nodaemon=false
 
 [program:clash]
 priority=1
 directory=clash所在的目錄
 command=clash所在的目錄/clash-linux -d .
-autorestart=true</pre></td></tr></table>
-</div>
-</div>
-<h4 id="pm2">PM2</h4>
+autorestart=true
 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="pm2">PM2</h4>
 <p>官方推荐的进程管理器，十分的方便，安裝需要npm，天朝網路出口常年故障，能不能裝上隨緣</p>
-
-<p>項目地址：  [github.com/Unitech/pm2][<a href="https://github.com/Unitech/pm2" target="_blank">https://github.com/Unitech/pm2</a>]</p>
+<p>項目地址：  [github.com/Unitech/pm2][https://github.com/Unitech/pm2]</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1763,12 +1725,11 @@ pm2 start app.js
 //查看正在運行的程序
 pm2 list
 //查看日誌
-pm2 logs</code></pre></td></tr></table>
+pm2 logs
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="ros指定ip走透明代理">ROS指定ip走透明代理</h1>
-
-<p>這部分的話參考<a href="http://www.myxzy.com/post-461.html" target="_blank">RouterOS指定内网IP走指定接口</a>
+</div><h1 id="ros指定ip走透明代理">ROS指定ip走透明代理</h1>
+<p>這部分的話參考<a href="http://www.myxzy.com/post-461.html">RouterOS指定内网IP走指定接口</a>
 因爲不想改變現有的網絡結構，所以只讓指定的內網ip走樹莓派
 在RouterOS中
 IP - Firewall 中切換 Mangle 選項，添加一條新的規則
@@ -1777,12 +1738,9 @@ General 选项卡中，Chain 选择 prerouting ，Src.Address 寫小米盒子等
 Action 选项卡，在 Action 下拉菜单中选择 mark routing ，New Routing Mark 中填入该路由标记名称，Proxy_to_pi
 如果多個設備的話，可以考慮配置個adress list，我暫時只有1個，就懶得啦
 之後在IP - Routes配置路由，添加一條新的規則</p>
-
 <p>但是我個人更加推薦全局應用，將dns和網關全部更改爲Clash的ip地址</p>
-
 <h1 id="參考文章">參考文章</h1>
-
-<p><a href="http://www.myxzy.com/post-461.html" target="_blank">RouterOS指定内网IP走指定接口</a></p>]]></description>
+<p><a href="http://www.myxzy.com/post-461.html">RouterOS指定内网IP走指定接口</a></p>]]></description>
                 
                 
                 
@@ -1808,35 +1766,35 @@ Action 选项卡，在 Action 下拉菜单中选择 mark routing ，New Routing 
                 
                     <description><![CDATA[<p>相比較於之前的Nginx，Caddy是一個更加輕量級，安裝更加方便，配置超級簡單的web server，並且支持自動申請lets encrypt證書（雖然我用不到）
 Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
-
 <h1 id="caddy">Caddy</h1>
-
 <h3 id="下載安裝">下載安裝</h3>
-
-<p><a href="https://caddyserver.com/download" target="_blank">Caddy官網</a></p>
+<p><a href="https://caddyserver.com/download">Caddy官網</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl https://getcaddy.com <span class="p">|</span> bash -s personal http.forwardproxy,http.proxyprotocol</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl https://getcaddy.com <span class="p">|</span> bash -s personal http.forwardproxy,http.proxyprotocol
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>CentOS的話請輸入一下命令</p>
+</div><p>CentOS的話請輸入一下命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -s https://raw.githubusercontent.com/GEM7/My_scripts/master/caddy/caddy.service -o /etc/systemd/system/caddy.service</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="配置">配置</h3>
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -s https://raw.githubusercontent.com/GEM7/My_scripts/master/caddy/caddy.service -o /etc/systemd/system/caddy.service
 
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置">配置</h3>
 <p>配置真心超級簡單，如果需要使用自己的證書，比如CF的證書，請將證書和私鑰保存本地，在配置文件中引用即可。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1847,6 +1805,7 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="err">你的域名:</span><span class="mi">443</span> <span class="p">{</span>
@@ -1859,15 +1818,15 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
            <span class="err">websocket</span>
            <span class="err">header_upstream</span> <span class="err">-Origin</span>
     <span class="p">}</span>
-<span class="err">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h1 id="nginx">Nginx</h1>
+<span class="err">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="nginx">Nginx</h1>
 <p>我之前使用是Nginx，但是由於體積大，配置複雜所以選用Caddy，但是這裏還是附上Nginx配置，僅供參考</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1945,7 +1904,7 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">server
 <span class="o">{</span>
-    listen <span class="m">80</span><span class="p">;</span>
+    listen 80<span class="p">;</span>
     listen <span class="m">443</span> ssl http2<span class="p">;</span>
     server_name 你的域名 *.你的域名<span class="p">;</span>
     index index.php index.html index.htm default.php default.htm default.html<span class="p">;</span>
@@ -1954,7 +1913,7 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
     <span class="c1">#SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则</span>
     <span class="c1">#error_page 404/404.html;</span>
     <span class="c1">#HTTP_TO_HTTPS_START</span>
-    <span class="k">if</span> <span class="o">(</span><span class="nv">$server_port</span> !~ <span class="m">443</span><span class="o">){</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">$server_port</span> !~ 443<span class="o">){</span>
         rewrite ^<span class="o">(</span>/.*<span class="o">)</span>$ https://<span class="nv">$host$1</span> permanent<span class="p">;</span>
     <span class="o">}</span>
     <span class="c1">#HTTP_TO_HTTPS_END</span>
@@ -1985,7 +1944,7 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
     <span class="c1">#禁止访问的文件或目录</span>
     location ~ ^/<span class="o">(</span><span class="se">\.</span>user.ini<span class="p">|</span><span class="se">\.</span>htaccess<span class="p">|</span><span class="se">\.</span>git<span class="p">|</span><span class="se">\.</span>svn<span class="p">|</span><span class="se">\.</span>project<span class="p">|</span>LICENSE<span class="p">|</span>README.md<span class="o">)</span>
     <span class="o">{</span>
-        <span class="k">return</span> <span class="m">404</span><span class="p">;</span>
+        <span class="k">return</span> 404<span class="p">;</span>
     <span class="o">}</span>
     
     <span class="c1">#一键申请SSL证书验证目录相关设置</span>
@@ -2011,106 +1970,89 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
              location /ws/ <span class="o">{</span>   
              proxy_redirect off<span class="p">;</span>
              proxy_pass http://127.0.0.1:你的端口<span class="p">;</span> 
-             proxy_http_version <span class="m">1</span>.1<span class="p">;</span>
+             proxy_http_version 1.1<span class="p">;</span>
              proxy_set_header Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
              proxy_set_header Connection <span class="s2">&#34;upgrade&#34;</span><span class="p">;</span>
              proxy_set_header Host <span class="nv">$http_host</span><span class="p">;</span>            
           <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>證書申請之類的請自行參考使用<strong>acme.sh</strong></p>
-
+</div><p>證書申請之類的請自行參考使用<strong>acme.sh</strong></p>
 <h3 id="websocket解決bad-request">WebSocket解決Bad Request</h3>
-
-<p>轉自<a href="https://www.ivyseeds.cf/websockets2/" target="_blank">从零开始安装爱国工具指南（十四）V2Ray补充、WebSockets模式补完</a></p>
-
-<h4 id="修改nginx-conf">修改nginx.conf</h4>
-
+<p>轉自<a href="https://www.ivyseeds.cf/websockets2/">从零开始安装爱国工具指南（十四）V2Ray补充、WebSockets模式补完</a></p>
+<h4 id="修改nginxconf">修改nginx.conf</h4>
 <p>文件位<code>于/usr/local/nginx/conf/</code></p>
-
 <p>在代码<code>http{}</code>段里添加一句</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">proxy_intercept_errors on;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">proxy_intercept_errors on;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>保存退出即可</p>
-
+</div><p>保存退出即可</p>
 <h4 id="修改vhost文件">修改vhost文件</h4>
-
 <p>文件位于<code>/usr/local/nginx/conf/vhost/</code></p>
-
-<p>在443端口的配置里加一句，比如說我跳轉回到<a href="https://mrsheep.win" target="_blank">mrsheep.win</a></p>
+<p>在443端口的配置里加一句，比如說我跳轉回到<a href="https://mrsheep.win">mrsheep.win</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">error_page 400 = https://www.mrsheep.win;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">error_page 400 = https://www.mrsheep.win;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>保存退出重启nginx</p>
+</div><p>保存退出重启nginx</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">service nginx restart</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">service nginx restart
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="v2ray">V2Ray</h1>
-
+</div><h1 id="v2ray">V2Ray</h1>
 <h2 id="安裝">安裝</h2>
-
 <h3 id="官方安裝">官方安裝</h3>
-
 <p><strong>如果你想要使用管理腳本等，請直接跳過本節</strong>
-使用官方安裝腳本: <a href="https://www.v2ray.com/chapter_00/install.html#linuxscript" target="_blank">www.v2ray.com/chapter_00/install.html#linuxscript</a>
+使用官方安裝腳本: <a href="https://www.v2ray.com/chapter_00/install.html#linuxscript">www.v2ray.com/chapter_00/install.html#linuxscript</a>
 <strong>請使用root用戶運行一下腳本</strong>
 运行下面的指令下载并安装  V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray  的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">bash &lt;<span class="o">(</span>curl -L -s https://install.direct/go.sh<span class="o">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">bash &lt;<span class="o">(</span>curl -L -s https://install.direct/go.sh<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>此脚本会自动安装以下文件：</strong></p>
-
+</div><p><strong>此脚本会自动安装以下文件：</strong></p>
 <p><code>/usr/bin/v2ray/v2ray</code>：V2Ray 程序；
 <code>/usr/bin/v2ray/v2ctl</code>：V2Ray 工具；
 <code>/etc/v2ray/config.json</code>：配置文件；
 <code>/usr/bin/v2ray/geoip.dat</code>：IP 数据文件
 <code>/usr/bin/v2ray/geosite.dat</code>：域名数据文件
 配置<code>/etc/v2ray/config.json</code>即可</p>
-
 <h3 id="腳本">腳本</h3>
-
 <p>這裏僅僅使用Multi-V2Ray，其他的請自行參考對應wiki</p>
-
 <h4 id="multi-v2ray">Multi-V2Ray</h4>
-
-<p>項目地址：<a href="https://github.com/Jrohy/multi-v2ray" target="_blank">https://github.com/Jrohy/multi-v2ray</a>
+<p>項目地址：https://github.com/Jrohy/multi-v2ray
 運行命令安裝，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> &lt;<span class="o">(</span>curl -sL https://git.io/fNgqx<span class="o">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> &lt;<span class="o">(</span>curl -sL https://git.io/fNgqx<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>部分VPS安裝完成之後提示找不到v2ray命令，請運行<code>/usr/local/multi-v2ray/v2ray</code></p>
-
+</div><p>部分VPS安裝完成之後提示找不到v2ray命令，請運行<code>/usr/local/multi-v2ray/v2ray</code></p>
 <h5 id="命令行參數">命令行參數：</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2153,32 +2095,23 @@ Caddy配置十分的簡單，幾分鐘即可以完成配置</p>
    v2ray tfo                  修改tcpFastOpen
    v2ray stream               修改传输协议
    v2ray stats                iptables流量统计
-   v2ray clean                清理日志</code></pre></td></tr></table>
+   v2ray clean                清理日志
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>更多請參考: <a href="https://github.com/Jrohy/multi-v2ray/wiki" target="_blank">https://github.com/Jrohy/multi-v2ray/wiki</a></p>
-
+</div><p>更多請參考: <a href="https://github.com/Jrohy/multi-v2ray/wiki">https://github.com/Jrohy/multi-v2ray/wiki</a></p>
 <h2 id="配置-1">配置</h2>
-
 <h3 id="tls">TLS</h3>
-
 <p>證書的話可以直接使用Caddy自動申請Let‘s Encrypt的證書，3個月續命一次即可</p>
-
 <p>其他的話如使用Cloudflare簽發的證書，請參考上面 [Caddy配置][配置]</p>
-
 <h3 id="dns">DNS</h3>
-
 <p><strong>推荐的DNS服务商（免费）：Geoscaling，Cloudflare（仅使用DNS）</strong>
 不建议使用国内解析服务，VPS提供的DNS服务（例如Conoha的DNS解析）</p>
-
 <h3 id="bbr">BBR</h3>
-
 <h4 id="換核">換核</h4>
-
 <p>如果你不需要，請直接跳過</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2199,28 +2132,25 @@ yum --enablerepo<span class="o">=</span>elrepo-kernel install kernel-ml-devel ke
 //查看系统启动项：
 cat /boot/grub2/grub.cfg <span class="p">|</span>grep menuentry
 //设置最新版本内核为默认启动：
-grub2-set-default <span class="err">&#39;</span>最新的內核，如CentOS Linux <span class="o">(</span><span class="m">4</span>.8.5-1.el7.elrepo.x86_64<span class="o">)</span> <span class="m">7</span> <span class="o">(</span>Core<span class="o">)</span></code></pre></td></tr></table>
+grub2-set-default <span class="err">&#39;</span>最新的內核，如CentOS Linux <span class="o">(</span>4.8.5-1.el7.elrepo.x86_64<span class="o">)</span> <span class="m">7</span> <span class="o">(</span>Core<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>注：請一定等待安裝完成</strong></p>
-
+</div><p><strong>注：請一定等待安裝完成</strong></p>
 <p>此时，查看默认启动的系统版本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">grub2-editenv list</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">grub2-editenv list
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>显示为&rsquo;CentOS Linux (4.8.5-1.el7.elrepo.x86_64) 7 (Core)&lsquo;或類似，reboot之后再次查看 <code>uname -r</code></p>
-
+</div><p>显示为&rsquo;CentOS Linux (4.8.5-1.el7.elrepo.x86_64) 7 (Core)&lsquo;或類似，reboot之后再次查看 <code>uname -r</code></p>
 <h4 id="開啓bbr">開啓BBR</h4>
-
 <p>複製如下命令即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -2229,67 +2159,63 @@ grub2-set-default <span class="err">&#39;</span>最新的內核，如CentOS Linu
 <pre class="chroma"><code class="language-bash" data-lang="bash">cat &gt;&gt;/etc/sysctl.conf <span class="s">&lt;&lt; EOF
 </span><span class="s">net.core.default_qdisc=fq
 </span><span class="s">net.ipv4.tcp_congestion_control=bbr
-</span><span class="s">EOF</span></code></pre></td></tr></table>
+</span><span class="s">EOF</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再继续内核参数：</p>
+</div><p>再继续内核参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">sysctl -p</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sysctl -p
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>返回類似結果</p>
+</div><p>返回類似結果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>最后保险起见，复核一下BBR是否生效：</p>
+</div><p>最后保险起见，复核一下BBR是否生效：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sysctl net.ipv4.tcp_available_congestion_control
-
-lsmod | grep bbr</pre></td></tr></table>
-</div>
-</div>
-<p>返回類似</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">net.ipv4.tcp_available_congestion_control = reno cubic bbr
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sysctl net.ipv4.tcp_available_congestion_control
 
-tcp_bbr                20480  41 </pre></td></tr></table>
+lsmod | grep bbr
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="cdn">CDN</h4>
+</div><p>返回類似</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">net.ipv4.tcp_available_congestion_control = reno cubic bbr
 
+tcp_bbr                20480  41 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="cdn">CDN</h4>
 <p>個人不需要套CDN，當前地區封鎖不嚴重</p>
-
 <h4 id="配置模板">配置模板</h4>
-
 <p>我的部分配置可以參考</p>
-
 <h5 id="服務端">服務端</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2428,13 +2354,13 @@ tcp_bbr                20480  41 </pre></td></tr></table>
     <span class="p">},</span> 
     <span class="nt">&#34;strategy&#34;</span><span class="p">:</span> <span class="s2">&#34;rules&#34;</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="客戶端">客戶端</h5>
+</div><h5 id="客戶端">客戶端</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -2727,12 +2653,11 @@ tcp_bbr                20480  41 </pre></td></tr></table>
       <span class="nt">&#34;security&#34;</span> <span class="p">:</span> <span class="s2">&#34;tls&#34;</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="參考鏈接">參考鏈接</h1>
-
-<p><a href="https://www.v2ray.com" target="_blank">V2Ray項目</a></p>]]></description>
+</div><h1 id="參考鏈接">參考鏈接</h1>
+<p><a href="https://www.v2ray.com">V2Ray項目</a></p>]]></description>
                 
                 
                 
@@ -2758,27 +2683,21 @@ tcp_bbr                20480  41 </pre></td></tr></table>
                 
                     <description><![CDATA[<p>我在机器上开了6to4的隧道，本來是準備用來廣播我自己的ipv6，但是這樣子导致V2Ray流量会被转发到HE的隧道ip，最后NF会直接ban掉HE的ip
 所以我不废话了&hellip;</p>
-
 <h1 id="freedom">Freedom</h1>
-
 <p>需要用到的就是Freedom是這個協議，從V2ray官網上有如下解釋：
 <strong>Freedom 是一个出站协议，可以用来向任意网络发送（正常的） TCP 或 UDP 数据</strong>
-在目标地址为域名时，Freedom 可以直接向此域名发出连接（&rdquo;AsIs&rdquo;），或者将域名解析为 IP 之后再建立连接（&rdquo;UseIP&rdquo;、&rdquo;UseIPv4&rdquo;、&rdquo;UseIPv6&rdquo;）。解析 IP 的步骤会使用 V2Ray 内建的 DNS。默认值为&rdquo;AsIs&rdquo;。</p>
-
+在目标地址为域名时，Freedom 可以直接向此域名发出连接（&ldquo;AsIs&rdquo;），或者将域名解析为 IP 之后再建立连接（&ldquo;UseIP&rdquo;、&ldquo;UseIPv4&rdquo;、&ldquo;UseIPv6&rdquo;）。解析 IP 的步骤会使用 V2Ray 内建的 DNS。默认值为&quot;AsIs&rdquo;。</p>
 <ol>
 <li>(V2Ray 4.6+) 当使用 <strong>&ldquo;UseIP&rdquo;</strong> 模式，并且出站连接配置中指定了sendThrough时，Freedom 会根据sendThrough的值自动判断所需的IP类型，IPv4 或 IPv6。</li>
 <li>(V2Ray 4.7+) 当使用 <strong>&ldquo;UseIPv4&rdquo;</strong> 或 <strong>&ldquo;UseIPv6&rdquo;</strong> 模式时，Freedom 会只使用对应的 IPv4 或 IPv6 地址。当sendThrough指定了不匹配的本地地址时，将导致连接失败</li>
 </ol>
-
-<p>需要用到這個協議:<a href="https://www.v2ray.com/chapter_02/protocols/freedom.html" target="_blank">V2Ray文檔</a>
-關於配置文檔格式:<a href="https://www.v2ray.com/chapter_02/01_overview.html#outboundobject" target="_blank">V2Ray文檔</a></p>
-
+<p>需要用到這個協議:<a href="https://www.v2ray.com/chapter_02/protocols/freedom.html">V2Ray文檔</a>
+關於配置文檔格式:<a href="https://www.v2ray.com/chapter_02/01_overview.html#outboundobject">V2Ray文檔</a></p>
 <h1 id="具體配置">具體配置</h1>
-
 <p>一點都不複雜，和本部分沒有關係的都已經去掉</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2812,9 +2731,10 @@ tcp_bbr                20480  41 </pre></td></tr></table>
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
-</span></pre></td>
+</span><span class="lnt">35
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  &#34;inbounds&#34;: [
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  &#34;inbounds&#34;: [
     {
       &#34;port&#34;: 29708,
       &#34;protocol&#34;: &#34;vmess&#34;,
@@ -2847,13 +2767,12 @@ tcp_bbr                20480  41 </pre></td></tr></table>
           &#34;userLevel&#34;: 0
       }
     }
-}</pre></td></tr></table>
-</div>
-</div>
-<p>其實這又是水文一篇</p>
+}
 
+</code></pre></td></tr></table>
+</div>
+</div><p>其實這又是水文一篇</p>
 <h1 id="參考">參考</h1>
-
 <p>V2ray.com</p>]]></description>
                 
                 
@@ -2879,64 +2798,51 @@ tcp_bbr                20480  41 </pre></td></tr></table>
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>我的AS號和IP都已經沾灰了，再不用就要徹底忘了。</p>
-
 <p>在你開始之前，請確定你的ISP 为你分配了一个公网 IPv4, 並且你拥有 ASN 和一个至少为 / 48 的 ipv6 block</p>
-
 <h1 id="開始之前的一點py交易">開始之前的一點PY交易</h1>
-
 <p>準備Py之前，請確定如下內容(來自HE),不然你去PY也沒有意義</p>
-
 <p><strong>Through this interface you can request a static, IPv6 BGP tunnel that will receive full transit routes from AS6939 and be able to announce your RIR allocated IPv6 space. To minimize any issues or delays in turnup please note the following:
-    Your ASN must be allocated from a RIR. (Public ASNs only)
-    We must be able to validate that this is your ASN/address space (SWIP entries or a LoA will do)
-    We will prefix-filter your BGP session. If you are adding new announcements, please let us know via an email to ipv6@he.net.
-    We do not filter traffic. However, we do reserve the right to filter at our sole discretion as needed.
-    If this is your first tunnel for this ASN, you should receive a message to your account&rsquo;s email address. Please follow the instructions in the email to complete the verification process. During this period the tunnel and BGP session will be unavailable. If you have not heard from us within 48 hours then please email ipv6@he.net.
-    地址：<a href="https://blog.ni-co.moe/public/563.html" target="_blank">tunnelbroker.net</a></strong></p>
-
+Your ASN must be allocated from a RIR. (Public ASNs only)
+We must be able to validate that this is your ASN/address space (SWIP entries or a LoA will do)
+We will prefix-filter your BGP session. If you are adding new announcements, please let us know via an email to <a href="mailto:ipv6@he.net">ipv6@he.net</a>.
+We do not filter traffic. However, we do reserve the right to filter at our sole discretion as needed.
+If this is your first tunnel for this ASN, you should receive a message to your account&rsquo;s email address. Please follow the instructions in the email to complete the verification process. During this period the tunnel and BGP session will be unavailable. If you have not heard from us within 48 hours then please email <a href="mailto:ipv6@he.net">ipv6@he.net</a>.
+地址：<a href="https://blog.ni-co.moe/public/563.html">tunnelbroker.net</a></strong></p>
 <p>然後你就可以去註冊一個帳號，之後创建一个 BGP 隧道，選擇最近的节点，填寫你的ASN以及IP段
 最後你需要一封Authorize Letter（LoA）
 提交24小時左右PY交易就會成功</p>
-
 <h1 id="創建隧道">創建隧道</h1>
-
 <p>訪問tunnelbroker</p>
-
 <p><code>Tunnel - Example Config - Linux net-tools</code>
 配置大概張這個樣子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ifconfig sit0 up" data-lang="ifconfig sit0 up"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ifconfig sit0 up" data-lang="ifconfig sit0 up">ifconfig sit0 inet6 tunnel ::0.0.0.0
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ifconfig sit0 inet6 tunnel ::0.0.0.0
 ifconfig sit1 up
 ifconfig sit1 inet6 add ::::/64
-route -A inet6 add ::/0 dev sit1</code></pre></td></tr></table>
+route -A inet6 add ::/0 dev sit1
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="廣播">廣播</h1>
-
+</div><h1 id="廣播">廣播</h1>
 <h3 id="安裝bird6">安裝bird6</h3>
-
 <p><code>yum install bird6 -y</code></p>
-
-<h3 id="編輯-etc-bird6-conf">編輯 <code>/etc/bird6.conf</code></h3>
-
+<h3 id="編輯-etcbird6conf">編輯 <code>/etc/bird6.conf</code></h3>
 <p>注意：</p>
-
 <ol>
 <li>router id請寫本機ip</li>
 <li>local as是你的asn</li>
 <li>source add是HE給你的client ip</li>
-
-<li><p>neighbor是 HE分配的 server ip,6939 为 he 的 asn 号码</p>
+<li>neighbor是 HE分配的 server ip,6939 为 he 的 asn 号码</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2954,36 +2860,34 @@ route -A inet6 add ::/0 dev sit1</code></pre></td></tr></table>
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">router id 本機ip;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">router id 本機ip;
 protocol bgp he{
-    local as 208884;
-    source address Client_ip;
-    import none;
-    export all;
-    graceful restart on;
-    multihop 2;
-    neighbor server_ip as 6939;
+        local as 208884;
+        source address Client_ip;
+        import none;
+        export all;
+        graceful restart on;
+        multihop 2;
+        neighbor server_ip as 6939;
 }
 protocol static
 {
-route  你的ip段 via cleint_ip;
+    route  你的ip段 via cleint_ip;
 }
 protocol device
 {
-    scan time 5;
-}</pre></td></tr></table>
+        scan time 5;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<p>之後保存推出，重載bird配置，或者重啓bird即可
+</div><p>之後保存推出，重載bird配置，或者重啓bird即可
 最後<code>birdc6 show proto all</code>
 顯示Established即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -3025,9 +2929,9 @@ protocol device
 </span><span class="lnt">40
 </span><span class="lnt">41
 </span><span class="lnt">42
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">name     proto    table    state  since       info
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">name     proto    table    state  since       info
 he       BGP      master   up     17:40:47    Established   
   Preference:     100
   Input filter:   REJECT
@@ -3068,49 +2972,45 @@ device1  Device   master   up     17:40:42
     Import updates:              0          0          0          0          0
     Import withdraws:            0          0        ---          0          0
     Export updates:              0          0          0        ---          0
-    Export withdraws:            0        ---        ---        ---          0</pre></td></tr></table>
+    Export withdraws:            0        ---        ---        ---          0
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="宣告">宣告</h1>
-
+</div><h1 id="宣告">宣告</h1>
 <p>創建虛擬網卡並分配ip</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    ip link add dev dummy1 type dummy
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    ip link add dev dummy1 type dummy
     ip link set dummy1 up
-    ip addr add dev dummy1 2001:2333:2333::1/128</pre></td></tr></table>
+    ip addr add dev dummy1 2001:2333:2333::1/128
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>編輯<strong>bird6.conf</strong>加入</p>
+</div><p>編輯<strong>bird6.conf</strong>加入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-protocol direct" data-lang="protocol direct"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-protocol direct" data-lang="protocol direct">    {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    {
         interface &#34;dummy*&#34;;
         import all;
-    }</code></pre></td></tr></table>
+    }
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>之後
-    service bird6 restart</p>
-
+</div><p>之後
+service bird6 restart</p>
 <p>這樣 bird 將查詢所有 dummy 开头的网卡的 ip 并宣告这些 ip
- <code>birdc6 show route</code> 查看</p>
-
+<code>birdc6 show route</code> 查看</p>
 <h1 id="參考">參考</h1>
-
-<p><a href="https://blog.ni-co.moe/public/563.html" target="_blank">IP 广播：在不借助你的 ISP 进行任何操作的情况下，广播 (组播) 你的 IPv6</a>
-<a href="https://blog.ni-co.moe/public/560.html" target="_blank">IP 广播：使用 bird 广播 (组播) ipv6</a></p>]]></description>
+<p><a href="https://blog.ni-co.moe/public/563.html">IP 广播：在不借助你的 ISP 进行任何操作的情况下，广播 (组播) 你的 IPv6</a>
+<a href="https://blog.ni-co.moe/public/560.html">IP 广播：使用 bird 广播 (组播) ipv6</a></p>]]></description>
                 
                 
                 
@@ -3136,23 +3036,18 @@ device1  Device   master   up     17:40:42
                 
                     <description><![CDATA[<p>國內到我HE的小機線路峰值ping偏高，但是ip很清真，剛好我的HK小機的ISP和HE有transit
 方案如下</p>
-
 <ol>
 <li>使用UUID1鏈接中轉服務器，將流量路由到<code>#1</code>服務器</li>
 <li>使用UUID2鏈接中轉服務器，將流量路由到<code>#2</code>服務器</li>
 <li>使用UUID3鏈接中轉服務器，直接使用當前服務器訪問</li>
 </ol>
-
 <h1 id="服務器配置">服務器配置</h1>
-
 <h3 id="末端服務器配置">末端服務器配置</h3>
-
-<p>參考<a href="https://blog.mrsheep.xyz/2019/09/15/WebServer-V2Ray/" target="_blank">Caddy/Nginx + V2Ray</a></p>
-
+<p>參考<a href="https://blog.mrsheep.xyz/2019/09/15/WebServer-V2Ray/">Caddy/Nginx + V2Ray</a></p>
 <h3 id="中轉服務器">中轉服務器</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -3399,23 +3294,17 @@ device1  Device   master   up     17:40:42
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="err">}</span></code></pre></td></tr></table>
+<span class="err">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="client">Client</h3>
-
+</div><h3 id="client">Client</h3>
 <p>配置不同的uuid即可</p>
-
 <h1 id="吐槽">吐槽</h1>
-
 <p>英文單詞需要加s&hellip;</p>
-
 <p>一定要记得</p>
-
 <h1 id="contribute">contribute</h1>
-
-<p><a href="https://toutyrater.github.io/" target="_blank">V2Ray 白话文教程</a>
-<a href="https://v2ray.com" target="_blank">Project V</a></p>]]></description>
+<p><a href="https://toutyrater.github.io/">V2Ray 白话文教程</a>
+<a href="https://v2ray.com">Project V</a></p>]]></description>
                 
                 
                 
