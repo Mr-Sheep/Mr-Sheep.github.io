@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title type="text">MrSheep&#39;s Blog</title>
     <subtitle type="html">Personal Blog from MrSheep.</subtitle>
-    <updated>2020-03-22T03:06:43+08:00</updated>
+    <updated>2020-03-22T19:50:06+08:00</updated>
     <id>https://blog.mrsheep.xyz/</id>
     <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/" />
     <link rel="self" type="application/atom+xml" href="https://blog.mrsheep.xyz/atom.xml" />
@@ -17,25 +17,124 @@
     <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights>
     <generator uri="https://gohugo.io/" version="0.67.1">Hugo</generator>
         <entry>
+            <title type="text">ROS Ipv6</title>
+            <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/ros-ipv6/" />
+            <id>https://blog.mrsheep.xyz/posts/ros-ipv6/</id>
+            <updated>2020-03-22T19:49:58+08:00</updated>
+            <published>2020-03-22T18:53:14+08:00</published>
+            <author>
+                    <name>MrSheep</name>
+                    <uri>https://blog.mrsheep.xyz</uri>
+                    <email>admin@mrsheep.xyz</email>
+                    </author>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[h幫朋友升級了1000兆頻寬，順便就幫他上了雙栈，電信的配置真是惱火]]></summary>
+            
+                <content type="html"><![CDATA[<p>h幫朋友升級了1000兆頻寬，順便就幫他上了雙栈，電信的配置真是惱火</p>
+<h1 id="橋接">橋接</h1>
+<p>首先需要在光貓裏該成橋接，使用基地臺撥號，具體怎麼修改由很多介紹，我就不再寫了</p>
+<p><a href="https://www.yeboyzq.com/luyoujiaohuan/984.html">中国电信天翼光猫改桥接模式方法</a></p>
+<p><a href="https://www.v2ex.com/t/468726">中国电信智能网关怎么更改桥接模式拨号啊 | V2EX</a></p>
+<h1 id="ipv6">IPv6</h1>
+<h2 id="dhcp-client">DHCP Client</h2>
+<blockquote>
+<p>IPv6 -&gt; DHCPv6 Client -&gt; 新建</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Interface: pppoe out
+Request: prefix
+Pool name: 隨意
+Pool Prefix Length: 60/64/48
+
+✅ Rapid Commit
+✅ Add Default Route
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="address-list">Address List</h2>
+<blockquote>
+<p>IPv6 -&gt; Address -&gt; 新建</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Address: ::/64
+From pool: 上一步Pool Name
+Interface: bridge
+Advertise：✅
+
+如果報錯Duplicated Address Detected勾選
+No DAD：✅
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dhcp-server">DHCP Server</h2>
+<blockquote>
+<p>IPv6 -&gt; DHCP Address -&gt; 新建</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Name：隨意
+Interface：bridge
+Address Pool6: 第一步中的名字
+Lease Time：小於第一步中的Prefix Expires 
+✅ Allow Dual Stack Queue
+</code></pre></td></tr></table>
+</div>
+</div>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">Huawei Modern Crack</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/huawei-modern-crack/" />
             <id>https://blog.mrsheep.xyz/posts/huawei-modern-crack/</id>
-            <updated>2020-03-22T03:06:36+08:00</updated>
+            <updated>2020-03-22T19:03:00+08:00</updated>
             <published>2020-03-22T02:33:16+08:00</published>
             <author>
                     <name>MrSheep</name>
                     <uri>https://blog.mrsheep.xyz</uri>
                     <email>admin@mrsheep.xyz</email>
                     </author>
-            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[今天朋友升級了中國電信的1000兆帶寬，讓我幫他破解一下。這麼有意思的事情，爲什麼不呢，幹！
-1前幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！]]></summary>
+            <rights>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</rights><summary type="html"><![CDATA[前幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！]]></summary>
             
-                <content type="html"><![CDATA[<p>今天朋友升級了中國電信的1000兆帶寬，讓我幫他破解一下。這麼有意思的事情，爲什麼不呢，幹！</p>
-<p>1前幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！</p>
+                <content type="html"><![CDATA[<p>前幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！</p>
 <p>首先，他的光貓還沒有插過光纖，電信也冇上門調試。所以超管的密碼還沒有變，如果已經配置過了的話，建議復位Modern在插光纖前繼續閱讀本文（請記得LOID）</p>
+<p>電信小哥上門搞定之後，發現了幾點問題，在註冊完成後會自動覆蓋之前的配置文件，所以還是需要兆電信小哥要到超管密碼</p>
 <p>魔改有風險，重灌也有風險，請自己考慮</p>
 <h1 id="折騰">折騰</h1>
-<h2 id="上門之前">上門之前</h2>
 <ol>
 <li>
 <p>首先下載解密工具<a href="https://raw.githubusercontent.com/Mr-Sheep/Mr-Sheep.github.io/master/resource/ctce_cfg.exe">ctce_cfg.exe</a></p>
@@ -80,13 +179,12 @@ nE7jA%5m
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;2&#34;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2E%rF#coD*R&amp;gt;PK=NI_&amp;apos;cDlfgC((a\~C,fHoE}j8DO$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+GoG!!1.CP7s^&amp;amp;&amp;apos;H()oUk~Ol4NSi8TgTYK9fDjp5$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>複製粘貼超級管理員的配置到新的一行，爲避免電信小哥起疑心重置光貓，這裏僅僅添加一個登錄帳號。</p>
-<p>我在查閱資料的時候大佬們的xml文件中密碼都是明文，可能是因爲華爲系統要開源了，2019版的8145V的密碼不是明文，在我不知道其算法的情況下，直接複製粘貼了telecomadmin的密文，即<code>nE7jA%5m</code>的密文</p>
+</div><p>複製粘貼超級管理員的配置到新的一行，我在查閱資料的時候大佬們的xml文件中密碼都是明文，可能是因爲華爲系統要開源了，2019版的8145V的密碼不是明文，在我不知道其算法的情況下，直接複製粘貼了telecomadmin的密文。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -94,20 +192,48 @@ nE7jA%5m
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2E%rF#coD*R&amp;gt;PK=NI_&amp;apos;cDlfgC((a\~C,fHoE}j8DO$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;3&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;mrsheep&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+&amp;apos;PfW;|^$2Fw}!HP(T6Zr$Ka(ZRuC&amp;quot;!v;.ER&amp;gt;wMC$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+GoG!!1.CP7s^&amp;amp;&amp;apos;H()oUk~Ol4NSi8TgTYK9fDjp5$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;3&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;mrsheep&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-3&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+   
 <span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>注意：</p>
 <ul>
-<li><code>NumberOfInstances</code>請修改爲實際變更後的用戶數量</li>
-<li>新增用戶請變更<code>InstanceID</code></li>
-<li><code>Alias</code>不想寫可以去掉</li>
+<li>
+<p><code>NumberOfInstances</code>請修改爲實際變更後的用戶數量</p>
+</li>
+<li>
+<p>新增用戶請變更<code>InstanceID</code></p>
+</li>
+<li>
+<p><code>Alias</code>不想寫可以去掉</p>
+</li>
+<li>
+<p>我修改的時候同時給useradmin進行了提權</p>
+</li>
+<li>
+<p>一些修改</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox">破除連接限制</p>
+<p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">開啓Telnet功能</p>
+<p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">禁用自動遠程管理</p>
+<p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -125,23 +251,12 @@ nE7jA%5m
 <li>
 <p>嘗試登錄</p>
 </li>
+<li>
+<p>網絡&ndash;&gt;遠程管理&ndash;&gt;❎使能週期通知，切斷遠程控制</p>
+<p>注意：</p>
+<p>這裏的Shell並沒有補全</p>
+</li>
 </ol>
-<h2 id="上門之後">上門之後</h2>
-<p>這個時候就可以爲所欲爲了，方法同上</p>
-<ul>
-<li>
-<p><input disabled="" type="checkbox">破除連接限制</p>
-<p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
-</li>
-<li>
-<p><input disabled="" type="checkbox">開啓無線基地臺功能</p>
-<p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
-</li>
-<li>
-<p><input disabled="" type="checkbox">禁用自動遠程管理</p>
-<p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p>
-</li>
-</ul>
 <h1 id="參考連結">參考連結</h1>
 <p><a href="http://www.chinadsl.net/thread-125291-1-1.html">华为光猫新版配置文件加解密工具(适用V3R016C/V2R006C等配置内容头4字节为gfcq的版本)</a></p>]]></content>
             
@@ -161,7 +276,7 @@ nE7jA%5m
             <title type="text">Firewalld</title>
             <link rel="alternate" type="text/html" href="https://blog.mrsheep.xyz/posts/firewalld/" />
             <id>https://blog.mrsheep.xyz/posts/firewalld/</id>
-            <updated>2020-03-14T21:03:14+08:00</updated>
+            <updated>2020-03-22T18:55:02+08:00</updated>
             <published>2020-03-14T18:42:37+08:00</published>
             <author>
                     <name>MrSheep</name>
@@ -181,29 +296,29 @@ Debian:
 <h3 id="命令">命令</h3>
 <ol>
 <li>查看開放的端口
-<code>firewall-cmd —list-ports</code></li>
+<code>firewall-cmd --list-ports</code></li>
 <li>開放端口
-<code>firewall-cmd —zone=public —add-port=$port/$protocol —permanent</code>
+<code>firewall-cmd --zone=public --add-port=$port/$protocol --permanent</code>
 其中：
 <ul>
-<li><code>—zone</code>：作用域</li>
+<li><code>--zone</code>：作用域</li>
 <li><code>$port</code>：需要開放的端口</li>
 <li><code>$protocol</code>：協議</li>
-<li><code>—permanent</code>：永久生效</li>
+<li><code>--permanent</code>：永久生效</li>
 </ul>
 </li>
 <li>🈲️端口
-<code>firewall-cmd —zone=public —remove-port=$port/$protocol —permanent</code>
+<code>firewall-cmd --zone=public --remove-port=$port/$protocol --permanent</code>
 其中：
 <ul>
-<li><code>—zone</code>：作用域</li>
+<li><code>--zone</code>：作用域</li>
 <li><code>$port</code>：需要開放的端口</li>
 <li><code>$protocol</code>：協議</li>
-<li><code>—permanent</code>：永久生效</li>
+<li><code>--permanent</code>：永久生效</li>
 </ul>
 </li>
 <li>重載配置
-<code>firewall-cmd —reload</code></li>
+<code>firewall-cmd --reload</code></li>
 <li>停止
 <code>systemctl stop firewalld</code></li>
 <li>開機啟動
