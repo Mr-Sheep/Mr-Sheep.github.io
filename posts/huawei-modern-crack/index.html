@@ -26,7 +26,7 @@
     
     <meta name="renderer" content="webkit" />
 
-    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
 
     <title>Huawei Modern Crack | MrSheep&#39;s Blog</title>
 
@@ -214,48 +214,48 @@
             
 
             <div class="post-body"><p style="text-indent:0"><span class="drop-cap">前</span>幾天朋友升級了中國電信1000兆的頻寬，讓我幫他破解一下。有新玩具爲什麼不呢？幹！</p>
+
 <p>首先，他的光貓還沒有插過光纖，電信也冇上門調試。所以超管的密碼還沒有變，如果已經配置過了的話，建議復位Modern在插光纖前繼續閱讀本文（請記得LOID）</p>
+
 <p>電信小哥上門搞定之後，發現了幾點問題，在註冊完成後會自動覆蓋之前的配置文件，所以還是需要兆電信小哥要到超管密碼</p>
+
 <p>魔改有風險，重灌也有風險，請自己考慮</p>
+
 <h1 id="折騰"><a href="#折騰" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>折騰</h1>
+
 <ol>
-<li>
-<p>首先下載解密工具<a href="https://raw.githubusercontent.com/Mr-Sheep/Mr-Sheep.github.io/master/resource/ctce_cfg.exe">ctce_cfg.exe</a></p>
-</li>
-<li>
-<p>登入光貓的後臺<code>192.168.1.1</code>，使用超管賬戶名以及密碼登入</p>
+<li><p>首先下載解密工具<a href="https://raw.githubusercontent.com/Mr-Sheep/Mr-Sheep.github.io/master/resource/ctce_cfg.exe" target="_blank">ctce_cfg.exe</a></p></li>
+
+<li><p>登入光貓的後臺<code>192.168.1.1</code>，使用超管賬戶名以及密碼登入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">telecomadmin
-nE7jA%5m
-</code></pre></td></tr></table>
+<pre class="chroma">telecomadmin
+nE7jA%5m</pre></td></tr></table>
 </div>
 </div></li>
-<li>
-<p>插入U盤</p>
-</li>
-<li>
-<p>管理&ndash;&gt; 設備管理 &ndash;&gt; 備份配置</p>
-</li>
-<li>
-<p>將U盤目錄下<code>e8_Config_Backup</code>資料夾內的<code>ctce8_HN8145V.cfg</code>拷貝到ctce_cfg.exe目錄下</p>
-</li>
-<li>
-<p>執行<code>./ctce_cfg.exe 1 ctce8_HN8145V.cfg ctce8_HN8145V.xml.gz</code></p>
+
+<li><p>插入U盤</p></li>
+
+<li><p>管理&ndash;&gt; 設備管理 &ndash;&gt; 備份配置</p></li>
+
+<li><p>將U盤目錄下<code>e8_Config_Backup</code>資料夾內的<code>ctce8_HN8145V.cfg</code>拷貝到ctce_cfg.exe目錄下</p></li>
+
+<li><p>執行<code>./ctce_cfg.exe 1 ctce8_HN8145V.cfg ctce8_HN8145V.xml.gz</code></p></li>
+</ol>
+
 <p>(我的bash用的wsl，如果是cmd請自行去掉前面<code>./</code>)</p>
-</li>
-<li>
-<p>將上一步得到的<code>ctce8_HN8145V.xml.gz</code>解壓得到<code>ctce8_HN8145V.xml</code></p>
-</li>
-<li>
-<p>編輯該文件，查找關鍵詞<code>telecomadmin</code>，找到一下區塊</p>
+
+<ol>
+<li><p>將上一步得到的<code>ctce8_HN8145V.xml.gz</code>解壓得到<code>ctce8_HN8145V.xml</code></p></li>
+
+<li><p>編輯該文件，查找關鍵詞<code>telecomadmin</code>，找到一下區塊</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -264,13 +264,15 @@ nE7jA%5m
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;2&#34;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+GoG!!1.CP7s^&amp;amp;&amp;apos;H()oUk~Ol4NSi8TgTYK9fDjp5$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;1&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
-</code></pre></td></tr></table>
+<span class="nt">&lt;/X_HW_WebUserInfo&gt;</span></code></pre></td></tr></table>
 </div>
-</div><p>複製粘貼超級管理員的配置到新的一行，我在查閱資料的時候大佬們的xml文件中密碼都是明文，可能是因爲華爲系統要開源了，2019版的8145V的密碼不是明文，在我不知道其算法的情況下，直接複製粘貼了telecomadmin的密文。</p>
+</div></li>
+</ol>
+
+<p>複製粘貼超級管理員的配置到新的一行，我在查閱資料的時候大佬們的xml文件中密碼都是明文，可能是因爲華爲系統要開源了，2019版的8145V的密碼不是明文，在我不知道其算法的情況下，直接複製粘貼了telecomadmin的密文。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -278,70 +280,67 @@ nE7jA%5m
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+GoG!!1.CP7s^&amp;amp;&amp;apos;H()oUk~Ol4NSi8TgTYK9fDjp5$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;3&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;mrsheep&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-3&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+<pre class="chroma"><code class="language-xml" data-lang="xml">   <span class="nt">&lt;X_HW_WebUserInfo</span> <span class="na">NumberOfInstances=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;1&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;0&#34;</span> <span class="na">UserName=</span><span class="s">&#34;useradmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$2+GoG!!1.CP7s^&amp;amp;&amp;apos;H()oUk~Ol4NSi8TgTYK9fDjp5$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-1&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;2&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;telecomadmin&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-2&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;X_HW_WebUserInfoInstance</span> <span class="na">InstanceID=</span><span class="s">&#34;3&#34;</span> <span class="na">ModifyPasswordFlag=</span><span class="s">&#34;1&#34;</span> <span class="na">UserName=</span><span class="s">&#34;mrsheep&#34;</span> <span class="na">Password=</span><span class="s">&#34;$29wO[/pt}xRd&amp;apos;fdGtk928k6(j/$&amp;lt;vhSm1s4C_tgW6$&#34;</span> <span class="na">UserLevel=</span><span class="s">&#34;0&#34;</span> <span class="na">Enable=</span><span class="s">&#34;1&#34;</span> <span class="na">Alias=</span><span class="s">&#34;cpe-3&#34;</span> <span class="na">PassMode=</span><span class="s">&#34;0&#34;</span><span class="nt">/&gt;</span>
    
-<span class="nt">&lt;/X_HW_WebUserInfo&gt;</span>
-</code></pre></td></tr></table>
+   <span class="nt">&lt;/X_HW_WebUserInfo&gt;</span></code></pre></td></tr></table>
 </div>
-</div><p>注意：</p>
-<ul>
-<li>
-<p><code>NumberOfInstances</code>請修改爲實際變更後的用戶數量</p>
-</li>
-<li>
-<p>新增用戶請變更<code>InstanceID</code></p>
-</li>
-<li>
-<p><code>Alias</code>不想寫可以去掉</p>
-</li>
-<li>
-<p>我修改的時候同時給useradmin進行了提權</p>
-</li>
-<li>
-<p>一些修改</p>
-<ul>
-<li>
-<p><input disabled="" type="checkbox">破除連接限制</p>
-<p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
-</li>
-<li>
-<p><input disabled="" type="checkbox">開啓Telnet功能</p>
-<p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
-</li>
-<li>
-<p><input disabled="" type="checkbox">禁用自動遠程管理</p>
-<p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>將修改後的文件gzip壓縮，這裏建議刪除解密時創建的gzip文件和原cfg文件</p>
-</li>
-<li>
-<p><code>ctce_cfg.exe 0 ctce8_HS8145V.xml.gz ctce8_HS8145V.cfg</code>重新加密生成cfg文件</p>
-</li>
-<li>
-<p>將重新生成的文件替換到U盤<code>e8_Config_Backup</code>資料夾內</p>
-</li>
-<li>
-<p>管理&ndash;&gt; 設備管理 &ndash;&gt; ✅快速恢復&ndash;&gt;重啓</p>
-</li>
-<li>
-<p>嘗試登錄</p>
-</li>
-<li>
-<p>網絡&ndash;&gt;遠程管理&ndash;&gt;❎使能週期通知，切斷遠程控制</p>
+</div>
 <p>注意：</p>
-<p>這裏的Shell並沒有補全</p>
-</li>
+
+<ul class="task-list">
+<li><p><code>NumberOfInstances</code>請修改爲實際變更後的用戶數量</p></li>
+
+<li><p>新增用戶請變更<code>InstanceID</code></p></li>
+
+<li><p><code>Alias</code>不想寫可以去掉</p></li>
+
+<li><p>我修改的時候同時給useradmin進行了提權</p></li>
+
+<li><p>一些修改</p>
+
+<ul style="list-style:none" class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> 破除連接限制</label></li>
+</ul>
+
+<p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
+
+<ul style="list-style:none" class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> 開啓Telnet功能</label></li>
+</ul>
+
+<p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
+
+<ul style="list-style:none" class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> 禁用自動遠程管理</label></li>
+</ul>
+
+<p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p></li>
+</ul>
+
+<ol>
+<li><p>將修改後的文件gzip壓縮，這裏建議刪除解密時創建的gzip文件和原cfg文件</p></li>
+
+<li><p><code>ctce_cfg.exe 0 ctce8_HS8145V.xml.gz ctce8_HS8145V.cfg</code>重新加密生成cfg文件</p></li>
+
+<li><p>將重新生成的文件替換到U盤<code>e8_Config_Backup</code>資料夾內</p></li>
+
+<li><p>管理&ndash;&gt; 設備管理 &ndash;&gt; ✅快速恢復&ndash;&gt;重啓</p></li>
+
+<li><p>嘗試登錄</p></li>
+
+<li><p>網絡&ndash;&gt;遠程管理&ndash;&gt;❎使能週期通知，切斷遠程控制</p>
+
+<p>注意：</p>
+
+<p>這裏的Shell並沒有補全</p></li>
 </ol>
+
 <h1 id="參考連結"><a href="#參考連結" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>參考連結</h1>
-<p><a href="http://www.chinadsl.net/thread-125291-1-1.html">华为光猫新版配置文件加解密工具(适用V3R016C/V2R006C等配置内容头4字节为gfcq的版本)</a></p></div>
+
+<p><a href="http://www.chinadsl.net/thread-125291-1-1.html" target="_blank">华为光猫新版配置文件加解密工具(适用V3R016C/V2R006C等配置内容头4字节为gfcq的版本)</a></p></div>
 
         </article>
 
@@ -420,11 +419,11 @@ nE7jA%5m
             <div class="site-info">© 2019–2020<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>MrSheep</div>
 
             
-                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme">MemE</a></div>
+                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank">MemE</a></div>
             
 
             
-                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0">  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU"></div>
+                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0" />  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU" /></div>
             
 
             
