@@ -23,7 +23,7 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Thu, 23 Apr 2020 19:25:20 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 23 Apr 2020 19:27:58 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
@@ -38,9 +38,7 @@
                 
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
-                    <description><![CDATA[
-
-<p>本文主要是記錄一下如何dd安裝ROS CHR並配置好IPv4和IPv6</p>
+                    <description><![CDATA[<p>本文主要是記錄一下如何dd安裝ROS CHR並配置好IPv4和IPv6</p>
 
 <h1 id="安裝ros">安裝ROS</h1>
 
@@ -154,8 +152,7 @@ EOF
 
 <p><a href="https://www.vultr.com/docs/install-mikrotik-routeros-on-a-vultr-instance" target="_blank">Install MikroTik RouterOS on a Vultr VPS</a></p>
 
-<p><a href="https://blog.ni-co.moe/public/572.html" target="_blank">vyos 配置和 bgp 宣告 ipv6 (vyos: 从入门到放弃</a></p>
-]]></description>
+<p><a href="https://blog.ni-co.moe/public/572.html" target="_blank">vyos 配置和 bgp 宣告 ipv6 (vyos: 从入门到放弃</a></p>]]></description>
                 
                 
                 
