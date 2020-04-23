@@ -35,19 +35,9 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|Rock+Salt:400|Bowlby+One+SC&display=swap" rel="stylesheet" />
 
     <meta name="author" content="MrSheep" />
-    <meta name="description" content="1還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。
+    <meta name="description" content="還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。
 剛好他家裡有ROS和一臺本來用於監控的GS105E，那就搞個vlan來玩玩唄
-前言 VLan？ 根據維基詞條 虛擬區域網路的解釋：
- 虛擬區域網路（Virtual Local Area Network或簡寫VLAN, V-LAN）是一種建構於區域網路交換技術（LAN Switch）的網路管理的技術，網管人員可以藉此透過控制交換器有效分派出入區域網的封包到正確的出入埠，達到對不同實體區域網中的裝置進行邏輯分群（Grouping）管理，並降低區域網內大量資料流通時，因無用封包過多導致壅塞的問題，以及提昇區域網的資訊安全保障
- Vlan是一個虛擬的Lan，將一個實體的Lan分割成多個Vlan使用，分割出來的Vlan各自獨立且不能相互通訊。本文基於802.1q
-多工？ 一樣是維基百科：
- 多路複用（Multiplexing，又稱「多工」）是一個通訊和計算機網路領域的專業術語，在沒有歧義的情況下，「多路複用」也可被稱為「複用」。多路複用通常表示在一個通道上傳輸多路訊號或數據流的過程和技術。因為多路複用能夠將多個低速通道整合到一個高速通道進行傳輸，從而有效地利用了高速通道。通過使用多路複用，通訊運營商可以避免維護多條線路，從而有效地節約運營成本。[1]
- 其抽象模型見下圖
-Trunking? 還是維基百科：
- 中繼（Trunking）是一個藉由分享一段相同的線路或是頻率而不是單獨提供它們，來提供網路連接給眾多用戶的方法，類似於樹幹與許多樹枝的結構。此方法被廣泛的運用於電話系統、常用於警察機關的雙向無線電，以及網際網路中。
-主幹（trunk）是兩端點中的單一傳輸頻道，端點都是交換中心（switching center）或是節點（node）。
- 其他解決辦法 其實並不是沒有其他的解決方法，比如說：
- 8芯改爲4芯，僅100mbps速度 重新埋，想想就不現實 EOC？算了吧，本來就沒有  設備 需要的設備  支持802.1q vlan劃分的交換機/路由器 網線 腦子 筆電  網路拓撲 因爲懶就不製圖了" />
+" />
     <meta name="keywords" content="" />
     
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
@@ -77,10 +67,10 @@ Trunking? 還是維基百科：
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2020-04-07T22:57:20+08:00",
-        "dateModified": "2020-04-07T23:43:24+08:00",
+        "dateModified": "2020-04-10T08:45:10+08:00",
         "url": "https://blog.mrsheep.xyz/posts/multiplexing-iptv/",
         "headline": "Vlan Iptv",
-        "description": "1還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。\n剛好他家裡有ROS和一臺本來用於監控的GS105E，那就搞個vlan來玩玩唄\n前言 VLan？ 根據維基詞條 虛擬區域網路的解釋：\n 虛擬區域網路（Virtual Local Area Network或簡寫VLAN, V-LAN）是一種建構於區域網路交換技術（LAN Switch）的網路管理的技術，網管人員可以藉此透過控制交換器有效分派出入區域網的封包到正確的出入埠，達到對不同實體區域網中的裝置進行邏輯分群（Grouping）管理，並降低區域網內大量資料流通時，因無用封包過多導致壅塞的問題，以及提昇區域網的資訊安全保障\n Vlan是一個虛擬的Lan，將一個實體的Lan分割成多個Vlan使用，分割出來的Vlan各自獨立且不能相互通訊。本文基於802.1q\n多工？ 一樣是維基百科：\n 多路複用（Multiplexing，又稱「多工」）是一個通訊和計算機網路領域的專業術語，在沒有歧義的情況下，「多路複用」也可被稱為「複用」。多路複用通常表示在一個通道上傳輸多路訊號或數據流的過程和技術。因為多路複用能夠將多個低速通道整合到一個高速通道進行傳輸，從而有效地利用了高速通道。通過使用多路複用，通訊運營商可以避免維護多條線路，從而有效地節約運營成本。[1]\n 其抽象模型見下圖\nTrunking? 還是維基百科：\n 中繼（Trunking）是一個藉由分享一段相同的線路或是頻率而不是單獨提供它們，來提供網路連接給眾多用戶的方法，類似於樹幹與許多樹枝的結構。此方法被廣泛的運用於電話系統、常用於警察機關的雙向無線電，以及網際網路中。\n主幹（trunk）是兩端點中的單一傳輸頻道，端點都是交換中心（switching center）或是節點（node）。\n 其他解決辦法 其實並不是沒有其他的解決方法，比如說：\n 8芯改爲4芯，僅100mbps速度 重新埋，想想就不現實 EOC？算了吧，本來就沒有  設備 需要的設備  支持802.1q vlan劃分的交換機/路由器 網線 腦子 筆電  網路拓撲 因爲懶就不製圖了",
+        "description": "還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。\n剛好他家裡有ROS和一臺本來用於監控的GS105E，那就搞個vlan來玩玩唄\n",
         "keywords": "",
         "inLanguage" : "en-US",
         "articleSection": "posts",
@@ -128,25 +118,15 @@ Trunking? 還是維基百科：
 
 
 <meta property="og:title" content="Vlan Iptv" />
-<meta property="og:description" content="1還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。
+<meta property="og:description" content="還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。
 剛好他家裡有ROS和一臺本來用於監控的GS105E，那就搞個vlan來玩玩唄
-前言 VLan？ 根據維基詞條 虛擬區域網路的解釋：
- 虛擬區域網路（Virtual Local Area Network或簡寫VLAN, V-LAN）是一種建構於區域網路交換技術（LAN Switch）的網路管理的技術，網管人員可以藉此透過控制交換器有效分派出入區域網的封包到正確的出入埠，達到對不同實體區域網中的裝置進行邏輯分群（Grouping）管理，並降低區域網內大量資料流通時，因無用封包過多導致壅塞的問題，以及提昇區域網的資訊安全保障
- Vlan是一個虛擬的Lan，將一個實體的Lan分割成多個Vlan使用，分割出來的Vlan各自獨立且不能相互通訊。本文基於802.1q
-多工？ 一樣是維基百科：
- 多路複用（Multiplexing，又稱「多工」）是一個通訊和計算機網路領域的專業術語，在沒有歧義的情況下，「多路複用」也可被稱為「複用」。多路複用通常表示在一個通道上傳輸多路訊號或數據流的過程和技術。因為多路複用能夠將多個低速通道整合到一個高速通道進行傳輸，從而有效地利用了高速通道。通過使用多路複用，通訊運營商可以避免維護多條線路，從而有效地節約運營成本。[1]
- 其抽象模型見下圖
-Trunking? 還是維基百科：
- 中繼（Trunking）是一個藉由分享一段相同的線路或是頻率而不是單獨提供它們，來提供網路連接給眾多用戶的方法，類似於樹幹與許多樹枝的結構。此方法被廣泛的運用於電話系統、常用於警察機關的雙向無線電，以及網際網路中。
-主幹（trunk）是兩端點中的單一傳輸頻道，端點都是交換中心（switching center）或是節點（node）。
- 其他解決辦法 其實並不是沒有其他的解決方法，比如說：
- 8芯改爲4芯，僅100mbps速度 重新埋，想想就不現實 EOC？算了吧，本來就沒有  設備 需要的設備  支持802.1q vlan劃分的交換機/路由器 網線 腦子 筆電  網路拓撲 因爲懶就不製圖了" />
+" />
 <meta property="og:url" content="https://blog.mrsheep.xyz/posts/multiplexing-iptv/" />
 <meta property="og:site_name" content="MrSheep&#39;s Blog" />
 <meta property="og:locale" content="en-US" /><meta property="og:image" content="https://i.loli.net/2020/04/07/zaO2BEdXJQGsC3K.png" />
 <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-04-07T22:57:20+08:00" />
-    <meta property="article:modified_time" content="2020-04-07T23:43:24+08:00" />
+    <meta property="article:modified_time" content="2020-04-10T08:45:10+08:00" />
     
     <meta property="article:section" content="posts" />
     <meta property="article:tag" content="" />
@@ -215,7 +195,7 @@ Trunking? 還是維基百科：
     
     
         
-        <time datetime="2020-04-07T23:43:24+08:00" class="post-meta-item modified"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>2020.4.7</time>
+        <time datetime="2020-04-10T08:45:10+08:00" class="post-meta-item modified"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>2020.4.10</time>
     
     
     
@@ -236,9 +216,7 @@ Trunking? 還是維基百科：
 </div>
             
 
-            <div class="post-body">
-
-<p style="text-indent:0"><span class="drop-cap">1</span>還是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。</p>
+            <div class="post-body"><p style="text-indent:0"><span class="drop-cap">還</span>是上次的朋友，他家裏的一間房間裏僅有1個RJ45口，但是想在不損失網線性能，即不拆分爲4芯線的同時播放中國電信的iptv和進行網頁瀏覽。</p>
 
 <p>剛好他家裡有ROS和一臺本來用於監控的GS105E，那就搞個vlan來玩玩唄</p>
 
@@ -436,17 +414,16 @@ Trunking? 還是維基百科：
 
 <p><a href="https://www.arednmesh.org/content/configuring-netgear-gs105e-switch-lanwan-ports" target="_blank">Configuring a Netgear GS105E Switch with LAN/WAN ports</a></p>
 
-<p><a href="https://www.reddit.com/r/homelab/comments/7mpxcm/netgear_gs108ev3_vlan_configuration/" target="_blank">Reddit: Netgear GS108Ev3 VLAN configuration</a></p>
-</div>
+<p><a href="https://www.reddit.com/r/homelab/comments/7mpxcm/netgear_gs108ev3_vlan_configuration/" target="_blank">Reddit: Netgear GS108Ev3 VLAN configuration</a></p></div>
 
         </article>
 
         
 
         
-            <div class="updated-badge-container"><div title="Updated @ 2020-04-07 23:43:24 CST" style="cursor:help;display:inline-block">
+            <div class="updated-badge-container"><div title="Updated @ 2020-04-10 08:45:10 CST" style="cursor:help;display:inline-block">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-04-07</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-04-07</text></g></svg></div></div>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-04-10</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-04-10</text></g></svg></div></div>
         
 
         
@@ -473,6 +450,10 @@ Trunking? 還是維基百科：
             
             
                 <ul class="post-nav">
+                    
+                        <li class="post-nav-prev">
+                            <a href="/posts/nftables-forward/" rel="prev">< Nftables Forward</a>
+                        </li>
                     
                     
                         <li class="post-nav-next">
