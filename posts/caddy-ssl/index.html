@@ -26,11 +26,11 @@
     
     <meta name="renderer" content="webkit" />
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.67.1" />
 
     <title>Caddy Ssl | MrSheep&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/css/meme.min.eeead3b8d2a5877eedd1ef4c6b01701ea749112f4a86e33b572c7db286d6ed9d.css" integrity="sha256-7urTuNKlh37t0e9MawFwHqdJES9KhuM7Vyx9sobW7Z0=" data-instant-track /><style data-instant-track>.post-body h1,.post-body h2,.post-body h3,.post-body h4,.post-body h5,.post-body h6,.contents-title,.contents-title-indent {font-variant:small-caps}</style>
+    <link rel="stylesheet" href="/css/meme.min.1e0418199afb0f11723f1acf6503a25eb8facff8fceeab8d7cce32f8e9189d9a.css" integrity="sha256-HgQYGZr7DxFyPxrPZQOiXrj6z/j87quNfM4y+OkYnZo=" data-instant-track /><style data-instant-track>.post-body h1,.post-body h2,.post-body h3,.post-body h4,.post-body h5,.post-body h6,.contents-title,.contents-title-indent {font-variant:small-caps}</style>
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|Rock+Salt:400|Bowlby+One+SC&display=swap" rel="stylesheet" />
 
@@ -216,45 +216,37 @@
             
 
             <div class="post-body"><p style="text-indent:0"><span class="drop-cap">C</span>loudflare的Origin CA是CF自簽的憑證，不通過CF的話會報錯。所以就水一篇文章唄。</p>
-
 <p>本文基於Caddy V1.4</p>
-
 <h1 id="憑證申請"><a href="#憑證申請" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>憑證申請</h1>
-
 <p>Caddy支持自動申請憑證，包括泛域名（需要dns驗證）</p>
-
 <p>單個域名的申請甚至簡單到：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-visual basic" data-lang="visual basic">tls {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">tls {
 	dns cloudflare
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="通配符"><a href="#通配符" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>通配符</h3>
-
+</div><h3 id="通配符"><a href="#通配符" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>通配符</h3>
 <p>安裝Caddy的時候請添加 <code>tls.dns.你的提供商</code>插件</p>
-
-<p>caddy支持很多的dns provider,具體列表請參見官方Github倉庫：<a href="https://github.com/caddyserver/dnsproviders" target="_blank">https://github.com/caddyserver/dnsproviders</a></p>
-
+<p>caddy支持很多的dns provider,具體列表請參見官方Github倉庫：https://github.com/caddyserver/dnsproviders</p>
 <p>我使用cloudflare管理域名，即使用cf進行dns challenge。需要配置環境變量</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">export CLOUDFLARE_API_KEY=&#34;Cloudflare Global Api&#34;  
-export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export CLOUDFLARE_API_KEY=&#34;Cloudflare Global Api&#34;  
+export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其他的dns服務商請參考下表（數據來源：<a href="https://caddyserver.com/v1/docs/automatic-https）" target="_blank">https://caddyserver.com/v1/docs/automatic-https）</a></p>
-
+</div><p>其他的dns服務商請參考下表（數據來源：https://caddyserver.com/v1/docs/automatic-https）</p>
 <table>
 <thead>
 <tr>
@@ -263,146 +255,122 @@ export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
 <th>Environment Variables to Set</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Aurora DNS by PCExtreme</td>
 <td>auroradns</td>
 <td>AURORA_USER_ID AURORA_KEY AURORA_ENDPOINT (optional)</td>
 </tr>
-
 <tr>
 <td>Azure DNS</td>
 <td>azure</td>
 <td>AZURE_CLIENT_ID AZURE_CLIENT_SECRET AZURE_SUBSCRIPTION_ID AZURE_TENANT_ID</td>
 </tr>
-
 <tr>
 <td>Cloudflare</td>
 <td>cloudflare</td>
 <td>CLOUDFLARE_EMAIL CLOUDFLARE_API_KEY</td>
 </tr>
-
 <tr>
 <td>CloudXNS</td>
 <td>cloudxns</td>
 <td>CLOUDXNS_API_KEY CLOUDXNS_SECRET_KEY</td>
 </tr>
-
 <tr>
 <td>DigitalOcean</td>
 <td>digitalocean</td>
 <td>DO_AUTH_TOKEN</td>
 </tr>
-
 <tr>
 <td>DNSimple</td>
 <td>dnsimple</td>
 <td>DNSIMPLE_EMAIL DNSIMPLE_OAUTH_TOKEN</td>
 </tr>
-
 <tr>
 <td>DNS Made Easy</td>
 <td>dnsmadeeasy</td>
 <td>DNSMADEEASY_API_KEY DNSMADEEASY_API_SECRET DNSMADEEASY_SANDBOX (true/false)</td>
 </tr>
-
 <tr>
 <td>DNSPod</td>
 <td>dnspod</td>
 <td>DNSPOD_API_KEY</td>
 </tr>
-
 <tr>
 <td>DynDNS</td>
 <td>dyn</td>
 <td>DYN_CUSTOMER_NAME DYN_USER_NAME DYN_PASSWORD</td>
 </tr>
-
 <tr>
 <td>Gandi</td>
 <td>gandi / gandiv5</td>
 <td>GANDI_API_KEY / GANDIV5_API_KEY</td>
 </tr>
-
 <tr>
 <td>GoDaddy</td>
 <td>godaddy</td>
 <td>GODADDY_API_KEY GODADDY_API_SECRET</td>
 </tr>
-
 <tr>
 <td>Google Cloud DNS</td>
 <td>googlecloud</td>
 <td>GCE_PROJECT GCE_DOMAIN GOOGLE_APPLICATION_CREDENTIALS (or GCE_SERVICE_ACCOUNT_FILE)</td>
 </tr>
-
 <tr>
 <td>Lightsail by AWS</td>
 <td>lightsail</td>
 <td>AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN (optional) DNS_ZONE (optional)</td>
 </tr>
-
 <tr>
 <td>Linode</td>
 <td>linode</td>
 <td>LINODE_API_KEY</td>
 </tr>
-
 <tr>
 <td>Namecheap</td>
 <td>namecheap</td>
 <td>NAMECHEAP_API_USER NAMECHEAP_API_KEY</td>
 </tr>
-
 <tr>
 <td>NS1.</td>
 <td>ns1</td>
 <td>NS1_API_KEY</td>
 </tr>
-
 <tr>
 <td>Name.com</td>
 <td>namedotcom</td>
 <td>NAMECOM_USERNAME NAMECOM_API_TOKEN</td>
 </tr>
-
 <tr>
 <td>OVH</td>
 <td>ovh</td>
 <td>OVH_ENDPOINT OVH_APPLICATION_KEY OVH_APPLICATION_SECRET OVH_CONSUMER_KEY</td>
 </tr>
-
 <tr>
 <td>Open Telekom Cloud Managed DNS</td>
 <td>otc</td>
 <td>OTC_DOMAIN_NAME OTC_USER_NAME OTC_PASSWORD OTC_PROJECT_NAME OTC_IDENTITY_ENDPOINT (optional)</td>
 </tr>
-
 <tr>
 <td>PowerDNS</td>
 <td>pdns</td>
 <td>PDNS_API_URL PDNS_API_KEY</td>
 </tr>
-
 <tr>
 <td>Rackspace</td>
 <td>rackspace</td>
 <td>RACKSPACE_USER RACKSPACE_API_KEY</td>
 </tr>
-
 <tr>
 <td></td>
 <td>rfc2136</td>
 <td>RFC2136_NAMESERVER RFC2136_TSIG_ALGORITHM RFC2136_TSIG_KEY RFC2136_TSIG_SECRET</td>
 </tr>
-
 <tr>
 <td>Route53 by AWS</td>
 <td>route53</td>
 <td>AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY</td>
 </tr>
-
 <tr>
 <td>Vultr</td>
 <td>vultr</td>
@@ -410,17 +378,13 @@ export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
 </tr>
 </tbody>
 </table>
-
 <p>**申請出的憑證會自動保存在<code>~/.caddy/acme/acme-v02.api.letsencrypt.org/sites/wildcard_.你的域名下**</code></p>
-
 <h1 id="句法"><a href="#句法" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>句法</h1>
-
-<p>直接從<a href="https://caddyserver.com/v1/docs/tls" target="_blank">官網文檔</a>抄</p>
-
+<p>直接從<a href="https://caddyserver.com/v1/docs/tls">官網文檔</a>抄</p>
 <p>需要注意的是Caddy默認最低爲TLS 1.2， 自定義Cipher不支持TLS1.3</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -434,9 +398,9 @@ export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">tls [cert key] {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">tls [cert key] {
     ca        uri
     protocols min max
     ciphers   ciphers...
@@ -449,45 +413,56 @@ export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
     alpn      protos...
     must_staple
     wildcard
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li><p><strong>ca</strong> specifies the ACME-compatible Certificate Authority endpoint to request certificates from.</p></li>
-
-<li><p><strong>cert</strong> and <strong>key</strong> are the same as above.</p></li>
-
-<li><p><strong>protocols</strong> specifies the minimum and maximum protocol  versions to support. See below for valid values. If min and max are the  same, it need only be specified once.</p></li>
-
-<li><p><strong>ciphers</strong> is a list of space-separated ciphers that will  be supported, overriding the defaults. If you list any, only the ones  you specify will be allowed and preferred in the order given. See below  for valid values. Customizing cipher suites is not allowed with TLS 1.3.</p></li>
-
-<li><p><strong>curves</strong> is a list of space-separated curves that will be  supported in the given order, overriding the defaults. Valid curves are  listed below.</p></li>
-
-<li><p>clients</p></li>
-</ul>
-
+</div><ul>
+<li>
+<p><strong>ca</strong> specifies the ACME-compatible Certificate Authority endpoint to request certificates from.</p>
+</li>
+<li>
+<p><strong>cert</strong> and <strong>key</strong> are the same as above.</p>
+</li>
+<li>
+<p><strong>protocols</strong> specifies the minimum and maximum protocol  versions to support. See below for valid values. If min and max are the  same, it need only be specified once.</p>
+</li>
+<li>
+<p><strong>ciphers</strong> is a list of space-separated ciphers that will  be supported, overriding the defaults. If you list any, only the ones  you specify will be allowed and preferred in the order given. See below  for valid values. Customizing cipher suites is not allowed with TLS 1.3.</p>
+</li>
+<li>
+<p><strong>curves</strong> is a list of space-separated curves that will be  supported in the given order, overriding the defaults. Valid curves are  listed below.</p>
+</li>
+<li>
+<p>clients</p>
 <p>is a list of space-separated client root CAs used  for verification during TLS client authentication. If used, clients will  be asked to present their certificate by their browser, which will be  verified against this list of client certificate authorities. A client  will not be allowed to connect if their certificate was not signed by  one of these root CAs. Note that this setting applies to the entire  listener, not just a single site. You may modify the strictness of  client authentication using one of the keywords before the list of  client CAs:</p>
-
 <ul>
 <li><strong>request</strong> merely asks a client to provide a certificate, but will not fail if none is given or if an invalid one is presented.</li>
 <li><strong>require</strong> requires a client certificate, but will not verify it.</li>
 <li><strong>verify_if_given</strong> will not fail if none is presented, but reject all that do not pass verification.</li>
-
-<li><p>The default, if no flag is set but a CA file found, is to do both: to require client certificates and validate them.</p></li>
-
-<li><p><strong>load</strong> is a directory from which to load certificates and  keys. The entire directory and its subfolders will be walked in search  of .pem files. Each .pem file must contain the PEM-encoded certificate  (chain) and key blocks, concatenated together.</p></li>
-
-<li><p><strong>ask</strong> enables <a href="https://caddyserver.com/v1/docs/automatic-https#on-demand" target="_blank">On-Demand TLS</a>.  On-Demand TLS is NOT recommended if the hostname is given in the  Caddyfile and known at configuration-time. The URL will be queried via  GET and should return a 200 status code if the <code>domain</code> form  value from the query string is allowed to be given a certificate.  Redirects at this endpoint are not followed. The URL should only be  internally accessible. When using this option, Caddy does not enforce  any extra rate limiting; your endpoint is expected to make wise  decisions instead.</p></li>
-
-<li><p><strong>key_type</strong> is the type of key to use when generating keys  for certificates (only applies to managed or TLS or self-signed  certificates). Valid values are rsa2048, rsa4096, rsa8192, p256, and  p384. Default is currently p256.</p></li>
-
-<li><p><strong>dns</strong> is the name of a DNS provider; specifying it enables the <a href="https://caddyserver.com/v1/docs/automatic-https#dns-challenge" target="_blank">DNS challenge</a> (see that link for details). Note that you need to give credentials via environment variables for it to work.</p></li>
-
-<li><p><strong>alpn</strong> is a list of space-separated protocols to use for  Application-Layer Protocol Negotiation (ALPN). For HTTPS servers, HTTP  versions can be enabled/disabled with this setting. Default is <code>h2 http/1.1</code>.</p></li>
-
-<li><p><strong>must_staple</strong> enables <a href="https://blog.mozilla.org/security/2015/11/23/improving-revocation-ocsp-must-staple-and-short-lived-certificates/" target="_blank">Must-Staple</a> for managed certificates. Use with care.</p></li>
-
-<li><p><strong>wildcard</strong> will obtain and manage a wildcard certificate for this name by replacing the left-most label with <code>*</code>,  as long as managed TLS with the DNS challenge is enabled. Any sites  which are configured similarly and have the same resulting wildcard name  will then share the same, single certificate. This will not work with  On-Demand TLS because it uses the SNI value for the certificate name. <strong>Note:</strong> Do not use this feature unless you have many subdomains that would otherwise cause you to hit CA rate limits.</p></li>
+<li>The default, if no flag is set but a CA file found, is to do both: to require client certificates and validate them.</li>
+</ul>
+</li>
+<li>
+<p><strong>load</strong> is a directory from which to load certificates and  keys. The entire directory and its subfolders will be walked in search  of .pem files. Each .pem file must contain the PEM-encoded certificate  (chain) and key blocks, concatenated together.</p>
+</li>
+<li>
+<p><strong>ask</strong> enables <a href="https://caddyserver.com/v1/docs/automatic-https#on-demand">On-Demand TLS</a>.  On-Demand TLS is NOT recommended if the hostname is given in the  Caddyfile and known at configuration-time. The URL will be queried via  GET and should return a 200 status code if the <code>domain</code> form  value from the query string is allowed to be given a certificate.  Redirects at this endpoint are not followed. The URL should only be  internally accessible. When using this option, Caddy does not enforce  any extra rate limiting; your endpoint is expected to make wise  decisions instead.</p>
+</li>
+<li>
+<p><strong>key_type</strong> is the type of key to use when generating keys  for certificates (only applies to managed or TLS or self-signed  certificates). Valid values are rsa2048, rsa4096, rsa8192, p256, and  p384. Default is currently p256.</p>
+</li>
+<li>
+<p><strong>dns</strong> is the name of a DNS provider; specifying it enables the <a href="https://caddyserver.com/v1/docs/automatic-https#dns-challenge">DNS challenge</a> (see that link for details). Note that you need to give credentials via environment variables for it to work.</p>
+</li>
+<li>
+<p><strong>alpn</strong> is a list of space-separated protocols to use for  Application-Layer Protocol Negotiation (ALPN). For HTTPS servers, HTTP  versions can be enabled/disabled with this setting. Default is <code>h2 http/1.1</code>.</p>
+</li>
+<li>
+<p><strong>must_staple</strong> enables <a href="https://blog.mozilla.org/security/2015/11/23/improving-revocation-ocsp-must-staple-and-short-lived-certificates/">Must-Staple</a> for managed certificates. Use with care.</p>
+</li>
+<li>
+<p><strong>wildcard</strong> will obtain and manage a wildcard certificate for this name by replacing the left-most label with <code>*</code>,  as long as managed TLS with the DNS challenge is enabled. Any sites  which are configured similarly and have the same resulting wildcard name  will then share the same, single certificate. This will not work with  On-Demand TLS because it uses the SNI value for the certificate name. <strong>Note:</strong> Do not use this feature unless you have many subdomains that would otherwise cause you to hit CA rate limits.</p>
+</li>
 </ul></div>
 
         </article>
@@ -567,11 +542,11 @@ export CLOUDFLARE_EMAIL=&#34;Cloudflare 郵箱&#34;</pre></td></tr></table>
             <div class="site-info">© 2019–2020<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>MrSheep</div>
 
             
-                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank">MemE</a></div>
+                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme">MemE</a></div>
             
 
             
-                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0" />  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU" /></div>
+                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0">  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU"></div>
             
 
             

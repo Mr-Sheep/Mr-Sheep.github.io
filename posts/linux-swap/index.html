@@ -26,11 +26,11 @@
     
     <meta name="renderer" content="webkit" />
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.67.1" />
 
     <title>Linux Swap | MrSheep&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/css/meme.min.eeead3b8d2a5877eedd1ef4c6b01701ea749112f4a86e33b572c7db286d6ed9d.css" integrity="sha256-7urTuNKlh37t0e9MawFwHqdJES9KhuM7Vyx9sobW7Z0=" data-instant-track /><style data-instant-track>.post-body h1,.post-body h2,.post-body h3,.post-body h4,.post-body h5,.post-body h6,.contents-title,.contents-title-indent {font-variant:small-caps}</style>
+    <link rel="stylesheet" href="/css/meme.min.1e0418199afb0f11723f1acf6503a25eb8facff8fceeab8d7cce32f8e9189d9a.css" integrity="sha256-HgQYGZr7DxFyPxrPZQOiXrj6z/j87quNfM4y+OkYnZo=" data-instant-track /><style data-instant-track>.post-body h1,.post-body h2,.post-body h3,.post-body h4,.post-body h5,.post-body h6,.contents-title,.contents-title-indent {font-variant:small-caps}</style>
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:600,700|Source+Code+Pro:400,400i,700,700i|Rock+Salt:400|Bowlby+One+SC&display=swap" rel="stylesheet" />
 
@@ -73,7 +73,7 @@
         "keywords": "",
         "inLanguage" : "en-US",
         "articleSection": "posts",
-        "wordCount":  35 ,
+        "wordCount":  34 ,
         "image": "https://blog.mrsheep.xyz/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -204,7 +204,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>35</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>34</span>
     
     
         
@@ -214,43 +214,45 @@
             
 
             <div class="post-body"><p style="text-indent:0"><span class="drop-cap">有</span>些虛擬伺服器的記憶體給的很少，這個時候就需要虛擬記憶體了</p>
-
 <p>創建虛擬記憶體的步驟如下，默認在root下執行</p>
-
 <ul>
-<li><p>創建Swapfile, 啓用，並更改權限</p>
+<li>
+<p>創建Swapfile, 啓用，並更改權限</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">dd if=/dev/zero of=/swapfile bs=1M count=你想要的大小
-mkswap /swapfile
-swapon /swapfile
-chmod 600 /swapfile</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>開機啓動,編輯 `<code>/etc/fstab</code> `</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">/swapfile swap swap defaults 0 0</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>關閉虛擬記憶體</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swapoff -v /swapfile" data-lang="swapoff -v /swapfile"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swapoff -v /swapfile" data-lang="swapoff -v /swapfile">swapoff -v /swapfile</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">dd if=/dev/zero of=/swapfile bs=1M count=你想要的大小
+mkswap /swapfile
+swapon /swapfile
+chmod 600 /swapfile
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>開機啓動,編輯 ``/etc/fstab<code> </code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/swapfile swap swap defaults 0 0
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>關閉虛擬記憶體</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">swapoff -v /swapfile
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul></div>
@@ -332,11 +334,11 @@ chmod 600 /swapfile</pre></td></tr></table>
             <div class="site-info">© 2019–2020<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>MrSheep</div>
 
             
-                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank">MemE</a></div>
+                <div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme">MemE</a></div>
             
 
             
-                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0" />  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU" /></div>
+                <div class="site-copyright"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC BY-NC-SA 4.0">  <img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996 ICU"></div>
             
 
             
