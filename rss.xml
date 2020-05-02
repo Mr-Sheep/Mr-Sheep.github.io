@@ -10,7 +10,7 @@
         <title>MrSheep&#39;s Blog</title>
         <link>https://blog.mrsheep.xyz/</link>
         <description>Personal Blog from MrSheep.</description>
-        <generator>Hugo 0.67.1 https://gohugo.io/</generator>
+        <generator>Hugo 0.69.1 https://gohugo.io/</generator>
         
             <language>en-US</language>
         
@@ -23,10 +23,477 @@
         
             <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
         
-        <lastBuildDate>Thu, 23 Apr 2020 19:52:33 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 03 May 2020 02:43:45 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://blog.mrsheep.xyz/rss.xml" />
         
+        
+            <item>
+                <title>Run Ur Own Doh Server</title>
+                <link>https://blog.mrsheep.xyz/posts/run-ur-own-doh-server/</link>
+                <guid isPermaLink="true">https://blog.mrsheep.xyz/posts/run-ur-own-doh-server/</guid>
+                <pubDate>Sun, 03 May 2020 01:57:04 +0800</pubDate>
+                
+                    <author>admin@mrsheep.xyz (MrSheep)</author>
+                
+                <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
+                
+                    <description><![CDATA[<p>你的DNS Query不會被加密，直接以明文的方式傳輸，這樣ISP或者網路中的任何人都可以清楚的瞭解到你瀏覽了哪些網站。所以就來折騰一下DoH server。</p>
+<p>雖然說Cloudflare等有提供免費的DoH DNS服務，但是查詢DNS的使用自己的ip/域名總是要好玩那麼一點。</p>
+<p>同時在翻了一邊網上的資料以後，發現基本都是基於Nginx的，麻煩死了，Caddy他不好嗎？</p>
+<blockquote>
+<p>Unfortunately, by default, DNS is usually slow and insecure. Your  ISP, and anyone else listening in on the Internet, can see every site  you visit and every app you use — even if their content is encrypted.  Creepily, some DNS providers sell data about your Internet activity or  use it to target you with ads.</p>
+</blockquote>
+<p>DoH的原理可以參見：https://blog.mrsheep.xyz/posts/dot-vs-doh/#dns-over-https</p>
+<h1 id="架構">架構</h1>
+<p>圖是我畫的，不想做圖。。。</p>
+<p>GoodNote真是好東西（剛更換貼膜見諒）</p>
+<p><img src="https://i.loli.net/2020/05/03/LARIq3theD62yrm.jpg" alt="photo_2020-05-03_02-12-17.jpg"></p>
+<p>好吧你要是覺得我畫的丑，你可以看看Nginx版本的或者下面的圖（都是抄的）</p>
+<p><img src="https://www.aaflalo.me/wp-content/uploads/2018/10/DoH_architecture.svg" alt="Architecture"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+--------------+                                +------------------------+
+| Application  |                                |  Recursive DNS Server  |
++-------+------+                                +-----------+------------+
+        |                                                   |
++-------+------+                                +-----------+------------+
+| Client side  |                                |      doh-server        |
+| cache (nscd) |                                +-----------+------------+
++-------+------+                                            |
+        |         +--------------------------+  +-----------+------------+
++-------+------+  |    HTTP cache server /   |  |   HTTP service muxer   |
+|  doh-client  +--+ Content Delivery Network +--+ (Apache, Nginx, Caddy) |
++--------------+  +--------------------------+  +------------------------+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="服務端">服務端</h1>
+<h2 id="overture">Overture</h2>
+<blockquote>
+<p>Overture means an orchestral piece at the beginning of a classical music composition, just like DNS which is nearly the first step of surfing the Internet.</p>
+<p>序曲是古典音樂創作開始時的管弦樂作品，就像DNS一樣，這幾乎是上網的第一步。</p>
+</blockquote>
+<p>我用overture來向upstream轉發我的請求</p>
+<h3 id="下載overture">下載overture</h3>
+<p>前往<a href="https://github.com/shawn1m/overture/releases/latest">shawn1m/overture</a>獲取最新編譯版本,以1.6.1版本amd64爲例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/shawn1m/overture/releases/download/v1.6.1/overture-linux-amd64.zip
+mv overture-linux-amd64.zip /usr/local/bin/overture <span class="o">&amp;&amp;</span> unzip overture-linux-amd64.zip
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置">配置</h3>
+<p>Overture本身是支持分流的，這裏只貼出我自己的配置文件，具體可以參見作者github readme或者我的<a href="https://blog.mrsheep.xyz/posts/overture-cfg/">另一篇文章</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+  &#34;BindAddress&#34;: &#34;:53&#34;,
+  &#34;DebugHTTPAddress&#34;: &#34;127.0.0.1:5555&#34;,
+  &#34;PrimaryDNS&#34;: [
+    {
+      &#34;Name&#34;: &#34;DNSPod&#34;,
+      &#34;Address&#34;: &#34;119.29.29.29:53&#34;,
+      &#34;Protocol&#34;: &#34;udp&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;disable&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    },
+    {
+      &#34;Name&#34;: &#34;AliDNS&#34;,
+      &#34;Address&#34;: &#34;223.5.5.5:53&#34;,
+      &#34;Protocol&#34;: &#34;udp&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;auto&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    }
+  ],
+  &#34;AlternativeDNS&#34;: [
+    {
+      &#34;Name&#34;: &#34;CloudFlareDNS DoT&#34;,
+      &#34;Address&#34;: &#34;one.one.one.one:853&#34;,
+      &#34;Protocol&#34;: &#34;tcp-tls&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;disable&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    },
+    {
+      &#34;Name&#34;: &#34;CloudFlareDNS DoH&#34;,
+      &#34;Address&#34;: &#34;https://cloudflare-dns.com/dns-query&#34;,
+      &#34;Protocol&#34;: &#34;https&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;disable&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    },
+    {
+      &#34;Name&#34;: &#34;GoogleDNS&#34;,
+      &#34;Address&#34;: &#34;dns.google:853&#34;,
+      &#34;Protocol&#34;: &#34;tcp-tls&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;disable&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    },
+    {
+      &#34;Name&#34;: &#34;OpenDNS&#34;,
+      &#34;Address&#34;: &#34;208.67.222.222:443&#34;,
+      &#34;Protocol&#34;: &#34;tcp&#34;,
+      &#34;SOCKS5Address&#34;: &#34;&#34;,
+      &#34;Timeout&#34;: 6,
+      &#34;EDNSClientSubnet&#34;: {
+        &#34;Policy&#34;: &#34;auto&#34;,
+        &#34;ExternalIP&#34;: &#34;&#34;,
+        &#34;NoCookie&#34;: true
+      }
+    }
+  ],
+  &#34;OnlyPrimaryDNS&#34;: false,
+  &#34;IPv6UseAlternativeDNS&#34;: false,
+  &#34;AlternativeDNSConcurrent&#34;: false,
+  &#34;PoolIdleTimeout&#34;: 15,
+  &#34;PoolMaxCapacity&#34;: 15,
+  &#34;WhenPrimaryDNSAnswerNoneUse&#34;: &#34;PrimaryDNS&#34;,
+  &#34;IPNetworkFile&#34;: {
+    &#34;Primary&#34;: &#34;./china_ip_list.txt&#34;,
+    &#34;Alternative&#34;: &#34;&#34;
+  },
+  &#34;DomainFile&#34;: {
+    &#34;Primary&#34;: &#34;&#34;,
+    &#34;Alternative&#34;: &#34;./gfwlist_domain.txt&#34;,
+    &#34;Matcher&#34;:  &#34;regex-list&#34;
+  },
+  &#34;HostsFile&#34;: {
+    &#34;HostsFile&#34;: &#34;./hosts_sample&#34;,
+    &#34;Finder&#34;: &#34;full-map&#34;
+  },
+  &#34;MinimumTTL&#34;: 0,
+  &#34;DomainTTLFile&#34; : &#34;./domain_ttl_sample&#34;,
+  &#34;CacheSize&#34; : 99,
+  &#34;RejectQType&#34;: [255]
+}
+
+</code></pre></td></tr></table>
+</div>
+</div><p>完成之後可以dig一下測試</p>
+<h2 id="doh-server">DoH-Server</h2>
+<h3 id="安裝">安裝</h3>
+<p>因爲海綿寶寶找我有事情（其實就是懶），我直接用了<a href="https://www.aaflalo.me">Antoine Aflalo</a>編譯好的<a href="https://www.aaflalo.me/doh-server/doh-server_2.0.1_amd64.deb">2.0.1</a>版本.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">wget https://www.aaflalo.me/doh-server/doh-server_2.0.1_amd64.deb
+dpkg -i doh-server_2.0.1_amd64.deb
+</code></pre></td></tr></table>
+</div>
+</div><p>當然我建議你自己編譯一下，你需要一個Go環境。<a href="https://golang.org/doc/install">Golang官方寫的Instruction</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/m13253/dns-over-https
+cd dns-over-https
+make
+make install
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-1">配置</h3>
+<p>配置文件位於<code>/etc/dns-over-https/doh-server.conf</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># HTTP listen port
+# 監聽的端口，上面v4下面v6
+listen = [
+    &#34;127.0.0.1:8053&#34;,
+    &#34;[::1]:8053&#34;,
+]
+# 這個部分可以忽略，等下用Caddy解決
+# TLS certification file
+# If left empty, plain-text HTTP will be used.
+# You are recommended to leave empty and to use a server load balancer (e.g.
+# Caddy, Nginx) and set up TLS there, because this program does not do OCSP
+# Stapling, which is necessary for client bootstrapping in a network
+# environment with completely no traditional DNS service.
+cert = &#34;&#34;
+
+# TLS private key file
+key = &#34;&#34;
+
+# HTTP path for resolve application
+path = &#34;/dns-query&#34;
+
+# 上游dns伺服器，我用overture
+# Upstream DNS resolver
+# If multiple servers are specified, a random one will be chosen each time.
+upstream = [
+    &#34;127.0.0.1:53&#34;,
+]
+
+# Upstream timeout
+timeout = 60
+
+# Number of tries if upstream DNS fails
+tries = 10
+
+# Only use TCP for DNS query
+tcp_only = false
+
+# Enable logging
+verbose = false
+
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">systemctl restart doh-server
+systemctl status doh-server
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="caddy">Caddy</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">域名:443 {
+   gzip
+   tls 證書 金鑰
+   proxy /dns-query localhost:8053 {
+	transparent
+   }
+
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="測試可用性">測試可用性</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">root@lax:~# curl &#34;https://域名/dns-query?ct=application/dns-json&amp;name=baidu.com&amp;type=A&#34;
+
+{&#34;Status&#34;:0,&#34;TC&#34;:false,&#34;RD&#34;:true,&#34;RA&#34;:true,&#34;AD&#34;:false,&#34;CD&#34;:false,&#34;Question&#34;:[{&#34;name&#34;:&#34;baidu.com.&#34;,&#34;type&#34;:1}],&#34;Answer&#34;:[{&#34;name&#34;:&#34;baidu.com.&#34;,&#34;type&#34;:1,&#34;TTL&#34;:527,&#34;Expires&#34;:&#34;Sat, 02 May 2020 18:50:25 UTC&#34;,&#34;data&#34;:&#34;220.181.38.148&#34;},{&#34;name&#34;:&#34;baidu.com.&#34;,&#34;type&#34;:1,&#34;TTL&#34;:527,&#34;Expires&#34;:&#34;Sat, 02 May 2020 18:50:25 UTC&#34;,&#34;data&#34;:&#34;39.156.69.79&#34;}]}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="參考">參考</h1>
+<p><a href="https://github.com/m13253/dns-over-https">Github m13253/dns-over-https</a></p>
+<p><a href="https://www.aaflalo.me/2018/10/tutorial-setup-dns-over-https-server/">Tutorial to setup your own DNS-over-HTTPS (DoH) server</a></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Ros Chr</title>
@@ -177,7 +644,7 @@ EOF
 </blockquote>
 <p>Google Transalate結果如下：</p>
 <blockquote>
-<p>** nftables **取代了流行的** {ip，ip6，arp，eb}桌子**。 該軟件提供了一個新的內核數據包分類框架，該框架基於特定於網絡的虛擬機（VM）和新的** nft **用戶空間命令行工具。 ** nftables **重用了現有的Netfilter子系統，例如現有的hook基礎結構，連接跟踪系統，NAT，用戶空間排隊和日誌記錄子系統。</p>
+<p>** nftables <strong>取代了流行的</strong> {ip，ip6，arp，eb}桌子**。 該軟件提供了一個新的內核數據包分類框架，該框架基於特定於網絡的虛擬機（VM）和新的** nft **用戶空間命令行工具。 ** nftables **重用了現有的Netfilter子系統，例如現有的hook基礎結構，連接跟踪系統，NAT，用戶空間排隊和日誌記錄子系統。</p>
 <p>該軟件還提供** libnftables **，這是高級用戶空間庫，其中包括對JSON的支持，有關更多信息，請參見man（3）libnftables。</p>
 </blockquote>
 <h2 id="配置">配置</h2>
@@ -1678,15 +2145,15 @@ nE7jA%5m
 <p>一些修改</p>
 <ul>
 <li>
-<p><input disabled="" type="checkbox">破除連接限制</p>
+<p><input disabled="" type="checkbox"> 破除連接限制</p>
 <p>搜索<code>TotalTerminalNumbe</code>,將其值變更爲<code>0</code></p>
 </li>
 <li>
-<p><input disabled="" type="checkbox">開啓Telnet功能</p>
+<p><input disabled="" type="checkbox"> 開啓Telnet功能</p>
 <p>搜索<code>TELNETLanEnable</code>，將其值變更爲<code>1</code></p>
 </li>
 <li>
-<p><input disabled="" type="checkbox">禁用自動遠程管理</p>
+<p><input disabled="" type="checkbox"> 禁用自動遠程管理</p>
 <p><code>EnableCWMP</code>，將其值變更爲<code>0</code></p>
 </li>
 </ul>
@@ -2563,6 +3030,7 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>11-30-2019 更新：Surge as Gateway</p>
+<p>05-03-2020 更新：移除overture部分</p>
 <p>Surge是一個功能十分強大的網絡工具箱，可以作為高性能的HTTP和SOCKS代理服務器。可以完成抓包，分析等工作，
 支持規則代理，支持多種代理（支持V2Ray）。並包括基於TLS的HTTP(s), Socks5等</p>
 <h1 id="為甚麼使用surge">為甚麼使用Surge</h1>
@@ -2589,12 +3057,9 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
 <li>https://8.8.8.8/dns-query</li>
 <li><a href="https://dns.quad9.net/dns-query">https://dns.quad9.net/dns-query</a></li>
 <li>https://9.9.9.9/dns-query</li>
-<li><a href="https://dns.rubyfish.cn/dns-query">https://dns.rubyfish.cn/dns-query</a></li>
+<li><a href="https://dns.rubyfish.cn/dns-query">https://dns.rubyfish.cn/dns-query</a>
+關於DoT和DoH誰更好已經爭論了很久了</li>
 </ol>
-<p>Surge Enhanced mode採用Fakeip模式，雖然算是解決了污染的問題，但是如果Surge目前並沒有實現DNS“分流”這項功能，個人覺得可以配合外置DNS來解決問題
-<strong>Overture</strong> 可以很好的解決這個問題，Overture僅支持DoT（DNS over TLS）,關於DoH和DoT，可以參考<a href="https://www.reddit.com/r/privacy/comments/89pr15/dnsoverhttps_vs_dns_overtls_vs_dnscrypt/">Reddit上的帖子</a>
-關於DoT和DoH誰更好已經爭論了很久了
-關於Overture如何配置，請參見另一篇文章</p>
 <h2 id="v2ray">V2Ray</h2>
 <p>Surge從3.3.1版本（應該是）開始支持原生V2Ray，不再需要External-Proxy或者是前置代理實現
 格式如下</p>
@@ -2657,6 +3122,7 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
                 <copyright>![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)  ![996 ICU](https://img.shields.io/badge/link-996.icu-red.svg)</copyright>
                 
                     <description><![CDATA[<p>Overture是一個由GO編寫的DNS，跨平台兼容，能夠很好的實現我分流的需求，相比与CoreDNS无论如何我都編譯不成功的proxy插件，實在是便捷了很多</p>
+<p>5-3-2020更新：Overture早就支持了DoH了，特地來更新一下</p>
 <h2 id="features">Features</h2>
 <p>摘自<a href="https://github.com/shawn1m/overture">github.com/shawn1m/overture</a></p>
 <ul>
@@ -2692,8 +3158,6 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
 </div>
 </div><p>之後就可以魔改配置文件了</p>
 <p><code> vim config.json</code></p>
-<p>我的配置文件如下,國內走DNSPod，114，AliDNS；國外走CF，Google，OpenDNS</p>
-<p>支持EDNS的我開了auto，國外的走DoT</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">  1
@@ -2800,43 +3264,16 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
 </span><span class="lnt">102
 </span><span class="lnt">103
 </span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json">  <span class="s2">&#34;BindAddress&#34;</span><span class="err">:</span> <span class="s2">&#34;:53&#34;</span><span class="err">,</span> <span class="err">//監聽地址</span>
-  <span class="s2">&#34;DebugHTTPAddress&#34;</span><span class="err">:</span> <span class="s2">&#34;127.0.0.1:5555&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;PrimaryDNS&#34;</span><span class="err">:</span> <span class="p">[</span>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;BindAddress&#34;</span><span class="p">:</span> <span class="s2">&#34;:53&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;DebugHTTPAddress&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1:5555&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;PrimaryDNS&#34;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;DNSPod&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;119.29.29.29:53&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;udp&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;auto&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;114&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;114.114.114.114&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;udp&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;disable&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;RubyFish&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;dns.rubyfish.cn:853&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;tcp-tls&#34;</span><span class="p">,</span>
       <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
       <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -2857,12 +3294,24 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
         <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="s2">&#34;AlternativeDNS&#34;</span><span class="err">:</span> <span class="p">[</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;AlternativeDNS&#34;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS DoT&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;one.one.one.one:853&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;tcp-tls&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;disable&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS DoH&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;https://cloudflare-dns.com/dns-query&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;https&#34;</span><span class="p">,</span>
       <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
       <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -2895,25 +3344,32 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
         <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="s2">&#34;OnlyPrimaryDNS&#34;</span><span class="err">:</span> <span class="kc">false</span><span class="err">,</span>
-  <span class="s2">&#34;IPv6UseAlternativeDNS&#34;</span><span class="err">:</span> <span class="kc">false</span><span class="err">,</span>
-  <span class="s2">&#34;WhenPrimaryDNSAnswerNoneUse&#34;</span><span class="err">:</span> <span class="s2">&#34;PrimaryDNS&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;IPNetworkFile&#34;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;OnlyPrimaryDNS&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;IPv6UseAlternativeDNS&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;AlternativeDNSConcurrent&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;PoolIdleTimeout&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="nt">&#34;PoolMaxCapacity&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="nt">&#34;WhenPrimaryDNSAnswerNoneUse&#34;</span><span class="p">:</span> <span class="s2">&#34;PrimaryDNS&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;IPNetworkFile&#34;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&#34;Primary&#34;</span><span class="p">:</span> <span class="s2">&#34;./china_ip_list.txt&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Alternative&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-  <span class="p">}</span><span class="err">,</span>
-  <span class="s2">&#34;DomainFile&#34;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;DomainFile&#34;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&#34;Primary&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Alternative&#34;</span><span class="p">:</span> <span class="s2">&#34;./gfwlist_domain.txt&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Matcher&#34;</span><span class="p">:</span>  <span class="s2">&#34;regex-list&#34;</span>
-  <span class="p">}</span><span class="err">,</span>
-  <span class="s2">&#34;HostsFile&#34;</span><span class="err">:</span> <span class="s2">&#34;./hosts_sample&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;MinimumTTL&#34;</span><span class="err">:</span> <span class="mi">0</span><span class="err">,</span>
-  <span class="s2">&#34;DomainTTLFile&#34;</span> <span class="err">:</span> <span class="s2">&#34;./domain_ttl_sample&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;CacheSize&#34;</span> <span class="err">:</span> <span class="mi">99</span><span class="err">,</span> <span class="err">//緩存條數</span>
-  <span class="s2">&#34;RejectQType&#34;</span><span class="err">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">]</span>
-<span class="err">}</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;HostsFile&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;HostsFile&#34;</span><span class="p">:</span> <span class="s2">&#34;./hosts_sample&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;Finder&#34;</span><span class="p">:</span> <span class="s2">&#34;full-map&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;MinimumTTL&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&#34;DomainTTLFile&#34;</span> <span class="p">:</span> <span class="s2">&#34;./domain_ttl_sample&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;CacheSize&#34;</span> <span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+  <span class="nt">&#34;RejectQType&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">]</span>
+<span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div><p>個人比較推薦<a href="https://github.com/Unitech/pm2">PM2</a>作爲進程管理</p>
@@ -2927,6 +3383,37 @@ Unable to rebase <span class="s1">&#39;2f57a2c629c7c1bd5f7fd6cf3640db0d449b52d9&
 <pre class="chroma"><code class="language-bash" data-lang="bash">npm install pm2 -g
 <span class="c1">#如果你沒nodejs可以使用 wget -qO- https://getpm2.com/install.sh | bash</span>
 pm2 start overture-linux -- -c ./config.json
+</code></pre></td></tr></table>
+</div>
+</div><p>你也可以創建service,以樹莓派爲例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Unit]
+Description=overture
+
+[Service]
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/overture/overture -c /home/pi/overture/config.json
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="測試">測試</h2>

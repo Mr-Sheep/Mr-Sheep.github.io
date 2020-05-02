@@ -26,7 +26,7 @@
     
     <meta name="renderer" content="webkit" />
 
-    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="generator" content="Hugo 0.69.1" />
 
     <title>Overture 配置 | MrSheep&#39;s Blog</title>
 
@@ -73,7 +73,7 @@
         "keywords": "",
         "inLanguage" : "en-US",
         "articleSection": "posts",
-        "wordCount":  513 ,
+        "wordCount":  523 ,
         "image": "https://blog.mrsheep.xyz/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -204,7 +204,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>513</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>523</span>
     
     
         
@@ -214,6 +214,7 @@
             
 
             <div class="post-body"><p style="text-indent:0"><span class="drop-cap">O</span>verture是一個由GO編寫的DNS，跨平台兼容，能夠很好的實現我分流的需求，相比与CoreDNS无论如何我都編譯不成功的proxy插件，實在是便捷了很多</p>
+<p>5-3-2020更新：Overture早就支持了DoH了，特地來更新一下</p>
 <h2 id="features"><a href="#features" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Features</h2>
 <p>摘自<a href="https://github.com/shawn1m/overture">github.com/shawn1m/overture</a></p>
 <ul>
@@ -249,8 +250,6 @@
 </div>
 </div><p>之後就可以魔改配置文件了</p>
 <p><code> vim config.json</code></p>
-<p>我的配置文件如下,國內走DNSPod，114，AliDNS；國外走CF，Google，OpenDNS</p>
-<p>支持EDNS的我開了auto，國外的走DoT</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">  1
@@ -357,43 +356,16 @@
 </span><span class="lnt">102
 </span><span class="lnt">103
 </span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json">  <span class="s2">&#34;BindAddress&#34;</span><span class="err">:</span> <span class="s2">&#34;:53&#34;</span><span class="err">,</span> <span class="err">//監聽地址</span>
-  <span class="s2">&#34;DebugHTTPAddress&#34;</span><span class="err">:</span> <span class="s2">&#34;127.0.0.1:5555&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;PrimaryDNS&#34;</span><span class="err">:</span> <span class="p">[</span>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;BindAddress&#34;</span><span class="p">:</span> <span class="s2">&#34;:53&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;DebugHTTPAddress&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1:5555&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;PrimaryDNS&#34;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;DNSPod&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;119.29.29.29:53&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;udp&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;auto&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;114&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;114.114.114.114&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;udp&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;disable&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;RubyFish&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;dns.rubyfish.cn:853&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;tcp-tls&#34;</span><span class="p">,</span>
       <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
       <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -414,12 +386,24 @@
         <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="s2">&#34;AlternativeDNS&#34;</span><span class="err">:</span> <span class="p">[</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;AlternativeDNS&#34;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS DoT&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;one.one.one.one:853&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;tcp-tls&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;Policy&#34;</span><span class="p">:</span> <span class="s2">&#34;disable&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;ExternalIP&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;CloudFlareDNS DoH&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Address&#34;</span><span class="p">:</span> <span class="s2">&#34;https://cloudflare-dns.com/dns-query&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;Protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;https&#34;</span><span class="p">,</span>
       <span class="nt">&#34;SOCKS5Address&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
       <span class="nt">&#34;Timeout&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
       <span class="nt">&#34;EDNSClientSubnet&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -452,25 +436,32 @@
         <span class="nt">&#34;NoCookie&#34;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="s2">&#34;OnlyPrimaryDNS&#34;</span><span class="err">:</span> <span class="kc">false</span><span class="err">,</span>
-  <span class="s2">&#34;IPv6UseAlternativeDNS&#34;</span><span class="err">:</span> <span class="kc">false</span><span class="err">,</span>
-  <span class="s2">&#34;WhenPrimaryDNSAnswerNoneUse&#34;</span><span class="err">:</span> <span class="s2">&#34;PrimaryDNS&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;IPNetworkFile&#34;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;OnlyPrimaryDNS&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;IPv6UseAlternativeDNS&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;AlternativeDNSConcurrent&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;PoolIdleTimeout&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="nt">&#34;PoolMaxCapacity&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="nt">&#34;WhenPrimaryDNSAnswerNoneUse&#34;</span><span class="p">:</span> <span class="s2">&#34;PrimaryDNS&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;IPNetworkFile&#34;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&#34;Primary&#34;</span><span class="p">:</span> <span class="s2">&#34;./china_ip_list.txt&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Alternative&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-  <span class="p">}</span><span class="err">,</span>
-  <span class="s2">&#34;DomainFile&#34;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;DomainFile&#34;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&#34;Primary&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Alternative&#34;</span><span class="p">:</span> <span class="s2">&#34;./gfwlist_domain.txt&#34;</span><span class="p">,</span>
     <span class="nt">&#34;Matcher&#34;</span><span class="p">:</span>  <span class="s2">&#34;regex-list&#34;</span>
-  <span class="p">}</span><span class="err">,</span>
-  <span class="s2">&#34;HostsFile&#34;</span><span class="err">:</span> <span class="s2">&#34;./hosts_sample&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;MinimumTTL&#34;</span><span class="err">:</span> <span class="mi">0</span><span class="err">,</span>
-  <span class="s2">&#34;DomainTTLFile&#34;</span> <span class="err">:</span> <span class="s2">&#34;./domain_ttl_sample&#34;</span><span class="err">,</span>
-  <span class="s2">&#34;CacheSize&#34;</span> <span class="err">:</span> <span class="mi">99</span><span class="err">,</span> <span class="err">//緩存條數</span>
-  <span class="s2">&#34;RejectQType&#34;</span><span class="err">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">]</span>
-<span class="err">}</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;HostsFile&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;HostsFile&#34;</span><span class="p">:</span> <span class="s2">&#34;./hosts_sample&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;Finder&#34;</span><span class="p">:</span> <span class="s2">&#34;full-map&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;MinimumTTL&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&#34;DomainTTLFile&#34;</span> <span class="p">:</span> <span class="s2">&#34;./domain_ttl_sample&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;CacheSize&#34;</span> <span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+  <span class="nt">&#34;RejectQType&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">]</span>
+<span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div><p>個人比較推薦<a href="https://github.com/Unitech/pm2">PM2</a>作爲進程管理</p>
@@ -484,6 +475,37 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">npm install pm2 -g
 <span class="c1">#如果你沒nodejs可以使用 wget -qO- https://getpm2.com/install.sh | bash</span>
 pm2 start overture-linux -- -c ./config.json
+</code></pre></td></tr></table>
+</div>
+</div><p>你也可以創建service,以樹莓派爲例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Unit]
+Description=overture
+
+[Service]
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/overture/overture -c /home/pi/overture/config.json
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="測試"><a href="#測試" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>測試</h2>
